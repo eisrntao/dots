@@ -32,8 +32,10 @@ stow
 sudo-rs
 tealdeer
 thunar
+ttf-intone-nerd
 udiskie
 ufw
+unzip
 vi
 waybar
 wiremix-git
