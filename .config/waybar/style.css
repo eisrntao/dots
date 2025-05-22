@@ -1,1 +1,53 @@
 @import url("../../.cache/wal/colors-waybar.css");
+
+* {
+    font-family: IntoneMono Nerd Font, monospace;
+    color: @foreground;
+}
+
+*:hover {
+    color: alpha(@foreground, 0.7);
+}
+
+window#waybar {
+    background-color: alpha(@background, 0.7);
+    border-radius: 10px;
+}
+
+.modules-left widget:first-child * {
+    padding-left: 15px;
+}
+
+.modules-right widget:last-child * {
+    padding-right: 15px;
+}
+
+label.module {
+    padding: 0px 3px;
+}
+
+#workspaces * {
+    font-size: 10px;
+    padding: 3px 1px;
+}
+
+#mpris {
+    font-style: italic;
+    font-size: 10px;
+}
+
+@keyframes blink {
+    to {
+        color: @color1;
+    }
+}
+
+#battery.warning:not(.charging) {
+    background: @foreground;
+    color: white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
