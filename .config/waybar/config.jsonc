@@ -22,7 +22,7 @@
     "modules-right": [
         "tray",
         "network",
-		"group/status",
+	"group/status",
         "pulseaudio",
         "backlight",
         "battery",
@@ -68,10 +68,12 @@
     },
     "cpu": {
         "format": " {usage}%",
-        "tooltip": false
+        "tooltip": false,
+	"on-click": "alacritty -e htop",
     },
     "memory": {
-        "format": " {}%"
+        "format": " {}%",
+	"on-click": "alacritty -e htop",
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -79,7 +81,8 @@
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", "", ""]
+        "format-icons": ["", "", ""],
+	"on-click": "alacritty -e htop",
     },
     "group/status": {
 		"modules" : [
