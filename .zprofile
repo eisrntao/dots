@@ -4,3 +4,6 @@ export TERM="alacritty"
 export TERMINAL="alacritty"
 export MUSPLAYER="youtube-music"
 export BROWSER="qutebrowser"
+
+export SCRIPT_DIR=$HOME/scripts
+export WALLPAPER_DIR=$HOME/wallpapers

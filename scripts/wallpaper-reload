@@ -1,0 +1,5 @@
+#!/bin/bash
+makoctl reload
+hyprctl hyprpaper reload
+sleep 1
+notify-send "Reloaded theme"

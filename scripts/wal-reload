@@ -1,4 +1,0 @@
-#!/bin/bash
-makoctl reload
-sleep 1
-notify-send "Reloaded theme"
