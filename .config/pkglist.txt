@@ -15,6 +15,7 @@ lazygit
 libva-nvidia-driver
 linux-zen
 ly
+mako
 mpv
 neovim
 network-manager-applet

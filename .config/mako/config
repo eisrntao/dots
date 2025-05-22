@@ -1,0 +1,9 @@
+include=~/.cache/wal/colors-mako
+
+font=IntoneMono Nerd Font
+border-radius=10
+
+actions=1
+icons=1
+
+default-timeout=5000
