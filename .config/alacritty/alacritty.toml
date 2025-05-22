@@ -1,0 +1,9 @@
+[general]
+import=["~/.cache/wal/colors-alacritty.toml"]
+
+[window]
+padding = {x=5, y=5}
+
+[font]
+normal = {family="Intel One Mono Nerd Font", style="Regular"}
+size=15
