@@ -1,6 +1,9 @@
 [general]
 import=["~/.cache/wal/colors-alacritty.toml"]
 
+[terminal]
+shell="/usr/bin/zsh"
+
 [window]
 padding = {x=5, y=5}
 
