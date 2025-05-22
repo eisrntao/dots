@@ -1,0 +1,4 @@
+background-color = {background}88
+border-color = {color1}
+selection-color = {color2}
+text-color = {foreground}

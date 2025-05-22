@@ -32,6 +32,7 @@ stow
 sudo-rs
 tealdeer
 thunar
+tofi
 ttf-intone-nerd
 udiskie
 ufw
@@ -40,7 +41,6 @@ vi
 waybar
 wiremix-git
 wlsunset
-wofi
 youtube-music-bin
 zram-generator
 zsh-autosuggestions

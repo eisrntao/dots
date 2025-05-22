@@ -1,0 +1,12 @@
+include = /home/eisrntao/.cache/wal/colors-tofi
+
+terminal=alacritty
+prompt-text= :
+num-results=10
+
+font = "/usr/share/fonts/TTF/IntoneMonoNerdFontMono-Regular.ttf"
+font-size = 20
+
+padding-left=30%
+padding-top=20%
+border-width = 0
