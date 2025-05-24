@@ -1,13 +1,19 @@
+ALPHA = 0.7
+ALPHA2 = 0.8
+
 import json
 import os
 
-qutewal_dynamic_loading = False
+def add_alpha(color: str, alpha: float) -> str:
+    """Add alpha to a hex string, #rrggbb -> #aarrggbb"""
+    raw = color[1:]
+    alpha_255 = int(255 * alpha)
+    return f"#{alpha_255:02x}{raw}"
+    
 
 home = os.getenv('HOME')
 colors_relative = '.cache/wal/colors.json'
-daemon_relative = '.config/qutebrowser/qutewald.py'
 colors_absolute = os.path.join(home, colors_relative)
-daemon_absolute = os.path.join(home, daemon_relative)
 
 if os.path.isfile(colors_absolute):
     with open(colors_absolute) as colorfile:
@@ -21,9 +27,12 @@ if os.path.isfile(colors_absolute):
         red = colors['colors']['color1']
         green = colors['colors']['color2']
         yellow = colors['colors']['color3']
-        blue = colors['colors']['color4']
+        primary = colors['colors']['color4']
         magenta = colors['colors']['color5']
         cyan = colors['colors']['color6']
+
+    background_transparent = add_alpha(background, ALPHA)
+    primary_transparent = add_alpha(primary, ALPHA2)
 
     # Background color of the completion widget category headers.
     # Type: QssColor
@@ -117,7 +126,7 @@ if os.path.isfile(colors_absolute):
 
     # Font color for the matched part of hints.
     # Type: QssColor
-    c.colors.hints.match.fg = blue
+    c.colors.hints.match.fg = primary
 
     # Background color of the keyhint widget.
     # Type: QssColor
@@ -145,11 +154,11 @@ if os.path.isfile(colors_absolute):
 
     # Background color of an info message.
     # Type: QssColor
-    c.colors.messages.info.bg = blue
+    c.colors.messages.info.bg = primary
 
     # Border color of an info message.
     # Type: QssColor
-    c.colors.messages.info.border = blue
+    c.colors.messages.info.border = primary
 
     # Foreground color an info message.
     # Type: QssColor
@@ -233,7 +242,7 @@ if os.path.isfile(colors_absolute):
 
     # Background color of the statusbar in passthrough mode.
     # Type: QssColor
-    c.colors.statusbar.passthrough.bg = blue
+    c.colors.statusbar.passthrough.bg = primary
 
     # Foreground color of the statusbar in passthrough mode.
     # Type: QssColor
@@ -261,7 +270,7 @@ if os.path.isfile(colors_absolute):
 
     # Foreground color of the URL in the statusbar for hovered links.
     # Type: QssColor
-    c.colors.statusbar.url.hover.fg = blue
+    c.colors.statusbar.url.hover.fg = primary
 
     # Foreground color of the URL in the statusbar on successful load
     # (http).
@@ -279,11 +288,11 @@ if os.path.isfile(colors_absolute):
 
     # Background color of the tab bar.
     # Type: QtColor
-    c.colors.tabs.bar.bg = background
+    c.colors.tabs.bar.bg = background_transparent
 
     # Background color of unselected even tabs.
     # Type: QtColor
-    c.colors.tabs.even.bg = background
+    c.colors.tabs.even.bg = background_transparent
 
     # Foreground color of unselected even tabs.
     # Type: QtColor
@@ -312,7 +321,7 @@ if os.path.isfile(colors_absolute):
 
     # Background color of unselected odd tabs.
     # Type: QtColor
-    c.colors.tabs.odd.bg = background
+    c.colors.tabs.odd.bg = background_transparent
 
     # Foreground color of unselected odd tabs.
     # Type: QtColor
@@ -320,7 +329,7 @@ if os.path.isfile(colors_absolute):
 
     # Background color of selected even tabs.
     # Type: QtColor
-    c.colors.tabs.selected.even.bg = blue
+    c.colors.tabs.selected.even.bg = primary_transparent
 
     # Foreground color of selected even tabs.
     # Type: QtColor
@@ -328,7 +337,7 @@ if os.path.isfile(colors_absolute):
 
     # Background color of selected odd tabs.
     # Type: QtColor
-    c.colors.tabs.selected.odd.bg = blue
+    c.colors.tabs.selected.odd.bg = primary_transparent
 
     # Foreground color of selected odd tabs.
     # Type: QtColor
@@ -338,13 +347,3 @@ if os.path.isfile(colors_absolute):
     # color)
     # Type: QtColor
     c.colors.webpage.bg = foreground
-
-    if qutewal_dynamic_loading or bool(os.getenv('QUTEWAL_DYNAMIC_LOADING')):
-        import signal
-        import subprocess
-        import prctl
-
-        # start iqutefy to refresh colors on the fly
-        qutewald = subprocess.Popen(
-            [daemon_absolute, colors_absolute],
-            preexec_fn=lambda: prctl.set_pdeathsig(signal.SIGTERM))
