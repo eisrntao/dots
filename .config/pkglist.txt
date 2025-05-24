@@ -16,13 +16,13 @@ lazygit
 libva-nvidia-driver
 linux-zen
 ly
+macchina
 mako
 mpv
 neovim
 network-manager-applet
 nvidia-dkms
 nvidia-prime
-nwg-look
 pacseek
 paru
 paru-debug
@@ -30,11 +30,11 @@ python-pywal16
 qutebrowser
 reflector
 sof-firmware
+starship
 stow
 sudo-rs
 tealdeer
 tofi
-ttf-intone-nerd
 udiskie
 ueberzugpp
 ufw
@@ -50,3 +50,4 @@ zellij
 zram-generator
 zsh-completions
 zsh-fast-syntax-highlighting
+zsh-vi-mode
