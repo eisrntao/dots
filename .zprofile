@@ -7,3 +7,5 @@ export BROWSER="qutebrowser"
 
 export SCRIPT_DIR=$HOME/scripts
 export WALLPAPER_DIR=$HOME/wallpapers
+
+export BARTIB_FILE=~/.cache/bartib.txt

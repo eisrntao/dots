@@ -1,10 +1,12 @@
 alacritty
 aria2
+bartib
 base
 bat-asus-battery-bin
 brightnessctl
 chaotic-keyring
 chaotic-mirrorlist
+dust
 efibootmgr
 eza
 htop
@@ -14,6 +16,7 @@ hyprpaper
 hyprpolkitagent
 intel-ucode
 juno-theme-git
+just
 lazygit
 libva-nvidia-driver
 linux-zen
