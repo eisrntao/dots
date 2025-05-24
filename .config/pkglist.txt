@@ -9,6 +9,7 @@ efibootmgr
 eza
 htop
 hyprland
+hyprlock
 hyprpaper
 hyprpolkitagent
 intel-ucode
