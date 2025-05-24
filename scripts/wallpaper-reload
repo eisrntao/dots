@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 makoctl reload
 hyprctl hyprpaper reload
+pkill -SIGHUP qutebrowser
 sleep 1
 notify-send "Reloaded theme"
