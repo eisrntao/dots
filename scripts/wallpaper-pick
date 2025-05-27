@@ -4,11 +4,16 @@ tmp="$(mktemp -t wal-pick.XXXXXXX)"
 
 $TERM --class "floatterm" -e yazi $WALLPAPER_DIR --chooser-file "$tmp"
 
+# set light theme
+if [[ "$*" == *--light* ]]; then
+  LIGHT=1
+fi
+
 selected=$(cat $tmp)
 
 if [ ! -z $selected ]; then
 notify-send "Selected $selected."
-wal -i $selected -o $SCRIPT_DIR/wallpaper-reload
+wal -i $selected -o $SCRIPT_DIR/wallpaper-reload ${LIGHT:+-l}
 else
 notify-send "No wallpaper has been selected."
 fi
