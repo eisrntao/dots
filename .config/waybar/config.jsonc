@@ -36,6 +36,7 @@
             "org.qutebrowser.qutebrowser": "Qutebrowser",
             "com.github.th_ch.youtube_music": "YouTube Music",
             "org.pwmt.zathura": "Zathura",
+            "floatterm": "Floating Utility"
         },
     },
     "hyprland/workspaces": {
