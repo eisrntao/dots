@@ -43,6 +43,7 @@ stow
 sudo-rs
 syncthing
 tealdeer
+tela-circle-icon-theme-black
 tofi
 udiskie
 ueberzugpp
