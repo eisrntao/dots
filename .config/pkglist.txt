@@ -6,6 +6,7 @@ bat-asus-battery-bin
 bluetui
 bluez-utils
 brightnessctl
+calibre
 chaotic-keyring
 chaotic-mirrorlist
 dust
