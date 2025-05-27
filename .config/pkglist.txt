@@ -3,6 +3,8 @@ aria2
 bartib
 base
 bat-asus-battery-bin
+bluetui
+bluez-utils
 brightnessctl
 chaotic-keyring
 chaotic-mirrorlist
