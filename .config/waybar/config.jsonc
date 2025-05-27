@@ -22,7 +22,8 @@
     "modules-right": [
         "tray",
         "network",
-	"group/status",
+        "bluetooth",
+        "group/status",
         "pulseaudio",
         "backlight",
         "battery",
@@ -125,12 +126,18 @@
         "format-disconnected": "⚠ ",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
+    "bluetooth": {
+      "format-off": "",
+      "format-on": "󰂯",
+      "format-connected": "󰂯 {device_alias}",
+      "on-click": "alacritty --class floatterm -e bluetui"
+    },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
