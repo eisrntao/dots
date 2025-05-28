@@ -34,7 +34,6 @@ nvidia-prime
 pacseek
 paru
 paru-debug
-popsicle-git
 python-pywal16
 qutebrowser
 reflector
