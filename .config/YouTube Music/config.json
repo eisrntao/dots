@@ -1,0 +1,62 @@
+{
+	"window-size": {
+		"width": 1896,
+		"height": 1017
+	},
+	"window-maximized": false,
+	"window-position": {
+		"x": 1932,
+		"y": 51
+	},
+	"url": "https://music.youtube.com/watch?v=lH2D1GsC2j0&list=OLAK5uy_lOOkNFWZCw_L9MZsXOUIQkjbQ7fvxfCK0&index=0",
+	"options": {
+		"tray": true,
+		"appVisible": false,
+		"autoUpdates": true,
+		"alwaysOnTop": false,
+		"hideMenu": false,
+		"hideMenuWarned": false,
+		"startAtLogin": false,
+		"disableHardwareAcceleration": false,
+		"removeUpgradeButton": false,
+		"restartOnConfigChanges": false,
+		"trayClickPlayPause": false,
+		"autoResetAppCache": false,
+		"resumeOnStart": true,
+		"likeButtons": "",
+		"proxy": "",
+		"startingPage": "",
+		"overrideUserAgent": false,
+		"usePodcastParticipantAsArtist": false,
+		"themes": [
+			"/home/eisrntao/.cache/wal/colors-ytmusic.css"
+		]
+	},
+	"plugins": {
+		"notifications": {},
+		"video-toggle": {
+			"mode": "custom"
+		},
+		"precise-volume": {
+			"globalShortcuts": {}
+		},
+		"discord": {
+			"listenAlong": true
+		},
+		"ambient-mode": {
+			"enabled": true,
+			"quality": 50,
+			"buffer": 30,
+			"interpolationTime": 1500,
+			"blur": 100,
+			"size": 100,
+			"opacity": 1,
+			"fullscreen": false
+		}
+	},
+	"__internal__": {
+		"migrations": {
+			"version": "3.9.0"
+		}
+	}
+}
