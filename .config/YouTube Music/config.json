@@ -1,21 +1,21 @@
 {
 	"window-size": {
-		"width": 640,
-		"height": 681
+		"width": 1280,
+		"height": 720
 	},
 	"window-maximized": true,
 	"window-position": {
 		"x": 0,
 		"y": 0
 	},
-	"url": "https://music.youtube.com/watch?v=lH2D1GsC2j0&list=OLAK5uy_lOOkNFWZCw_L9MZsXOUIQkjbQ7fvxfCK0&index=0",
+	"url": "https://music.youtube.com/watch?v=9-te0fX800U&list=OLAK5uy_lOOkNFWZCw_L9MZsXOUIQkjbQ7fvxfCK0&index=0",
 	"options": {
 		"tray": true,
 		"appVisible": false,
 		"autoUpdates": true,
 		"alwaysOnTop": false,
-		"hideMenu": false,
-		"hideMenuWarned": false,
+		"hideMenu": true,
+		"hideMenuWarned": true,
 		"startAtLogin": false,
 		"disableHardwareAcceleration": false,
 		"removeUpgradeButton": false,
@@ -52,6 +52,22 @@
 			"size": 100,
 			"opacity": 1,
 			"fullscreen": false
+		},
+		"compact-sidebar": {
+			"enabled": false
+		},
+		"in-app-menu": {
+			"enabled": false,
+			"hideDOMWindowControls": true
+		},
+		"unobtrusive-player": {
+			"enabled": false
+		},
+		"crossfade": {
+			"enabled": false
+		},
+		"navigation": {
+			"enabled": true
 		}
 	},
 	"__internal__": {
