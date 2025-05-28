@@ -1,12 +1,12 @@
 {
 	"window-size": {
-		"width": 1896,
-		"height": 1017
+		"width": 640,
+		"height": 681
 	},
-	"window-maximized": false,
+	"window-maximized": true,
 	"window-position": {
-		"x": 1932,
-		"y": 51
+		"x": 0,
+		"y": 0
 	},
 	"url": "https://music.youtube.com/watch?v=lH2D1GsC2j0&list=OLAK5uy_lOOkNFWZCw_L9MZsXOUIQkjbQ7fvxfCK0&index=0",
 	"options": {
