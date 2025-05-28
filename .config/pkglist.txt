@@ -6,13 +6,13 @@ bat-asus-battery-bin
 bluetui
 bluez-utils
 brightnessctl
+btop
 calibre
 chaotic-keyring
 chaotic-mirrorlist
 dust
 efibootmgr
 eza
-htop
 hyprland
 hyprlock
 hyprpaper

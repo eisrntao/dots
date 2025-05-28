@@ -69,11 +69,11 @@
     "cpu": {
         "format": " {usage}%",
         "tooltip": false,
-	"on-click": "alacritty --class floatterm -e htop",
+	"on-click": "alacritty --class floatterm -o font.size=12 -e btop -p 1",
     },
     "memory": {
         "format": " {}%",
-	"on-click": "alacritty --class floatterm -e htop",
+	"on-click": "alacritty --class floatterm -o font.size=12 -e btop -p 2",
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -82,7 +82,7 @@
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{icon} {temperatureC}°C",
         "format-icons": ["", "", ""],
-	"on-click": "alacritty --class floatterm -e htop",
+	"on-click": "alacritty --class floatterm -o font.size=12 -e btop -p 1",
     },
     "group/status": {
 		"modules" : [
