@@ -2,8 +2,8 @@
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    // "output": ["HDMI-A-1", "eDP-1"],
-    "output": "eDP-1",
+    "output": ["HDMI-A-1", "eDP-1"],
+    // "output": "eDP-1",
     "height": 30, // Waybar height (to be removed for auto height)
     "margin-top" : 5, // Margin around bar
     "margin-left": 15,
@@ -14,7 +14,7 @@
     // Choose the order of the modules
     "modules-left": [
         "clock",
-        "hyprland/workspaces",
+        // "hyprland/workspaces",
         "hyprland/window",
     ],
     "modules-center": [
@@ -40,23 +40,19 @@
             "floatterm": "Floating Utility"
         },
     },
-    "hyprland/workspaces": {
-	"format": "{icon}",
-	"format-icons": {
-		"active": "",
-		"default": ""
-	},
-       "persistent-workspaces": {
-             "*": 5, // 5 workspaces by default on every monitor
-             "HDMI-A-1": 3 // but only three on HDMI-A-1
-       }
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "default": ""
     },
-    "mpris": {
-	"format": "▶ {dynamic}",
-	"format-paused": "⏸ {dynamic}",
-	"dynamic-order": ["title", "artist", "album"],
-	"dynamic-len": 60,
-    },
+  },
+  "mpris": {
+    "format": "▶ {dynamic}",
+    "format-paused": "⏸ {dynamic}",
+    "dynamic-order": ["title", "artist", "album"],
+    "dynamic-len": 60,
+      },
     "tray": {
         // "icon-size": 21,
         "spacing": 10,
