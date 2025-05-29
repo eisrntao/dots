@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-[[ -e $HOME/.config/qutebrowser/greasemonkey/ddg-bg.js ]] || ln -s $HOME/.cache/wal/ddg-bg.js $HOME/.config/qutebrowser/greasemonkey/ && notify-send "Symlinked qutebrowser script."
+[[ -e $HOME/.config/qutebrowser/greasemonkey/ddg-bg.js ]] || (ln -s $HOME/.cache/wal/ddg-bg.js $HOME/.config/qutebrowser/greasemonkey/ && notify-send "Symlinked qutebrowser script.")
 makoctl reload
 hyprctl hyprpaper reload
 pkill -SIGHUP qutebrowser
