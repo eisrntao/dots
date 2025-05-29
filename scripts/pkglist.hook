@@ -1,1 +1,10 @@
-/etc/pacman.d/hooks/pkglist.hook
+// Copy into /etc/pacman.d/hooks/
+[Trigger]
+Operation=Install
+Operation=Remove
+Type=Package
+Target=*
+
+[Action]
+When=PostTransaction
+Exec=/bin/sh -c '/usr/bin/pacman -Qqet > /home/eisrntao/.config/pkglist.txt'
