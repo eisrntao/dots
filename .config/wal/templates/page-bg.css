@@ -1,0 +1,11 @@
+html, body {{
+    background-color: {background} !important;
+   }}
+
+a {{
+    color: {color2} !important;
+}}
+
+a:visited {{
+    color: {color1} !important;
+}}

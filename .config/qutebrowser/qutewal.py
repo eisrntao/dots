@@ -15,6 +15,9 @@ home = os.getenv('HOME')
 colors_relative = '.cache/wal/colors.json'
 colors_absolute = os.path.join(home, colors_relative)
 
+cust_css_relative = '.cache/wal/page-bg.css'
+css_absolute = os.path.join(home, cust_css_relative)
+
 if os.path.isfile(colors_absolute):
     with open(colors_absolute) as colorfile:
         colors = json.load(colorfile)
@@ -33,6 +36,11 @@ if os.path.isfile(colors_absolute):
 
     background_transparent = add_alpha(background, ALPHA)
     primary_transparent = add_alpha(primary, ALPHA2)
+
+    # force theme bg on sites
+    if os.path.isfile(css_absolute):
+        c.content.user_stylesheets.append(css_absolute)
+
 
     # Background color of the completion widget category headers.
     # Type: QssColor
@@ -346,4 +354,4 @@ if os.path.isfile(colors_absolute):
     # Background color for webpages if unset (or empty to use the theme's
     # color)
     # Type: QtColor
-    c.colors.webpage.bg = foreground
+    c.colors.webpage.bg = background
