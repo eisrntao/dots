@@ -2,7 +2,7 @@
 // --------------------------------------------------------
 
 // Cookies string for your theme
-const cookie = '7={background}; 9={foreground}; aa={foreground} 8={color1}; x={color2};';
+const cookie = '7={background}; 9={foreground}; j={foreground}; aa={foreground} 8={color1}; x={color2};';
 
 // Converts cookie string into formatted JSON
 const cookieToJSON = (cookieRaw) => {{
