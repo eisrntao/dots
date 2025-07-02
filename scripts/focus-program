@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+target=$1
+
+# check whether app is focused already
+is_focused=$(hyprctl activewindow | grep "initialClass: .*$target.*$")
+[[ -n $is_focused ]] && hyprctl dispatch focuscurrentorlast && exit
+
+pid=$(pgrep $target)
+
+# focus target if it exists, otherwise spawn it
+[[ -n $pid ]] && hyprctl dispatch focuswindow pid:$pid || $target
