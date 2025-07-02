@@ -36,6 +36,12 @@ label.module {
     font-size: 10px;
 }
 
+#language {
+    font-style: italic;
+    color: alpha(@foreground, 0.7);
+    font-size: 11px;
+}
+
 @keyframes blink {
     to {
         color: @color1;

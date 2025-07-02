@@ -14,13 +14,14 @@
     // Choose the order of the modules
     "modules-left": [
         "clock",
-        // "hyprland/workspaces",
+        "hyprland/workspaces",
         "hyprland/window",
     ],
     "modules-center": [
         "mpris",
     ],
     "modules-right": [
+        "hyprland/language",
         "tray",
         // "network",
         "bluetooth",
@@ -31,14 +32,21 @@
     ],
 
     // Modules
+    "hyprland/language": {
+      "format": "{}  ",
+      "format-en": "EN",
+      "format-en-colemak_dh": "Colemak",
+      "format-sk": "SK"
+    },
     "hyprland/window": {
         "format": "{initialClass}",
         "rewrite": {
             "org.qutebrowser.qutebrowser": "Qutebrowser",
             "com.github.th_ch.youtube_music": "YouTube Music",
             "org.pwmt.zathura": "Zathura",
+            "et": "Spreadsheets",
             "floatterm": "Floating Utility"
-        },
+        }
     },
   "hyprland/workspaces": {
     "format": "{icon}",
@@ -46,6 +54,11 @@
       "active": "",
       "default": ""
     },
+    "persistent-only": true,
+    "all-outputs": true,
+    "persistent-workspaces": {
+      "*": 5
+    }
   },
   "mpris": {
     "format": "▶ {dynamic}",
