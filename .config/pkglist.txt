@@ -18,7 +18,6 @@ hyprlock
 hyprpaper
 hyprpolkitagent
 intel-ucode
-juno-theme-git
 just
 lazygit
 libva-nvidia-driver
@@ -42,9 +41,11 @@ starship
 stow
 sudo-rs
 syncthing
+task
 tealdeer
 tela-circle-icon-theme-black
 tofi
+typst
 udiskie
 ueberzugpp
 ufw
@@ -54,6 +55,7 @@ waybar
 wev
 wiremix-git
 wlsunset
+wps-office
 yazi
 youtube-music-bin
 zellij
