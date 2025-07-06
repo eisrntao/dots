@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+running=$(bartib current | wc -l)
+
+if [[ $running -gt 1 ]]; then
+  notify-send "$(bartib stop | tail -n 1 | sed 's/).*//'))"
+  else
+    notify-send "$(bartib continue | tail -n 1 | sed 's/).*//'))"
+fi
