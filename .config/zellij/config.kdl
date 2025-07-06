@@ -45,8 +45,10 @@ keybinds clear-defaults=true{
     tab {
         bind "t" { SwitchToMode "Normal"; }
         bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
-        bind "m" "Left" "Up" "k" { GoToPreviousTab; }
-        bind "i" "Right" "Down" "j" { GoToNextTab; }
+        bind "m" "Left" "Up" "e" { GoToPreviousTab; }
+        bind "i" "Right" "Down" "n" { GoToNextTab; }
+        bind "Shift m" "Shift Left" "Shift Up" "Shift e" { MoveTab "Left"; }
+        bind "Shift i" "Shift Right" "Shift Down" "Shift n" { MoveTab "Right"; }
         bind "n" { NewTab; SwitchToMode "Locked"; }
         bind "x" { CloseTab; SwitchToMode "Locked"; }
         bind "s" { ToggleActiveSyncTab; SwitchToMode "Locked"; }
@@ -144,12 +146,10 @@ keybinds clear-defaults=true{
         bind "n" { NewPane; SwitchToMode "Locked"; }
         bind "x" { CloseFocus; SwitchToMode "Locked"; }
         bind "w" { ToggleFloatingPanes; SwitchToMode "Locked"; }
-        bind "i" { MoveTab "Left"; }
-        bind "o" { MoveTab "Right"; }
         bind "Alt m" "Left" { MoveFocusOrTab "Left"; }
-        bind "Alt n" "Right" { MoveFocusOrTab "Right"; }
-        bind "Alt e" "Down" { MoveFocus "Down"; }
-        bind "Alt i" "Up" { MoveFocus "Up"; }
+        bind "Alt i" "Right" { MoveFocusOrTab "Right"; }
+        bind "Alt n" "Down" { MoveFocus "Down"; }
+        bind "Alt e" "Up" { MoveFocus "Up"; }
         bind "=" "Alt +" { Resize "Increase"; }
         bind "-" { Resize "Decrease"; }
         bind "[" { PreviousSwapLayout; }
