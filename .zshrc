@@ -79,4 +79,3 @@ alias v="nvim"
 alias lazy="lazygit"
 
 # Launch on startup
-macchina

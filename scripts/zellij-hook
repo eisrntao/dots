@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+function new_session() {
+    echo -n "Session name: "
+    read -r new_name
+    [[ -n $new_name ]] && zellij --session "$(echo $new_name | sed 's/\ /-/g')"
+}
+if [[ -z $ZELLIJ ]]; then
+ if [[ $(zellij ls --no-formatting --short | wc -l) -eq 0 ]]; then
+    new_session
+  else
+    name=$(( echo "New session"; zellij ls --no-formatting --short ) | fzf)
+    case $name in
+      "New session")
+          new_session
+        ;;
+      *)
+        [[ -n $name ]] && zellij attach $name
+      ;;
+    esac
+ fi
+fi
