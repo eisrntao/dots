@@ -1,3 +1,4 @@
+c.hints.chars = "arstgmneio"
 # basic navigation
 config.bind('M', 'back')
 config.bind('I', 'forward')
