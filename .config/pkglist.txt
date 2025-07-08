@@ -19,6 +19,7 @@ hyprpaper
 hyprpolkitagent
 intel-ucode
 just
+kanata-bin
 lazygit
 libva-nvidia-driver
 linux-zen
