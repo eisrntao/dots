@@ -51,8 +51,12 @@
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "active": "",
-      "default": ""
+      "default": "",
+      "1": "󰈹 ",
+      "2": " ",
+      "3": " ",
+      "4": " ",
+      "5": " ",
     },
     "persistent-only": true,
     "all-outputs": true,

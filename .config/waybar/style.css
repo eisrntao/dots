@@ -26,9 +26,18 @@ label.module {
     padding: 0px 3px;
 }
 
-#workspaces * {
-    font-size: 10px;
+#workspaces button {
+    font-size: 7px;
     padding: 3px 1px;
+}
+
+#workspaces button.active {
+  border-radius: 1em;
+  background-color: @foreground;
+}
+#workspaces button.active * {
+  color: @background;
+  font-size: 1.2em;
 }
 
 #mpris {
