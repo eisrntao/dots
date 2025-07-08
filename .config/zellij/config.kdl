@@ -45,10 +45,10 @@ keybinds clear-defaults=true{
     tab {
         bind "t" { SwitchToMode "Normal"; }
         bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
-        bind "m" "Left" "Up" "e" { GoToPreviousTab; }
-        bind "i" "Right" "Down" "n" { GoToNextTab; }
-        bind "Shift m" "Shift Left" "Shift Up" "Shift e" { MoveTab "Left"; }
-        bind "Shift i" "Shift Right" "Shift Down" "Shift n" { MoveTab "Right"; }
+        bind "m" "Left" "Up" { GoToPreviousTab; }
+        bind "i" "Right" "Down" { GoToNextTab; }
+        bind "Shift m" "Shift Left" "Shift Up" { MoveTab "Left"; }
+        bind "Shift i" "Shift Right" "Shift Down" { MoveTab "Right"; }
         bind "n" { NewTab; SwitchToMode "Locked"; }
         bind "x" { CloseTab; SwitchToMode "Locked"; }
         bind "s" { ToggleActiveSyncTab; SwitchToMode "Locked"; }
@@ -69,12 +69,12 @@ keybinds clear-defaults=true{
     scroll {
         bind "s" { SwitchToMode "Normal"; }
         bind "e" { EditScrollback; SwitchToMode "Locked"; }
-        bind "/" { SwitchToMode "EnterSearch"; SearchInput 0; }
+        bind "/" { SwitchToMode "Search"; SearchInput 0; }
         bind "Shift G" { ScrollToBottom; SwitchToMode "Locked"; }
         bind "n" "Down" { ScrollDown; }
         bind "e" "Up" { ScrollUp; }
-        bind "Ctrl u" "PageDown" "Right" "l" { PageScrollDown; }
-        bind "Ctrl d" "PageUp" "Left" "h" { PageScrollUp; }
+        bind "Ctrl u" "PageDown" "Right" "m" { PageScrollDown; }
+        bind "Ctrl d" "PageUp" "Left" "i" { PageScrollUp; }
         bind "d" { HalfPageScrollDown; }
         bind "u" { HalfPageScrollUp; }
         bind "Alt c" { Copy; }
@@ -94,16 +94,12 @@ keybinds clear-defaults=true{
         bind "w" { SearchToggleOption "Wrap"; }
         bind "o" { SearchToggleOption "WholeWord"; }
     }
-    entersearch {
-        bind "/" "Esc" { SwitchToMode "Scroll"; }
-        bind "Enter" { SwitchToMode "Search"; }
-    }
     renametab {
-        bind "r" { SwitchToMode "Normal"; }
+        bind "Enter" { SwitchToMode "Locked"; }
         bind "Esc" { UndoRenameTab; SwitchToMode "Tab"; }
     }
     renamepane {
-        bind "r" { SwitchToMode "Normal"; }
+        bind "Enter" { SwitchToMode "Locked"; }
         bind "Esc" { UndoRenamePane; SwitchToMode "Pane"; }
     }
     session {
@@ -139,7 +135,7 @@ keybinds clear-defaults=true{
             SwitchToMode "Locked"
         }
     }
-    shared_except "locked" {
+    shared_except "locked" "search" "renamepane" "renametab" {
         bind "Ctrl space" { SwitchToMode "Locked"; }
         bind "q" { Detach; }
         bind "Ctrl q" { Quit; }
@@ -156,28 +152,28 @@ keybinds clear-defaults=true{
         bind "]" { NextSwapLayout; }
         bind "Tab" { ToggleTab; SwitchToMode "Locked"; }
     }
-    shared_except "normal" "locked" {
+    shared_except "normal" "locked" "search" "renamepane" "renametab" {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
     }
-    shared_except "pane" "locked" {
+    shared_except "pane" "locked"  "search" "renamepane" "renametab"{
         bind "p" { SwitchToMode "Pane"; }
     }
-    shared_except "resize" "locked" {
+    shared_except "resize" "locked" "search" "renamepane" "renametab" {
         bind "r" { SwitchToMode "Resize"; }
     }
-    shared_except "scroll" "locked" {
+    shared_except "scroll" "locked"  "search" "renamepane" "renametab"{
         bind "s" { SwitchToMode "Scroll"; }
     }
-    shared_except "session" "locked" {
+    shared_except "session" "locked"  "search" "renamepane" "renametab"{
         bind "o" { SwitchToMode "Session"; }
     }
-    shared_except "tab" "locked" {
+    shared_except "tab" "locked"  "search" "renamepane" "renametab"{
         bind "t" { SwitchToMode "Tab"; }
     }
-    shared_except "move" "locked" {
+    shared_except "move" "locked"  "search" "renamepane" "renametab"{
         bind "m" { SwitchToMode "Move"; }
     }
-    shared_except "tmux" "locked" {
+    shared_except "tmux" "locked"  "search" "renamepane" "renametab"{
         bind "Ctrl b" { SwitchToMode "Tmux"; }
     }
 }
