@@ -1,9 +1,20 @@
 #!/usr/bin/env bash
 
-running=$(bartib current | wc -l)
+current=$(bartib current)
+running=$(echo "$current" | wc -l)
 
-if [[ $running -gt 1 ]]; then
-  notify-send "$(bartib stop | tail -n 1 | sed 's/).*//'))"
+if [[ $1 ]]; then
+  if [[ $running -gt 1 ]]; then
+    msg=$(bartib stop | tail -n 1 | sed 's/).*//')
   else
-    notify-send "$(bartib continue | tail -n 1 | sed 's/).*//'))"
+    msg=$(bartib continue | tail -n 1 | sed 's/).*//')
+  fi
+
+  notify-send "$msg"
+  pkill -RTMIN+6 waybar
+else
+  # Output JSON for Waybar
+  alt=$([[ $running -gt 1 ]] && echo true || echo false)
+  tooltip=$([[ $running -gt 1 ]] && echo "An activity is currently running" || echo "Start activity")
+  echo "{\"tooltip\":\"$tooltip\",\"alt\":$alt}"
 fi

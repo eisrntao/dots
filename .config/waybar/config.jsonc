@@ -1,14 +1,10 @@
 // -*- mode: jsonc -*-
 {
-    // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
     "output": ["HDMI-A-1", "eDP-1"],
-    // "output": "eDP-1",
     "height": 30, // Waybar height (to be removed for auto height)
     "margin-top" : 5, // Margin around bar
-    "margin-left": 15,
-    "margin-right": 15,
-    // "width": 1280, // Waybar width
+    "margin-left": 5,
+    "margin-right": 5,
     "spacing": 4, // Gaps between modules (4px)
     "reload_style_on_change": true,
     // Choose the order of the modules
@@ -18,6 +14,7 @@
         "hyprland/window",
     ],
     "modules-center": [
+        "custom/bartib",
         "mpris",
     ],
     "modules-right": [
@@ -26,9 +23,8 @@
         // "network",
         "bluetooth",
         "group/status",
-        "pulseaudio",
-        "backlight",
-        "battery",
+        "group/control",
+        "group/power",
     ],
 
     // Modules
@@ -38,60 +34,64 @@
       "format-en-colemak_dh": "Colemak",
       "format-sk": "SK"
     },
+
     "hyprland/window": {
-        "format": "{initialClass}",
-        "rewrite": {
-            "org.qutebrowser.qutebrowser": "Qutebrowser",
-            "com.github.th_ch.youtube_music": "YouTube Music",
-            "org.pwmt.zathura": "Zathura",
-            "et": "Spreadsheets",
-            "floatterm": "Floating Utility"
-        }
+      "format": "{initialClass}",
+      "rewrite": {
+        "org.qutebrowser.qutebrowser": "Qutebrowser",
+        "com.github.th_ch.youtube_music": "YouTube Music",
+        "org.pwmt.zathura": "Zathura",
+        "et": "Spreadsheets",
+        "floatterm": "Floating Utility"
+      }
     },
-  "hyprland/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "default": "",
-      "1": "󰈹 ",
-      "2": " ",
-      "3": " ",
-      "4": " ",
-      "5": " ",
-    },
-    "persistent-only": true,
-    "all-outputs": true,
-    "persistent-workspaces": {
-      "*": 5
-    }
-  },
-  "mpris": {
-    "format": "▶ {dynamic}",
-    "format-paused": "⏸ {dynamic}",
-    "dynamic-order": ["title", "artist", "album"],
-    "dynamic-len": 60,
+
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+        "default": "",
+        "1": "󰈹 ",
+        "2": " ",
+        "3": " ",
+        "4": " ",
+        "5": " ",
       },
+      "persistent-only": true,
+      "all-outputs": true,
+      "persistent-workspaces": {
+        "*": 5
+      }
+    },
+
+    "mpris": {
+      "format": "▶  {dynamic}",
+      "format-paused": "⏸  {dynamic}",
+      "dynamic-order": ["title", "artist", "album"],
+      "dynamic-len": 60,
+    },
+
     "tray": {
-        // "icon-size": 21,
-        "spacing": 10,
-        // "icons": {
-        //   "blueman": "bluetooth",
-        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-        // }
+      "icon-size": 11,
+      "spacing": 5,
     },
+
     "clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format": "{:%H:%M}",
+        "tooltip-format": "<big>{:%B %d}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%b %d}"
     },
+
     "cpu": {
-        "format": " {usage}%",
-        "tooltip": false,
-	"on-click": "alacritty --class floatterm -o font.size=12 -e btop -p 1",
+      "format": " {usage}%",
+      "tooltip": false,
+      "on-click": "alacritty --class floatterm -o font.size=12 -e btop -p 1",
     },
+
     "memory": {
-        "format": " {}%",
-	"on-click": "alacritty --class floatterm -o font.size=12 -e btop -p 2",
+      "format": " {}%",
+      "on-click": "alacritty --class floatterm -o font.size=12 -e btop -p 2",
     },
+
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
@@ -99,39 +99,68 @@
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{icon} {temperatureC}°C",
         "format-icons": ["", "", ""],
-	"on-click": "alacritty --class floatterm -o font.size=12 -e btop -p 1",
+        "on-click": "alacritty --class floatterm -o font.size=12 -e btop -p 1",
     },
+
+    // groups
     "group/status": {
-		"modules" : [
-			"cpu",
-			"memory",
-			"temperature",
-		],
-		"orientation": "inherit",
-		"drawer": {
-			"transition-left-to-right": false,
-		},
+      "modules" : [
+        "cpu",
+        "custom/pacman",
+        "memory",
+        "temperature"
+      ],
+      "orientation": "inherit",
+      "drawer": {
+        "transition-left-to-right": false,
+      },
     },
+
+    "group/control": {
+      "modules" : [
+        "pulseaudio",
+        "backlight",
+      ],
+      "orientation": "inherit",
+      "drawer": {
+        "transition-left-to-right": false,
+      },
+    },
+
+    "group/power": {
+      "modules" : [
+        "battery",
+        "custom/shutdown",
+      ],
+      "orientation": "inherit",
+      "drawer": {
+        "transition-left-to-right": true,
+      },
+    },
+
     "backlight": {
         // "device": "acpi_video1",
         "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "reverse-scrolling": true,
     },
+
     "battery": {
-        "states": {
+      "states": {
             // "good": 95,
             "warning": 30,
             "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% 󰂄",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
+      },
+      "format": "{capacity}% {icon}",
+      "format-full": "{capacity}% {icon}",
+      "format-charging": "{capacity}% 󰂄",
+      "format-plugged": "{capacity}% ",
+      "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": [" ", " ", " ", " ", " "]
     },
+
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": " ",
@@ -141,29 +170,63 @@
         "format-disconnected": "⚠ ",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
+
     "bluetooth": {
       "format-off": "",
       "format-on": "󰂯",
       "format-connected": "󰂯 {device_alias}",
       "on-click": "alacritty --class floatterm -e bluetui"
     },
+
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
+        "format": "{icon} {volume}% {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format-source": "",
         "format-source-muted": "",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
+          "headphone": "",
+          "hands-free": "",
+          "headset": "",
+          "phone": "",
+          "portable": "",
+          "car": "",
+          "default": ["", "", ""]
         },
-        "on-click": "alacritty --class floatterm -e wiremix"
+        "reverse-scrolling": true,
+        "on-click": "alacritty --class floatterm -e wiremix",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     },
+
+    // custom modules
+    "custom/shutdown": {
+      "format": "⏻ ",
+      "tooltip-format": "Shut down",
+      "on-click": "shutdown now"
+    },
+
+    "custom/bartib": {
+      "format": "{icon}",
+      "format-icons": {
+        "true": "󱫌",
+        "false": "" },
+      "exec": "$HOME/scripts/bartib",
+      "return-type": "json",
+      "on-click": "$HOME/scripts/bartib -t",
+      "interval": 60,
+      "signal": 6,
+   },
+
+   "custom/pacman": {
+     "format": " {text}",
+     "tooltip-format": "You have {text} upgradeable packages.",
+     "interval": "once",                     // every hour
+     "exec": "checkupdates | wc -l",       // # of updates
+     "exec-if": "exit 0",                  // always run; consider advanced run conditions
+     "on-click": "alacritty --class floatterm -o font.size=12 -e paru; pkill -SIGRTMIN+8 waybar", // update system
+     "signal": 8
+   }
+
 }

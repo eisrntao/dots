@@ -8,5 +8,12 @@ shell="/usr/bin/zsh"
 padding = {x=5, y=5}
 
 [font]
+# normal = {family="Iosevka Nerd Font Mono", style="Regular"}
 normal = {family="IntoneMono Nerd Font", style="Regular"}
-size=13
+size=12
+
+[keyboard]
+bindings = [
+  { key = "Return", mods = "Shift", chars = "\u001B[13;2u" },
+  { key = "Return", mods = "Control", chars = "\u001B[13;5u" }
+]
