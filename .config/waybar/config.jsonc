@@ -232,7 +232,8 @@
 
    "custom/weather": {
       "exec": "curl -s 'wttr.in?format=1' | sed 's/  //'",
-      "interval": 300
+      "interval": 300,
+      "on-click": "qutebrowser wttr.in"
    }
 
 }
