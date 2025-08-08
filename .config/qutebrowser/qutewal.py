@@ -36,6 +36,7 @@ if os.path.isfile(colors_absolute):
 
     background_transparent = add_alpha(background, ALPHA)
     primary_transparent = add_alpha(primary, ALPHA2)
+    text_transparent = add_alpha(foreground, ALPHA2)
 
     # force theme bg on sites
     if os.path.isfile(css_absolute):
@@ -126,15 +127,18 @@ if os.path.isfile(colors_absolute):
     # Background color for hints. Note that you can use a `rgba(...)` value
     # for transparency.
     # Type: QssColor
-    c.colors.hints.bg = yellow
+    c.colors.hints.bg = background
 
     # Font color for hints.
     # Type: QssColor
-    c.colors.hints.fg = background
+    c.colors.hints.fg = primary
 
     # Font color for the matched part of hints.
     # Type: QssColor
-    c.colors.hints.match.fg = primary
+    c.colors.hints.match.fg = background
+
+    # Hint border
+    c.hints.border = f"1px solid {primary}"
 
     # Background color of the keyhint widget.
     # Type: QssColor
@@ -142,11 +146,11 @@ if os.path.isfile(colors_absolute):
 
     # Text color for the keyhint widget.
     # Type: QssColor
-    c.colors.keyhint.fg = foreground
+    c.colors.keyhint.fg = background
 
     # Highlight color for keys to complete the current keychain.
     # Type: QssColor
-    c.colors.keyhint.suffix.fg = yellow
+    c.colors.keyhint.suffix.fg = primary
 
     # Background color of an error message.
     # Type: QssColor
@@ -296,15 +300,15 @@ if os.path.isfile(colors_absolute):
 
     # Background color of the tab bar.
     # Type: QtColor
-    c.colors.tabs.bar.bg = background_transparent
+    c.colors.tabs.bar.bg = background
 
     # Background color of unselected even tabs.
     # Type: QtColor
-    c.colors.tabs.even.bg = background_transparent
+    c.colors.tabs.even.bg = background
 
     # Foreground color of unselected even tabs.
     # Type: QtColor
-    c.colors.tabs.even.fg = foreground
+    c.colors.tabs.even.fg = text_transparent
 
     # Color for the tab indicator on errors.
     # Type: QtColor
@@ -329,27 +333,23 @@ if os.path.isfile(colors_absolute):
 
     # Background color of unselected odd tabs.
     # Type: QtColor
-    c.colors.tabs.odd.bg = background_transparent
+    c.colors.tabs.odd.bg = background
 
     # Foreground color of unselected odd tabs.
     # Type: QtColor
-    c.colors.tabs.odd.fg = foreground
+    c.colors.tabs.odd.fg = text_transparent
 
     # Background color of selected even tabs.
-    # Type: QtColor
-    c.colors.tabs.selected.even.bg = primary_transparent
+    c.colors.tabs.selected.even.bg = background
 
     # Foreground color of selected even tabs.
-    # Type: QtColor
-    c.colors.tabs.selected.even.fg = foreground
+    c.colors.tabs.selected.even.fg = primary
 
     # Background color of selected odd tabs.
-    # Type: QtColor
-    c.colors.tabs.selected.odd.bg = primary_transparent
+    c.colors.tabs.selected.odd.bg = background
 
     # Foreground color of selected odd tabs.
-    # Type: QtColor
-    c.colors.tabs.selected.odd.fg = foreground
+    c.colors.tabs.selected.odd.fg = primary
 
     # Background color for webpages if unset (or empty to use the theme's
     # color)
