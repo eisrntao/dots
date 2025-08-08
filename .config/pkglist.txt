@@ -31,6 +31,7 @@ neovim
 network-manager-applet
 nvidia-dkms
 nvidia-prime
+pacman-contrib
 pacseek
 paru
 paru-debug
@@ -40,13 +41,13 @@ reflector
 sof-firmware
 starship
 stow
+stylua
 sudo-rs
 syncthing
 task
 tealdeer
 tela-circle-icon-theme-black
 tofi
-typst
 udiskie
 ueberzugpp
 ufw

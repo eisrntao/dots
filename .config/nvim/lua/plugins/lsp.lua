@@ -1,24 +1,21 @@
 return {
-{
-  "neovim/nvim-lspconfig", -- REQUIRED: for native Neovim LSP integration
-  lazy = false, -- REQUIRED: tell lazy.nvim to start this plugin at startup
-  dependencies = {
-    -- main one
-    { "ms-jpq/coq_nvim", branch = "coq" },
-    -- 9000+ Snippets
-    { "ms-jpq/coq.artifacts", branch = "artifacts" },
-  },
-  init = function()
-    vim.g.coq_settings = {
-        auto_start = "shut-up",
-        display = {
-          ["icons.mode"] = "none"
-        }
-      
-    }
-  end,
-  config = function()
-    -- Your LSP settings here
-  end,
-}
+	"mason-org/mason-lspconfig.nvim",
+	opts = {
+		ensure_installed = {
+			-- lua
+			"lua_ls",
+			-- python
+			"ruff",
+			"pyright",
+			-- haskell
+			"haskell-language-server",
+
+			-- markdown
+			"marksman",
+		},
+	},
+	dependencies = {
+		{ "mason-org/mason.nvim", opts = {} },
+		"neovim/nvim-lspconfig",
+	},
 }

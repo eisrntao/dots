@@ -84,17 +84,17 @@ vim.opt.clipboard = "unnamedplus" -- Do not sync with system clipboard
 -- UI: inside window
 vim.opt.list = false -- Show some invisible characters
 vim.opt.listchars = {
-  tab = "→ ",
-  eol = "↵",
-  trail = "·",
-  extends = "↷",
-  precedes = "↶",
+	tab = "→ ",
+	eol = "↵",
+	trail = "·",
+	extends = "↷",
+	precedes = "↶",
 }
 vim.opt.fillchars = {
-  foldopen = "",
-  foldclose = "",
-  diff = "╱",
-  eob = " ",
+	foldopen = "",
+	foldclose = "",
+	diff = "╱",
+	eob = " ",
 }
 vim.opt.cursorline = true -- Enable highlighting of the current line
 vim.opt.wrap = false -- Disable line wrap
@@ -117,3 +117,5 @@ vim.opt.splitbelow = true -- Put new windows below current
 vim.opt.mouse = "a" -- Enable mouse in all mode
 vim.opt.showmode = false -- Show mode in statusline
 vim.opt.termguicolors = true -- True color support
+vim.o.showtabline = 2
+vim.o.cmdheight = 0
