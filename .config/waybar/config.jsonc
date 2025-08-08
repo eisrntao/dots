@@ -106,6 +106,7 @@
     "group/status": {
       "modules" : [
         "cpu",
+        "custom/weather",
         "custom/pacman",
         "memory",
         "temperature"
@@ -227,6 +228,11 @@
      "exec-if": "exit 0",                  // always run; consider advanced run conditions
      "on-click": "alacritty --class floatterm -o font.size=12 -e paru; pkill -SIGRTMIN+8 waybar", // update system
      "signal": 8
+   },
+
+   "custom/weather": {
+      "exec": "curl -s 'wttr.in?format=1' | sed 's/  //'",
+      "interval": 300
    }
 
 }
