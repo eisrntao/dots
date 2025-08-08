@@ -135,17 +135,24 @@ keybinds clear-defaults=true{
             SwitchToMode "Locked"
         }
     }
+    shared {
+      bind "Alt m" { MoveFocusOrTab "Left"; }
+      bind "Alt i" { MoveFocusOrTab "Right"; }
+      bind "Alt n" { MoveFocus "Down"; }
+      bind "Alt e" { MoveFocus "Up"; }
+
+    }
     shared_except "locked" "search" "renamepane" "renametab" {
         bind "Ctrl space" { SwitchToMode "Locked"; }
+        bind "Left" { MoveFocusOrTab "Left"; }
+        bind "Right" { MoveFocusOrTab "Right"; }
+        bind "Down" { MoveFocus "Down"; }
+        bind "Up" { MoveFocus "Up"; }
         bind "q" { Detach; }
         bind "Ctrl q" { Quit; }
         bind "n" { NewPane; SwitchToMode "Locked"; }
         bind "x" { CloseFocus; SwitchToMode "Locked"; }
         bind "w" { ToggleFloatingPanes; SwitchToMode "Locked"; }
-        bind "Alt m" "Left" { MoveFocusOrTab "Left"; }
-        bind "Alt i" "Right" { MoveFocusOrTab "Right"; }
-        bind "Alt n" "Down" { MoveFocus "Down"; }
-        bind "Alt e" "Up" { MoveFocus "Up"; }
         bind "=" "Alt +" { Resize "Increase"; }
         bind "-" { Resize "Decrease"; }
         bind "[" { PreviousSwapLayout; }
@@ -274,7 +281,7 @@ theme "ansi"
 // Default: "default"
 // (Requires restart)
 //
-default_layout "compact"
+default_layout "default"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal

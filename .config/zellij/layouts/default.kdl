@@ -1,0 +1,52 @@
+layout {
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="file:~/.config/zellij/plugin/zjstatus.wasm" {
+
+              format_left  " #[italic]{mode}"
+              format_center "{tabs}"
+              format_right "#[bold]{session}"
+
+              // modes
+              mode_normal        " "
+              mode_locked        " "
+              mode_resize        "󰘖 {name}"
+              mode_pane          " {name}"
+              mode_tab           "󰓩 {name}"
+              mode_scroll        " {name}"
+              mode_enter_search  " {name}"
+              mode_search        " {name}"
+              mode_rename_tab    " {name}"
+              mode_rename_pane   " {name}"
+              mode_session       " {name}"
+              mode_move          "󰆾 {name}"
+              mode_prompt        " {name}"
+              mode_tmux          "{name}"
+
+              // formatting for inactive tabs
+              tab_normal              "#[fg=#6C7086] {name} "
+              tab_normal_fullscreen   "#[fg=#6C7086] {name} "
+              tab_normal_sync         "#[fg=#6C7086] {name} {sync_indicator} "
+
+              // formatting for the current active tab
+              tab_active              "#[fg=2,bold,italic] {name} "
+              tab_active_fullscreen   "#[fg=2,bold,italic] {name} {fullscreen_indicator} "
+              tab_active_sync         "#[fg=2,bold,italic] {name} {sync_indicator} "
+
+              // format when renaming a tab
+              tab_rename              " {name}"
+
+              // indicators
+              tab_sync_indicator       "<> "
+              tab_fullscreen_indicator "[] "
+              tab_floating_indicator   "⬚ "
+
+              // limit tab display count
+              tab_display_count         "3"  // limit to showing 3 tabs
+              tab_truncate_start_format "#[fg=#6C7086,italic] "
+              tab_truncate_end_format   "#[fg=#6C7086,italic] "
+            }
+          }
+          children
+        }
+      }

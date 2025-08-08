@@ -13,10 +13,12 @@
   ;;   /dev/input/by-id/usb-Dell_Dell_USB_Keyboard-event-kbd
   ;; )
 )
+
 (defsrc
   caps  a   s   d   f   g   h  j   k   l   ;
-                 spc
+                 spc ralt
 )
+
 (defvar
   ;; Note: consider using different time values for your different fingers.
   ;; For example, your pinkies might be slower to release keys and index
@@ -41,18 +43,18 @@
 
 (deflayer base
   esc @a  @s  @d  @f  g  h  @j  @k  @l  @;
-                   @space
+                   @space @ralt
 )
 
 (deflayer nomods
   esc  a  s   d   f   g   h   j   k   l   ;
-                   @space
+                   @space @ralt
 )
 
 ;; nav layer
 (deflayer nav
   bspc   tab   home   pgup   pgdn   end   left   down   up   right   enter
-                                    @space
+                                    @space MediaPlayPause
 )
 (deffakekeys
   to-base (layer-switch base)
@@ -65,6 +67,7 @@
     (on-idle-fakekey to-base tap $type-delay)
   )
   space ( tap-hold $tap-time $hold-time spc (layer-while-held nav))
+  ralt C-spc
   a (tap-hold-release-keys $tap-time-slow $hold-time-slow (multi a @tap) lmet $left-hand-keys)
   s (tap-hold-release-keys $tap-time-slow $hold-time-slow (multi s @tap) lalt $left-hand-keys)
   d (tap-hold-release-keys $tap-time $hold-time (multi d @tap) lctl $left-hand-keys)
