@@ -7,7 +7,7 @@
 ;;   as the home row mod will activate an early tap action
 
 (defcfg
-  process-unmapped-keys no
+  process-unmapped-keys yes
   ;; linux-dev (
   ;;   /dev/input/by-path/pci-0000:00:14.0-usb-0:1:1.0-event
   ;;   /dev/input/by-id/usb-Dell_Dell_USB_Keyboard-event-kbd
@@ -15,7 +15,7 @@
 )
 
 (defsrc
-  caps  a   s   d   f   g   h  j   k   l   ;
+  caps  a   s   d   f   g   h  j   k   l   ;  apo
                  spc ralt
 )
 
@@ -42,18 +42,18 @@
 )
 
 (deflayer base
-  esc @a  @s  @d  @f  g  h  @j  @k  @l  @;
+  esc @a  @s  @d  @f  g  h  @j  @k  @l  @; @apo
                    @space @ralt
 )
 
 (deflayer nomods
-  esc  a  s   d   f   g   h   j   k   l   ;
+  esc  a  s   d   f   g   h   j   k   l   ; @apo
                    @space @ralt
 )
 
 ;; nav layer
 (deflayer nav
-  bspc   tab   home   pgup   pgdn   end   left   down   up   right   enter
+  C-bspc   bspc   home   pgup   pgdn   end   left   down   up   right   enter tab
                                     @space MediaPlayPause
 )
 (deffakekeys
@@ -76,4 +76,7 @@
   k (tap-hold-release-keys $tap-time $hold-time (multi k @tap) lctl $right-hand-keys)
   l (tap-hold-release-keys $tap-time-slow $hold-time-slow (multi l @tap) lalt $right-hand-keys)
   ; (tap-hold-release-keys $tap-time-slow $hold-time-slow (multi ; @tap) lmet $right-hand-keys)
+  apo (fork (unmod lsft ')
+        (unmod ')
+        (f j lsft rsft))
 )
