@@ -7,7 +7,6 @@ keybinds clear-defaults=true{
         bind "Ctrl space" { SwitchToMode "Normal"; }
     }
     resize {
-        bind "r" { SwitchToMode "Normal"; }
         bind "m" "Left" { Resize "Increase Left"; }
         bind "n" "Down" { Resize "Increase Down"; }
         bind "e" "Up" { Resize "Increase Up"; }
@@ -20,7 +19,6 @@ keybinds clear-defaults=true{
         bind "-" { Resize "Decrease"; }
     }
     pane {
-        bind "p" { SwitchToMode "Normal"; }
         bind "p" { SwitchFocus; }
         bind "n" { NewPane; SwitchToMode "Locked"; }
         bind "d" { NewPane "Down"; SwitchToMode "Locked"; }
@@ -34,16 +32,14 @@ keybinds clear-defaults=true{
         bind "i" { TogglePanePinned; SwitchToMode "Locked"; }
     }
     move {
-        bind "m" { SwitchToMode "Normal"; }
-        bind "n" "Tab" { MovePane; }
-        bind "p" { MovePaneBackwards; }
-        bind "h" "Left" { MovePane "Left"; }
-        bind "j" "Down" { MovePane "Down"; }
-        bind "k" "Up" { MovePane "Up"; }
-        bind "l" "Right" { MovePane "Right"; }
+        bind "N" "Tab" { MovePane; }
+        bind "E" { MovePaneBackwards; }
+        bind "m" "Left" { MovePane "Left"; }
+        bind "n" "Down" { MovePane "Down"; }
+        bind "e" "Up" { MovePane "Up"; }
+        bind "i" "Right" { MovePane "Right"; }
     }
     tab {
-        bind "t" { SwitchToMode "Normal"; }
         bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
         bind "m" "Left" "Up" { GoToPreviousTab; }
         bind "i" "Right" "Down" { GoToNextTab; }
@@ -67,7 +63,6 @@ keybinds clear-defaults=true{
         bind "Tab" { ToggleTab; }
     }
     scroll {
-        bind "s" { SwitchToMode "Normal"; }
         bind "e" { EditScrollback; SwitchToMode "Locked"; }
         bind "/" { SwitchToMode "Search"; SearchInput 0; }
         bind "Shift G" { ScrollToBottom; SwitchToMode "Locked"; }
@@ -80,7 +75,6 @@ keybinds clear-defaults=true{
         bind "Alt c" { Copy; }
     }
     search {
-        bind "/" { SwitchToMode "Normal"; }
         bind "Shift G" { ScrollToBottom; SwitchToMode "Normal"; }
         bind "n" "Down" { ScrollDown; }
         bind "e" "Up" { ScrollUp; }
@@ -103,7 +97,6 @@ keybinds clear-defaults=true{
         bind "Esc" { UndoRenamePane; SwitchToMode "Pane"; }
     }
     session {
-        bind "o" { SwitchToMode "Normal"; }
         bind "s" { SwitchToMode "Scroll"; }
         bind "d" { Detach; }
         bind "w" {
@@ -160,7 +153,8 @@ keybinds clear-defaults=true{
         bind "Tab" { ToggleTab; SwitchToMode "Locked"; }
     }
     shared_except "normal" "locked" "search" "renamepane" "renametab" {
-        bind "Enter" "Esc" { SwitchToMode "Normal"; }
+        bind "Enter" { SwitchToMode "Locked"; }
+        bind "Esc" { SwitchToMode "Normal"; }
     }
     shared_except "pane" "locked"  "search" "renamepane" "renametab"{
         bind "p" { SwitchToMode "Pane"; }
