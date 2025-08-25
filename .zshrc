@@ -6,18 +6,50 @@ HISTFILE=~/.cache/.zshhistory
 HISTSIZE=10000
 SAVEHIST=10000
 
-setopt hist_ignore_dups     # don’t record duplicate commands
-setopt hist_ignore_all_dups # remove older duplicates
-setopt hist_reduce_blanks   # trim excess spaces
-setopt hist_ignore_space    # lines starting with space are not saved
-
 # Load modules
 zmodload zsh/complist
 autoload -U compinit && compinit
 autoload -U colors && colors
 
+# Autosuggestions
+ZSH_AUTOSUGGEST_USE_ASYNC=1
+ZSH_AUTOSUGGEST_STRATEGY=(completion history )
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'   # dim gray
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# --- Completion UX tweaks (you already have some; these add a bit more) ---
+setopt complete_in_word always_to_end
+zstyle ':completion:*' group-name ''                   # group results
+zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' \
+                                      'r:|[._-]=* r:|=*' 'l:|=* r:|=*'  # smarter matching
+zstyle ':completion:*' menu select # tab opens cmp menu
+# zstyle ':completion:*' special-dirs true # force . and .. to show in cmp menu
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} ma=0\;33 # colorize cmp menu
+zstyle ':completion:*' squeeze-slashes false # explicit disable to allow /*/ expansion
+
+# --- Completion UX tweaks
+setopt complete_in_word always_to_end
+zstyle ':completion:*' group-name ''                   # group results
+zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' \
+                                      'r:|[._-]=* r:|=*' 'l:|=* r:|=*'  # smarter matching
+zstyle ':completion:*' menu select # tab opens cmp menu
+# zstyle ':completion:*' special-dirs true # force . and .. to show in cmp menu
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} ma=0\;33 # colorize cmp menu
+zstyle ':completion:*' squeeze-slashes false # explicit disable to allow /*/ expansion
+
 # Source vim motions
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+function zvm_after_init() {
+  bindkey -M viins '^Y' autosuggest-accept    # Ctrl-Y accepts suggestion in insert mode
+}
+
+# Syntax highlighting
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+# Keybinds
+bindkey '^[.' insert-last-word
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
@@ -26,27 +58,20 @@ eval "$(zoxide init zsh)"
 # Init starship
 eval "$(starship init zsh)"
 
-zstyle ':completion:*' menu select # tab opens cmp menu
-# zstyle ':completion:*' special-dirs true # force . and .. to show in cmp menu
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} ma=0\;33 # colorize cmp menu
-zstyle ':completion:*' squeeze-slashes false # explicit disable to allow /*/ expansion
-
-# Keybinds
-bindkey '^[.' insert-last-word
-
 # main opts
-setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
-setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
-setopt SHARE_HISTORY             # Share history between all sessions.
-setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
-setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again.
-setopt HIST_IGNORE_ALL_DUPS      # Delete an old recorded event if a new event is a duplicate.
-setopt HIST_FIND_NO_DUPS         # Do not display a previously found event.
-setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
-setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
-setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
-setopt APPEND_HISTORY            # append to history file
-setopt HIST_NO_STORE             # Don't store history commands
+setopt hist_ignore_dups     # don’t record duplicate commands
+setopt hist_ignore_all_dups # remove older duplicates
+setopt hist_reduce_blanks   # trim excess spaces
+setopt hist_ignore_space    # lines starting with space are not saved
+setopt extended_history          # write the history file in the ':start:elapsed;command' format.
+setopt inc_append_history        # write to the history file immediately, not when the shell exits.
+setopt share_history             # share history between all sessions.
+setopt hist_expire_dups_first    # expire a duplicate event first when trimming history.
+setopt hist_find_no_dups         # do not display a previously found event.
+setopt hist_save_no_dups         # do not write a duplicate event to the history file.
+setopt hist_verify               # do not execute immediately upon history expansion.
+setopt append_history            # append to history file
+setopt hist_no_store             # don't store history commands
 
 setopt auto_menu menu_complete # autocmp first menu match
 setopt autocd # type a dir to cd
@@ -78,4 +103,3 @@ alias cd="z"
 alias v="nvim"
 alias lazy="lazygit"
 
-# Launch on startup

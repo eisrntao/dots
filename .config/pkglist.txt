@@ -29,7 +29,6 @@ ly
 macchina
 mako
 mpv
-neovim
 network-manager-applet
 nvidia-dkms
 nvidia-prime
@@ -64,6 +63,7 @@ yazi
 youtube-music-bin
 zellij
 zram-generator
+zsh-autosuggestions
 zsh-completions
 zsh-fast-syntax-highlighting
 zsh-vi-mode
