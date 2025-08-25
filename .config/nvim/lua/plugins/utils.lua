@@ -45,4 +45,25 @@ return {
 			{ "<leader>uz", "<cmd>Twilight<CR>", desc = "󰽥 Toggle zen mode" },
 		},
 	},
+	{
+		"m4xshen/hardtime.nvim",
+		lazy = false,
+		dependencies = { "MunifTanjim/nui.nvim" },
+		opts = {
+			disable_mouse = true,
+			disabled_keys = {
+				["<Up>"] = false,
+				["<Down>"] = false,
+				["<Left>"] = false,
+				["<Right>"] = false,
+			},
+			restricted_keys = {
+				["<Up>"] = { "n", "x" },
+				["Down"] = { "n", "x" },
+				["Left"] = { "n", "x" },
+				["Right"] = { "n", "x" },
+			},
+			notification = false,
+		},
+	},
 }
