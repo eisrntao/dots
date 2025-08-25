@@ -15,8 +15,9 @@
 )
 
 (defsrc
-  1 2 3 4 5
-  caps  a   s   d   f   g   h  j   k   l   ;
+  1 2 3 4 5 bspc
+  tab
+  caps  a   s   d   f   g   h  j   k   l   ; enter
                  spc ralt
 )
 
@@ -43,21 +44,24 @@
 )
 
 (deflayer base
-  1 2 3 4 5
-  esc @a  @s  @d  @f  g  h  @j  @k  @l  @;
+  1 2 3 4 5 XX
+  XX
+  esc @a  @s  @d  @f  g  h  @j  @k  @l  @; XX
                    @space @ralt
 )
 
 (deflayer nomods
-  1 2 3 4 5
-  esc  a  s   d   f   g   h   j   k   l   ;
+  1 2 3 4 5 XX
+  XX
+  esc  a  s   d   f   g   h   j   k   l   ; XX
                    @space @ralt
 )
 
 ;; nav layer
 (deflayer nav
-  M-1 M-2 M-3 M-4 M-5
-  C-bspc   bspc   home   pgup   pgdn   end   left   down   up   right   enter
+  M-1 M-2 M-3 M-4 M-5 XX
+  XX
+  bspc   tab   home   pgup   pgdn   end   left   down   up   right   enter XX
                                     @space MediaPlayPause
 )
 (deffakekeys
