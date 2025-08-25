@@ -10,20 +10,6 @@ return {
 			"saghen/blink.cmp",
 		},
 		config = function()
-			-- Diagnostics (0.11 adds virtual_lines & virtual_text.current_line)
-			vim.diagnostic.config({
-				virtual_text = {
-					spacing = 2,
-					prefix = "●",
-					current_line = false,
-				},
-				signs = true,
-				underline = true,
-				update_in_insert = false,
-				severity_sort = true,
-				float = { border = "rounded", source = "if_many" },
-			})
-
 			-- One place for your LSP keymaps + inlay hints for ANY server
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("my.lsp", {}),
@@ -34,7 +20,6 @@ return {
 						vim.keymap.set(m, lhs, rhs, { buffer = bufnr, silent = true, desc = desc })
 					end
 
-					-- You already get K mapped to hover by default in 0.11; override if you want your own. :contentReference[oaicite:0]{index=0}
 					map("n", "K", vim.lsp.buf.hover, "Hover")
 					map({ "n", "i" }, "<C-k>", vim.lsp.buf.signature_help, "Signature help")
 					map("n", "gl", vim.diagnostic.open_float, "Line diagnostics")
@@ -89,6 +74,26 @@ return {
 			-- Finally, auto-start these servers whenever files match their filetypes
 			vim.lsp.enable({ "lua_ls", "pyright", "ruff", "hls", "bashls", "marksman" })
 			-- (0.11 adds vim.lsp.config/enable; you can also add lsp/<name>.lua files.) :contentReference[oaicite:1]{index=1}
+		end,
+	},
+	{
+		"rachartier/tiny-inline-diagnostic.nvim",
+		event = "VeryLazy",
+		priority = 1000, -- needs to be loaded in first
+		config = function()
+			require("tiny-inline-diagnostic").setup({
+				preset = "classic",
+				transparent_bg = true,
+				multilines = { enabled = true, always_show = true },
+			})
+			vim.diagnostic.config({
+				virtual_text = false,
+				signs = true,
+				underline = true,
+				update_in_insert = false,
+				severity_sort = true,
+				float = { border = "rounded", source = "if_many" },
+			})
 		end,
 	},
 }
