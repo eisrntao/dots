@@ -10,3 +10,6 @@ vim.keymap.set("n", "<leader>ur", "<cmd>set relativenumber!<CR>", { desc = " 
 -- Browserlike controls
 vim.keymap.set("n", "<leader>bd", "<cmd>bd<CR>", { desc = " Delete buffer" })
 vim.keymap.set("n", "<leader>bs", "<cmd>w<CR>", { desc = "󰆓 Save buffer" })
+
+-- paste
+vim.keymap.set("n", "<C-p>", "<cmd>pu<CR>")
