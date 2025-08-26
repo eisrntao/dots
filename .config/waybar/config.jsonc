@@ -14,13 +14,12 @@
         "hyprland/window",
     ],
     "modules-center": [
-        "custom/bartib",
+        "group/widget",
         "mpris",
     ],
     "modules-right": [
         "hyprland/language",
         "tray",
-        // "network",
         "bluetooth",
         "group/status",
         "group/control",
@@ -108,6 +107,14 @@
     },
 
     // groups
+    "group/widget": {
+      "modules" : [
+        "custom/bartib",
+        "custom/task"
+      ],
+      "orientation": "inherit",
+    },
+
     "group/status": {
       "modules" : [
         "cpu",
@@ -218,11 +225,18 @@
       "format-icons": {
         "true": "󱫌",
         "false": "" },
-      "exec": "$HOME/scripts/bartib",
+      "exec": "$HOME/.config/waybar/scripts/bartib",
       "return-type": "json",
-      "on-click": "$HOME/scripts/bartib -t",
-      "interval": 60,
+      "on-click": "$HOME/.config/waybar/scripts/bartib -t",
+      "interval": 200,
       "signal": 6,
+   },
+    "custom/task": {
+      "format": "{text}",
+      "exec": "$HOME/.config/waybar/scripts/task",
+      "return-type": "json",
+      "interval": 200,
+      "on-click": "alacritty --hold --class floatterm -e zsh -ci 'task next'"
    },
 
    "custom/pacman": {

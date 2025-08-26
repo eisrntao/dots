@@ -16,5 +16,6 @@ else
   # Output JSON for Waybar
   alt=$([[ $running -gt 1 ]] && echo true || echo false)
   tooltip=$([[ $running -gt 1 ]] && echo "An activity is currently running" || echo "Start activity")
-  echo "{\"tooltip\":\"$tooltip\",\"alt\":$alt}"
+  jq -cn --arg alt "$alt" --arg tooltip "$tooltip" \
+    '{alt:$alt, tooltip:$tooltip}'
 fi

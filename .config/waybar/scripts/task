@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# get clean json from taskwarrior
+json="$(task rc.color=off rc._forcecolor=off rc.json.array=on start.any: status.not:deleted export 2>/dev/null)"
+
+# count active tasks
+count="$(jq 'length' <<<"$json")"
+
+# build tooltip
+tooltip="$(
+  jq -r '[.[].description]
+          | map(" " + .)
+          | join("\n")' <<<"$json"
+)"
+
+# print json for waybar
+jq -cn --arg text "${count}󱃔" --arg tooltip "$tooltip" \
+  '{text:$text, tooltip:$tooltip}'

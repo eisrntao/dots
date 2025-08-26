@@ -16,7 +16,7 @@ window#waybar, .modules-center {
     border-radius: 10px;
 }
 
- .modules-left, .modules-right, #mpris, #custom-bartib {
+ .modules-left, .modules-right, #mpris, #widget {
   padding: 2px 7px;
   background-color: alpha(@background, 1);
   border-radius: 10px;
