@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
-current=$(bartib current)
-running=$(echo "$current" | wc -l)
+current=$(bartib current | sed "/Warning:/d")
+running=$(wc -l <<< "$current" )
 
 if [[ $1 ]]; then
   if [[ $running -gt 1 ]]; then
-    msg=$(bartib stop | tail -n 1 | sed 's/).*//')
+    msg=$(bartib stop | tail -n 1)
   else
-    msg=$(bartib continue | tail -n 1 | sed 's/).*//')
+    msg=$(bartib continue | tail -n 1)
   fi
 
-  notify-send "$msg"
+  notify-send "$(sed 's/).*//' <<< "$msg"))"
   pkill -RTMIN+6 waybar
 else
   # Output JSON for Waybar
