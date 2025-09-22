@@ -1,5 +1,6 @@
 alacritty
 aria2
+bagels
 bartib
 base
 bat-asus-battery-bin
@@ -10,10 +11,12 @@ btop
 calibre
 chaotic-keyring
 chaotic-mirrorlist
+chromium
 dust
 efibootmgr
 eza
 ghc
+httpie
 hyprland
 hyprlock
 hyprpaper
@@ -37,6 +40,7 @@ pacseek
 paru
 paru-debug
 python-pywal16
+qmk
 qutebrowser
 reflector
 sof-firmware
@@ -54,10 +58,13 @@ ueberzugpp
 ufw
 unzip
 vi
+vial-appimage
+vscodium
 waybar
 wev
 wiremix-git
 wlsunset
+wofi
 wps-office
 yazi
 youtube-music-bin
