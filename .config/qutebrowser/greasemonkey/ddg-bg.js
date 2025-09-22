@@ -1,1 +1,0 @@
-/home/eisrntao/.cache/wal/ddg-bg.js

@@ -15,8 +15,17 @@ home = os.getenv('HOME')
 colors_relative = '.cache/wal/colors.json'
 colors_absolute = os.path.join(home, colors_relative)
 
+# forced recolor
+FORCED_RETHEME = False
+c.colors.webpage.darkmode.enabled = FORCED_RETHEME
 cust_css_relative = '.cache/wal/page-bg.css'
 css_absolute = os.path.join(home, cust_css_relative)
+
+# force theme bg on sites
+if os.path.isfile(css_absolute) and FORCED_RETHEME:
+    c.content.user_stylesheets.append(css_absolute)
+
+
 
 if os.path.isfile(colors_absolute):
     with open(colors_absolute) as colorfile:
@@ -37,10 +46,6 @@ if os.path.isfile(colors_absolute):
     background_transparent = add_alpha(background, ALPHA)
     primary_transparent = add_alpha(primary, ALPHA2)
     text_transparent = add_alpha(foreground, ALPHA2)
-
-    # force theme bg on sites
-    if os.path.isfile(css_absolute):
-        c.content.user_stylesheets.append(css_absolute)
 
 
     # Background color of the completion widget category headers.
