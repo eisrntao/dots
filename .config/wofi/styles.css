@@ -1,0 +1,40 @@
+@import ".cache/wal/colors-waybar.css";
+* {
+  color: @foreground;
+  font-family: Iosevka Nerd Font Mono, monospace;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+#window {
+  background: alpha(@background, 0.8);
+  border-radius: 1em;
+}
+
+#input {
+  background: transparent;
+  border-radius: 1em;
+  margin: 0.4em;
+  box-shadow: 0.2em 0.2em 0.8em alpha(@color3, 0.5);
+}
+
+#entry {
+  border-radius: 0.5em;
+  margin-left: 0.4em;
+  margin-right: 0.4em;
+}
+
+#selected {
+  background: alpha(@color3, 0.95);
+  box-shadow: 0.2em 0.2em 0.4em alpha(@color3, 0.5);
+  border-radius: 0.5em;
+}
+
+#selected * {
+  color: @background;
+}
+
+#img {
+  margin: 0.3em;
+}
+

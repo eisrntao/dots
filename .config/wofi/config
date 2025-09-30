@@ -1,0 +1,6 @@
+show=drun
+allow_images=true
+stylesheet=./styles.css
+prompt=
+insensitive=true
+no_actions=true
