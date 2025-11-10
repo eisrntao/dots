@@ -103,3 +103,11 @@ alias cd="z"
 alias v="nvim"
 alias lazy="lazygit"
 
+function kindle() {
+  if [[ $1 = "cp" ]]; then
+    scp $2 "kindle:/mnt/us/documents/"
+  else
+    echo "Wrong argument, available are:"
+    echo "kindle cp [FILE]"
+  fi
+}
