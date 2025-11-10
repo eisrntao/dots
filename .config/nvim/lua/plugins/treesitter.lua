@@ -56,6 +56,18 @@ return {
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				textobjects = {
+					move = {
+						enable = true,
+						set_jumps = true,
+						goto_next_start = {
+							["]f"] = "@function.outer",
+							["]c"] = "@class.outer",
+						},
+						goto_prev_start = {
+							["]f"] = "@function.outer",
+							["[c"] = "@class.outer",
+						},
+					},
 					select = {
 						enable = true,
 
@@ -81,11 +93,11 @@ return {
 							["af"] = { query = "@call.outer", desc = "Select outer part of a function call" },
 							["if"] = { query = "@call.inner", desc = "Select inner part of a function call" },
 
-							["am"] = {
+							["ad"] = {
 								query = "@function.outer",
 								desc = "Select outer part of a method/function definition",
 							},
-							["im"] = {
+							["id"] = {
 								query = "@function.inner",
 								desc = "Select inner part of a method/function definition",
 							},
