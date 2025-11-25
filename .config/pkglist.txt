@@ -12,6 +12,7 @@ calibre
 chaotic-keyring
 chaotic-mirrorlist
 chromium
+cronie
 dust
 efibootmgr
 eza

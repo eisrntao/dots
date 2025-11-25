@@ -105,6 +105,13 @@
       "on-click": "alacritty --class floatterm -o font.size=12 -e btop -p 2",
     },
 
+  "disk": {
+    "interval": 30,
+    "format": " {percentage_used}%",
+    "tooltip": "{free} out of {total} available.",
+    "on-click": "alacritty --class floatterm -o font.size=12 -e bash -c 'dust -r / 2>/dev/null; read'",
+  },
+
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
@@ -131,6 +138,7 @@
         "custom/spacer1",
         "custom/weather",
         "custom/spacer1",
+        "disk",
         "memory",
         "temperature"
       ],
