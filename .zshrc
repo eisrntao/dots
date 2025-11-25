@@ -111,3 +111,6 @@ function kindle() {
     echo "kindle cp [FILE]"
   fi
 }
+
+# execute zellij hook
+$HOME/scripts/zellij-hook
