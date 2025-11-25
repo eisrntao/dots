@@ -20,6 +20,7 @@
     "modules-right": [
         "hyprland/language",
         "tray",
+        "network",
         "bluetooth",
         "group/status",
         "group/control",
@@ -57,18 +58,34 @@
       },
       "persistent-only": true,
       "all-outputs": true,
+      "ignore-workspaces": ["*."]
     },
 
     "mpris": {
       "format": "▶  {dynamic}",
       "format-paused": "⏸  {dynamic}",
       "dynamic-order": ["title", "artist", "album"],
-      "dynamic-len": 60,
+      "dynamic-len": 60
     },
 
     "tray": {
       "icon-size": 11,
-      "spacing": 5,
+      "spacing": 5
+    },
+
+  "network": {
+      "format": "{ifname}",
+      "on-click": "alacritty --class floatterm -o font.size=12 -e impala",
+      "format-wifi": "",
+      "format-ethernet": "󰈀",
+      "format-linked": "",
+      "format-disconnected": "󰞃",
+      "tooltip-format": "{ifname} via {gwaddr} ",
+      "tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
+      "tooltip-format-ethernet": "{ifname} 󰈀 ",
+      "tooltip-format-linked": "Linked  ",
+      "tooltip-format-disconnected": "Disconnected",
+      "max-length": 50
     },
 
     "clock": {
@@ -110,8 +127,10 @@
     "group/status": {
       "modules" : [
         "cpu",
-        "custom/weather",
         "custom/pacman",
+        "custom/spacer1",
+        "custom/weather",
+        "custom/spacer1",
         "memory",
         "temperature"
       ],
@@ -166,16 +185,6 @@
         "format-icons": [" ", " ", " ", " ", " "]
     },
 
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": " ",
-        "format-ethernet": "󰈀 ",
-        "tooltip-format": "{essid} ({signalStrength}%)  ",
-        "format-linked": "{ifname} (No IP) 󰈁",
-        "format-disconnected": "⚠ ",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
-
     "bluetooth": {
       "format-off": "",
       "format-on": "󰂯",
@@ -206,6 +215,10 @@
     },
 
     // custom modules
+    "custom/spacer1": {
+      "format": "|",
+      "tooltip": ""
+    },
     "custom/shutdown": {
       "format": "⏻ ",
       "tooltip-format": "Shut down",
@@ -237,14 +250,15 @@
      "interval": "once",                     // every hour
      "exec": "checkupdates | wc -l",       // # of updates
      "exec-if": "exit 0",                  // always run; consider advanced run conditions
-     "on-click": "alacritty --class floatterm -o font.size=12 -e paru; pkill -SIGRTMIN+8 waybar", // update system
+     "on-click":
+     "hyprctl dispatch exec '[workspace special:hidden]alacritty --class floatterm -o font.size=12 -e bash -c 'paru; pkill -SIGRTMIN+8 waybar''", // update system
      "signal": 8
    },
 
    "custom/weather": {
       "exec": "curl -s 'wttr.in?format=1' | sed 's/  //'",
       "interval": 300,
-      "on-click": "qutebrowser wttr.in"
+      "on-click": "alacritty --class floatterm -o font.size=11 -e bash -c 'echo 'Loading...'; curl wttr.in | head -n -2; read'"
    }
 
 }

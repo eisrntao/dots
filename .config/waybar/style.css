@@ -81,6 +81,10 @@ label.module {
     font-size: 0.9em;
 }
 
+#network {
+  font-size: 1.1rem;
+}
+
 @keyframes blink {
     to {
         color: @color1;
@@ -104,4 +108,9 @@ font-size:1.3em;
 
 #custom-bartib {
   font-size: 1.8em;
+}
+
+#custom-spacer1 {
+  margin: 0.2em;
+  color: alpha(@foreground, 0.4);
 }
