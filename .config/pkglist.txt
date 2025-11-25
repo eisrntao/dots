@@ -22,6 +22,7 @@ hyprlock
 hyprpaper
 hyprpolkitagent
 hyprshot
+impala
 intel-ucode
 just
 kanata-bin
@@ -32,7 +33,7 @@ ly
 macchina
 mako
 mpv
-network-manager-applet
+networkmanager
 nvidia-dkms
 nvidia-prime
 pacman-contrib
