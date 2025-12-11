@@ -1,6 +1,9 @@
 # Import vars
 source $HOME/.zprofile
 
+# Fix rust path
+PATH="$PATH:$HOME/.cargo/bin"
+
 # Change history
 HISTFILE=~/.cache/.zshhistory
 HISTSIZE=10000
@@ -102,6 +105,10 @@ alias du="dust"
 alias cd="z"
 alias v="nvim"
 alias lazy="lazygit"
+
+alias b="bartib"
+alias br="bartib report"
+alias today="bartib report --today"
 
 function kindle() {
   if [[ $1 = "cp" ]]; then
