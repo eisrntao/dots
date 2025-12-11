@@ -2,7 +2,8 @@
 set -euo pipefail
 
 # get clean json from taskwarrior
-json="$(task rc.color=off rc._forcecolor=off rc.json.array=on start.any: status.not:deleted export 2>/dev/null)"
+context="$(task _show | grep '^context=' | awk -F '=' '{print $2}')"
+json="$(task rc.color=off rc._forcecolor=off rc.json.array=on status:pending project:$context export 2>/dev/null)"
 
 # count active tasks
 count="$(jq 'length' <<<"$json")"

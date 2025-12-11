@@ -1,8 +1,8 @@
 // -*- mode: jsonc -*-
 {
     "output": ["HDMI-A-1", "eDP-1"],
-    "height": 30, // Waybar height (to be removed for auto height)
-    "margin-top" : 5, // Margin around bar
+    "position": "top", // Bar pos
+    "margin-top" : 0, // Margin around bar
     "margin-left": 5,
     "margin-right": 5,
     "spacing": 4, // Gaps between modules (4px)
@@ -52,7 +52,8 @@
         "default": "",
         "browser": "󰈹 ",
         "code": " ",
-        "writing": " ",
+        "editor": " ",
+        "text": " ",
         "misc": " ",
         "music": " ",
       },
@@ -242,14 +243,15 @@
       "return-type": "json",
       "on-click": "$HOME/.config/waybar/scripts/bartib -t",
       "interval": 200,
-      "signal": 6,
+      "signal": 6
    },
     "custom/task": {
       "format": "{text}",
       "exec": "$HOME/.config/waybar/scripts/task",
       "return-type": "json",
       "interval": 200,
-      "on-click": "alacritty --hold --class floatterm -e zsh -ci 'task next'"
+      "on-click": "alacritty --class floatterm -e 'taskwarrior-tui'",
+      "signal": 7
    },
 
    "custom/pacman": {

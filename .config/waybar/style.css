@@ -2,9 +2,10 @@
 
 * {
     font-family: Iosevka Nerd Font Mono, monospace;
-    font-size: 12px;
+    font-size: 10px;
     color: @foreground;
     transition: all 0.05s ease-out;
+    border-radius: 0px;
 }
 
 *:hover {
@@ -13,11 +14,21 @@
 
 window#waybar, .modules-center {
     background-color: alpha(@background, 0);
-    border-radius: 10px;
 }
 
- .modules-left, .modules-right, #mpris, #widget {
+ .modules-left, .modules-right {
   padding: 2px 7px;
+  margin-bottom: 10px;
+  background-color: alpha(@background, 1);
+  border-radius: 0px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: all 0.5s;
+}
+
+#widget, #mpris {
+  margin-top: 5px;
+  margin-bottom: 5px;
   background-color: alpha(@background, 1);
   border-radius: 10px;
   transition: all 0.5s;
@@ -29,21 +40,18 @@ label.module {
 }
 
 #clock {
-  font-size: 1.2em;
+  font-size: 1.4em;
 }
 
 #workspaces button {
     padding: 2px 1px;
-  transition: all 0.1s linear;
+    transition: all 0.1s linear;
 }
 
 #workspaces button * {
     font-size: 1.2em;
-  transition: color 0.15s ease-out;
+    transition: color 0.15s ease-out;
   }
-
-#workspaces button.active {
-}
 
 #workspaces button.active * {
   color: @color1;
@@ -70,7 +78,7 @@ label.module {
 
 #mpris {
     font-style: italic;
-    font-size: 0.9em;
+    font-size: 0.7rem;
 }
 
 
@@ -102,8 +110,8 @@ label.module {
 }
 
 #custom-shutdown {
-margin-left: 7px;
-font-size:1.3em;
+  margin-left: 7px;
+  font-size:1.3em;
 }
 
 #custom-bartib {
