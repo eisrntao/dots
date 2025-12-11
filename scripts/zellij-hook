@@ -4,7 +4,7 @@ function new_session() {
     read -r new_name
     [[ -n $new_name ]] && zellij --session "$(echo $new_name | sed 's/\ /-/g')"
 }
-if [[ -z $ZELLIJ ]]; then
+if [[ -z $ZELLIJ && "$TERM_PROGRAM" != "vscode" ]]; then
  if [[ $(zellij ls --no-formatting --short | wc -l) -eq 0 ]]; then
     new_session
   else

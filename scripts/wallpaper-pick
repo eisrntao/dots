@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
-source $HOME/.zprofile
+source "$HOME/.zprofile"
 tmp="$(mktemp -t wal-pick.XXXXXXX)"
 
-$TERM --class "floatterm" -e yazi $WALLPAPER_DIR --chooser-file "$tmp"
+$TERM --class "floatterm" -e yazi "$WALLPAPER_DIR" --chooser-file "$tmp"
 
 # set light theme
 if [[ "$*" == *--light* ]]; then
   LIGHT=1
 fi
 
-selected=$(cat $tmp)
+selected="$(cat $tmp)"
 
 if [ ! -z $selected ]; then
-  if [[ -d $selected ]]; then 
+  if [[ -d $selected ]]; then
   notify-send "Selected random wallpaper from $selected."
   else
   notify-send "Selected $selected."
   fi
-wal -i $selected -o $SCRIPT_DIR/wallpaper-reload ${LIGHT:+-l}
+wal -i "$selected" -o $SCRIPT_DIR/wallpaper-reload ${LIGHT:+-l}
 else
 notify-send "No wallpaper has been selected."
 fi
