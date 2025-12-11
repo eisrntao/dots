@@ -1,4 +1,5 @@
 c.hints.chars = "arstgmneio"
+
 # basic navigation
 config.bind('M', 'back')
 config.bind('I', 'forward')
@@ -12,3 +13,6 @@ config.bind('e', 'scroll up')
 # search
 config.bind('k', 'search-next')
 config.bind('K', 'search-prev')
+
+# misc
+config.bind('z', 'config-cycle colors.webpage.darkmode.enabled')
