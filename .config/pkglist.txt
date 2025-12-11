@@ -1,6 +1,5 @@
 alacritty
 aria2
-bagels
 bartib
 base
 bat-asus-battery-bin
@@ -16,8 +15,6 @@ cronie
 dust
 efibootmgr
 eza
-ghc
-httpie
 hyprland
 hyprlock
 hyprpaper
@@ -34,15 +31,15 @@ ly
 macchina
 mako
 mpv
-networkmanager
 nvidia-dkms
 nvidia-prime
 pacman-contrib
 pacseek
 paru
 paru-debug
+python-pytest-cov
+python-pytest-sugar
 python-pywal16
-qmk
 qutebrowser
 reflector
 sof-firmware
@@ -51,7 +48,7 @@ stow
 stylua
 sudo-rs
 syncthing
-task
+taskwarrior-tui
 tealdeer
 tela-circle-icon-theme-black
 udiskie
@@ -59,7 +56,6 @@ ueberzugpp
 ufw
 unzip
 vi
-vial-appimage
 vscodium
 waybar
 wev
@@ -67,7 +63,6 @@ wiremix-git
 wlsunset
 wofi
 wps-office
-yazi
 youtube-music-bin
 zellij
 zram-generator
