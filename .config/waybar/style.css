@@ -29,11 +29,21 @@ window#waybar, .modules-center {
 #widget, #mpris {
   margin-top: 5px;
   margin-bottom: 5px;
+  padding: 5px;
   background-color: alpha(@background, 1);
   border-radius: 10px;
   transition: all 0.5s;
 }
 
+tooltip {
+  background-color: alpha(@background, 1);
+  border-radius: 10px;
+  border: 1px solid alpha(@foreground, 0.4);
+}
+tooltip label {
+  font-size: 1.2em;
+  color: white;
+}
 
 label.module {
     padding: 0px 3px;

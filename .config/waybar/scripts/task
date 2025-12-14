@@ -1,25 +1,16 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
-# get clean json from taskwarrior
-context="$(task _show | grep '^context=' | awk -F '=' '{print $2}')"
-json="$(task rc.color=off rc._forcecolor=off rc.json.array=on status:pending project:$context export 2>/dev/null)"
+context=$(task _get rc.context)
+if [[ ! -z $context ]]; then
+  proj="<b>Project: $context</b>"
+  proj+=$'\n'
+fi
+count=$(task status:pending rc.verbose: count)
+tasks=$(task simple rc.verbose: | head -n 5 | awk '{print " " $0}')
 
-# count active tasks
-count="$(jq 'length' <<<"$json")"
-
-# build tooltip
-tooltip="$(
-  jq -r '[.[].description]
-          | map(" " + .)
-          | join("\n")' <<<"$json"
-)"
-
-if [[ $count -eq 0 ]]; then
-  count=""
-else
+if [[ ! $count -eq 0 ]]; then
   count="${count}󱃔"
 fi
 # print json for waybar
-jq -cn --arg text "$count" --arg tooltip "$tooltip" \
+jq -cn --arg text "$count" --arg tooltip "$proj$tasks" \
   '{text:$text, tooltip:$tooltip}'

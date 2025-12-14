@@ -1,0 +1,44 @@
+# [Created by task 3.4.1 6/17/2025 18:53:34]
+data.location=/home/eisrntao/.task
+news.version=3.4.1
+
+# To use the default location of the XDG directories,
+# move this configuration file from ~/.taskrc to ~/.config/task/taskrc and update location config as follows:
+
+#data.location=~/.local/share/task
+#hooks.location=~/.config/task/hooks
+
+# Color theme (uncomment one to use)
+#include light-16.theme
+#include light-256.theme
+#include bubblegum-256.theme
+#include dark-16.theme
+#include dark-256.theme
+#include dark-red-256.theme
+#include dark-green-256.theme
+#include dark-blue-256.theme
+#include dark-violets-256.theme
+#include dark-yellow-green.theme
+#include dark-gray-256.theme
+#include dark-gray-blue-256.theme
+#include solarized-dark-256.theme
+#include solarized-light-256.theme
+#include no-color.theme
+
+uda.remaining.type=numeric
+uda.remaining.label=TODO
+report.next.labels=ID,Active,Age,Deps,P,Project,TODO,Tag,Recur,S,Due,Until,Description,Urg
+report.next.columns=id,start.age,entry.age,depends,priority,project,remaining,tags,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
+context.enexdata.read=project:enexdata +work
+context.enexdata.write=project:enexdata +work
+color.tag.work=color025
+color.tag.school=rgb541
+context.quantio.read=project:quantio +work
+context.quantio.write=project:quantio +work
+
+report.simple.description=Simple list of open tasks
+report.simple.columns=description.count
+report.simple.labels=Desc
+report.simple.sort=urgency-\/,description+
+report.simple.filter=status:pending
+context=quantio

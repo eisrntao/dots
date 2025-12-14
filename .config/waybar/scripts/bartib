@@ -1,21 +1,58 @@
 #!/usr/bin/env bash
-
-current=$(bartib current | sed "/Warning:/d")
-running=$(wc -l <<< "$current" )
+PATH="$PATH:$HOME/Projects/bartib/target/release"
 
 if [[ $1 ]]; then
-  if [[ $running -gt 1 ]]; then
-    msg=$(bartib stop | tail -n 1)
-  else
-    msg=$(bartib continue | tail -n 1)
-  fi
-
-  notify-send "$(sed 's/).*//' <<< "$msg"))"
+  msg=$(bartib toggle --nowarn)
+  notify-send "$msg"
   pkill -RTMIN+6 waybar
-else
-  # Output JSON for Waybar
-  alt=$([[ $running -gt 1 ]] && echo true || echo false)
-  tooltip=$([[ $running -gt 1 ]] && echo "An activity is currently running." || echo "Start activity")
-  jq -cn --arg alt "$alt" --arg tooltip "$tooltip" \
-    '{alt:$alt, tooltip:$tooltip}'
+  exit 0
 fi
+
+GOAL=120
+
+bartib status --nowarn --json | sed 's/<1m/0m/g' |
+jq -rc --argjson goal "$GOAL" '
+  def minutes:
+    (
+      (.today
+       | match("(?:(\\d+)h)?\\s*(?:(\\d+)m)?")
+       | .captures
+       | map(.string // "0")
+       | map(tonumber)
+       | .[0] * 60 + .[1])
+    );
+
+  def clamp(min; max):
+    if . < min then min
+    elif . > max then max
+    else .
+    end;
+
+  def bar(width):
+    (minutes | clamp(0; $goal)) as $m
+    | (($m * width) / $goal | floor) as $filled
+    | if $filled >= 2
+      then "\uE0B6" + ("\u2588" * ($filled - 2)) + "\uE0B4"
+      else ""
+      end;
+
+  .activity as $a
+  | ($a != null) as $active
+  | (
+      if $active
+      then "Current activity: <b>\($a.description)</b> <i>(\($a.project))</i>"
+      else ""
+      end
+    ) as $desc
+  | ($desc | length) as $maxlen
+  | (
+      if $active
+      then "\($desc)\nToday: <b>\(.today)\n\n\((bar($maxlen)))</b>"
+      else "Start activity"
+      end
+    ) as $tooltip
+  | {
+      alt: $active,
+      tooltip: $tooltip
+    }
+'

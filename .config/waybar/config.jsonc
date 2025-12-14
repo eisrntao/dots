@@ -242,8 +242,9 @@
       "exec": "$HOME/.config/waybar/scripts/bartib",
       "return-type": "json",
       "on-click": "$HOME/.config/waybar/scripts/bartib -t",
-      "interval": 200,
-      "signal": 6
+      "interval": 60,
+      "signal": 6,
+      "markup": "pango"
    },
     "custom/task": {
       "format": "{text}",
@@ -251,7 +252,8 @@
       "return-type": "json",
       "interval": 200,
       "on-click": "alacritty --class floatterm -e 'taskwarrior-tui'",
-      "signal": 7
+      "signal": 7,
+      "markup": "pango"
    },
 
    "custom/pacman": {
