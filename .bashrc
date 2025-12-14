@@ -4,3 +4,4 @@ source $HOME/.zprofile
 # Change history
 HISTFILE=$HOME/.cache/.bash_history
 HISTCONTROL=ignoreboth
+. "$HOME/.cargo/env"

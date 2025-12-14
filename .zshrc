@@ -2,7 +2,7 @@
 source $HOME/.zprofile
 
 # Fix rust path
-PATH="$PATH:$HOME/.cargo/bin"
+PATH="$PATH:$HOME/Projects/bartib/target/release"
 
 # Change history
 HISTFILE=~/.cache/.zshhistory
