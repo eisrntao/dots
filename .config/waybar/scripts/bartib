@@ -44,10 +44,10 @@ jq -rc --argjson goal "$GOAL" '
       else ""
       end
     ) as $desc
-  | ($desc | length) as $maxlen
+  | ($desc | gsub("<[^>]*>"; "") | length) as $maxlen
   | (
       if $active
-      then "\($desc)\nToday: <b>\(.today)\n\n\((bar($maxlen)))</b>"
+      then "\($desc)\nToday: <b>\(.today)</b>\n\n\((bar($maxlen)))"
       else "Start activity"
       end
     ) as $tooltip
