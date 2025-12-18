@@ -57,7 +57,7 @@
 ;; nav layer
 (deflayer nav
   M-1 M-2 M-3 M-4 M-5
-  bspc   tab   home   pgup   pgdn   end   left   down   up   right   enter
+  C-bspc   tab   home   pgup   pgdn   end   left   down   up   right   enter
                                     @space MediaPlayPause
 )
 (deffakekeys
