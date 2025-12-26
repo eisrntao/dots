@@ -41,4 +41,9 @@ report.simple.columns=description.count
 report.simple.labels=Desc
 report.simple.sort=urgency-\/,description+
 report.simple.filter=status:pending
-context=quantio
+
+report.simple2.description=Simple list of open tasks with projects
+report.simple2.columns=project,description.count
+report.simple2.labels=Project,Desc
+report.simple2.sort=urgency-\/,description+
+report.simple2.filter=status:pending
