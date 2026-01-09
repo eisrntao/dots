@@ -10,7 +10,8 @@ fi
 
 GOAL=120
 
-bartib status --nowarn --json | sed 's/<1m/0m/g' |
+proj=$(bartib current --nowarn --json | jq -r '.[0]["project"]')
+bartib status --nowarn --project "$proj" --json | sed 's/<1m/0m/g' |
 jq -rc --argjson goal "$GOAL" '
   def minutes:
     (

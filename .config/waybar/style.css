@@ -112,6 +112,7 @@ label.module {
 #battery.warning:not(.charging) {
     background: @foreground;
     color: white;
+    border-radius: 10px;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
