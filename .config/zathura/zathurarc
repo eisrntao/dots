@@ -1,2 +1,13 @@
 include /home/eisrntao/.cache/wal/colors-zathura
 
+set window-title-home-tilde true
+set statusbar-basename true
+set selection-clipboard clipboard
+
+map n navigate next
+map e navigate previous
+map N scroll down
+map E scroll up
+map k search forward
+map K search backward
+
