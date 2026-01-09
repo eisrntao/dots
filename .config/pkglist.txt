@@ -30,7 +30,7 @@ ly
 macchina
 mako
 mpv
-nvidia-dkms
+nvidia-open-dkms
 nvidia-prime
 pacman-contrib
 pacseek
