@@ -1,7 +1,7 @@
 # Eisrntao's dotfiles
 ![terminal usage](asset/term.png)
 ![floating windows](asset/yazi.png)
-These are my personal dotfiles and are a constant work in progress. I use [Hyprland](https://github.com/hyprwm/Hyprland), because I like it for a lot of reasons. My terminal emulator is [Alacritty](https://github.com/alacritty/alacritty)
+These are my personal dotfiles and are a constant work in progress. I use [Hyprland](https://github.com/hyprwm/Hyprland), because I like it for a lot of reasons. My terminal emulator is [Ghostty](https://ghostty.org/).
 
 **Features include:**
 ## Colemak
