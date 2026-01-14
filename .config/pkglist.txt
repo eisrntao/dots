@@ -1,4 +1,3 @@
-alacritty
 aria2
 awww-git
 base
@@ -54,7 +53,6 @@ taskwarrior-tui
 tealdeer
 tela-circle-icon-theme-black
 udiskie
-ueberzugpp
 ufw
 unzip
 vi

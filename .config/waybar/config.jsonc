@@ -42,7 +42,7 @@
         "com.github.th_ch.youtube_music": "YouTube Music",
         "org.pwmt.zathura": "Zathura",
         "et": "Spreadsheets",
-        "floatterm": "Floating Utility"
+        "'custom.float'": "Floating Utility"
       }
     },
 
@@ -76,7 +76,7 @@
 
   "network": {
       "format": "{ifname}",
-      "on-click": "alacritty --class floatterm -o font.size=12 -e impala",
+      "on-click": "ghostty --class='custom.float' --font-size=12 -e impala",
       "format-wifi": "",
       "format-ethernet": "󰈀",
       "format-linked": "",
@@ -98,19 +98,19 @@
     "cpu": {
       "format": " {usage}%",
       "tooltip": false,
-      "on-click": "alacritty --class floatterm -o font.size=12 -e btop -p 1",
+      "on-click": "ghostty --class='custom.float' --font-size=12 -e btop -p 1",
     },
 
     "memory": {
       "format": " {}%",
-      "on-click": "alacritty --class floatterm -o font.size=12 -e btop -p 2",
+      "on-click": "ghostty --class='custom.float' --font-size=12 -e btop -p 2",
     },
 
   "disk": {
     "interval": 30,
     "format": " {percentage_used}%",
     "tooltip": "{free} out of {total} available.",
-    "on-click": "alacritty --class floatterm -o font.size=12 -e bash -c 'dust -r / 2>/dev/null; read'",
+    "on-click": "ghostty --class='custom.float' --font-size=12 -e bash -c 'dust -r / 2>/dev/null; read'",
   },
 
     "temperature": {
@@ -120,7 +120,7 @@
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{icon} {temperatureC}°C",
         "format-icons": ["", "", ""],
-        "on-click": "alacritty --class floatterm -o font.size=12 -e btop -p 1",
+        "on-click": "ghostty --class='custom.float' --font-size=12 -e btop -p 1",
     },
 
     // groups
@@ -198,7 +198,7 @@
       "format-off": "",
       "format-on": "󰂯",
       "format-connected": "󰂯 {device_alias}",
-      "on-click": "alacritty --class floatterm -e bluetui"
+      "on-click": "ghostty --class='custom.float' -e bluetui"
     },
 
     "pulseaudio": {
@@ -219,7 +219,7 @@
           "default": ["", "", ""]
         },
         "reverse-scrolling": true,
-        "on-click": "alacritty --class floatterm -e wiremix",
+        "on-click": "ghostty --class='custom.float' -e wiremix",
         "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     },
 
@@ -251,7 +251,7 @@
       "exec": "$HOME/.config/waybar/scripts/task",
       "return-type": "json",
       "interval": 200,
-      "on-click": "alacritty --class floatterm -e 'taskwarrior-tui'",
+      "on-click": "ghostty --class='custom.float' -e 'taskwarrior-tui'",
       "signal": 7,
       "markup": "pango"
    },
@@ -263,14 +263,14 @@
      "exec": "checkupdates | wc -l",       // # of updates
      "exec-if": "exit 0",                  // always run; consider advanced run conditions
      "on-click":
-     "hyprctl dispatch exec '[workspace special:hidden]alacritty --class floatterm -o font.size=12 -e bash -c 'paru; pkill -SIGRTMIN+8 waybar''", // update system
+     "hyprctl dispatch exec '[workspace special:hidden]ghostty --class='custom.float' --font-size=12 -e bash -c 'paru; pkill -SIGRTMIN+8 waybar''", // update system
      "signal": 8
    },
 
    "custom/weather": {
       "exec": "curl -s 'wttr.in?format=1' | sed 's/  //'",
       "interval": 300,
-      "on-click": "alacritty --class floatterm -o font.size=11 -e bash -c 'echo 'Loading...'; curl wttr.in | head -n -2; read'"
+      "on-click": "ghostty --class='custom.float' --font-size=11 -e bash -c 'echo 'Loading...'; curl wttr.in | head -n -2; read'"
    }
 
 }

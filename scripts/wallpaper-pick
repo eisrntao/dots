@@ -2,7 +2,7 @@
 source "$HOME/.zprofile"
 tmp="$(mktemp -t wal-pick.XXXXXXX)"
 
-$TERM --class "floatterm" -e yazi "$WALLPAPER_DIR" --chooser-file "$tmp"
+$TERM --class="custom.float" -e yazi "$WALLPAPER_DIR" --chooser-file "$tmp"
 
 selected="$(cat $tmp)"
 

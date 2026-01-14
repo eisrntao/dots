@@ -1,0 +1,3 @@
+config-file = ~/.cache/wal/ghostty.conf
+
+window-padding-x = 10
