@@ -3,7 +3,8 @@
 WALLPAPER="$(cat $HOME/.cache/wal/wal)"
 
 makoctl reload
-hyprctl hyprpaper reload ",$WALLPAPER"
+
+awww img "$WALLPAPER" --transition-type wipe --transition-angle 30
 pkill -SIGHUP qutebrowser
 sleep 1
 notify-send "Reloaded theme"

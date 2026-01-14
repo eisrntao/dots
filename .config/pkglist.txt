@@ -1,5 +1,6 @@
 alacritty
 aria2
+awww-git
 base
 bat-asus-battery-bin
 bluetui
@@ -14,12 +15,13 @@ cronie
 dust
 efibootmgr
 eza
+ghostty
 hyprland
 hyprlock
-hyprpaper
 hyprpolkitagent
 hyprshot
 impala
+inkscape
 intel-ucode
 just
 kanata-bin
@@ -39,6 +41,7 @@ paru-debug
 python-pytest-cov
 python-pytest-sugar
 python-pywal16
+python-weasyprint
 qutebrowser
 reflector
 sof-firmware
