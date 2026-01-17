@@ -1,3 +1,27 @@
 #!/usr/bin/env bash
+echo "Removing trash and old downloads..."
 rm -rf $HOME/.local/share/Trash/files/* 2>/dev/null
 find "$HOME/Downloads" -mindepth 1 -mtime +3 -delete
+
+echo "Removing old pacman packages."
+sudo paccache -r
+
+echo "Removing orphaned packages."
+orphans=$(pacman -Qtdq)
+if [[ -n "$orphans" ]]; then
+  echo "$orphans" | sudo pacman -Rns --noconfirm
+else
+  echo "No orphans found."
+fi
+
+echo "Removing old journal logs."
+sudo journalctl --vacuum-size=50M
+
+echo "Cleaning cache."
+for subdir in "$HOME/.cache"/*/; do
+  [[ $(basename "$subdir") == "wal" ]] && continue
+  rm -rvf "$subdir"
+done
+
+echo "Done. Press enter to exit."
+read

@@ -133,3 +133,13 @@ label.module {
   margin: 0.2em;
   color: alpha(@foreground, 0.4);
 }
+
+#custom-menustart {
+  margin: 0em 1em 0em 0.5em;
+  color: alpha(@foreground, 0.4);
+  font-size: 0.7em;
+}
+
+#custom-script1 {
+  font-size: 2em;
+}
