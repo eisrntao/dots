@@ -9,7 +9,7 @@ export SCRIPT_DIR=$HOME/scripts
 export WALLPAPER_DIR=$HOME/Pictures/wallpapers
 export HYPRSHOT_DIR=$HOME/Pictures/screenshots
 
-export BARTIB_FILE=~/.cache/bartib.txt
+export BARTIB_FILE=~/Documents/bartib.txt
 
 # Setup ssh-agent
 
