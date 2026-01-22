@@ -8,11 +8,11 @@ if [[ $1 ]]; then
   exit 0
 fi
 
-GOAL=150
+GOAL=180
 
 proj=$(bartib current --nowarn --json | jq -r '.[0]["project"]')
 bartib status --nowarn --project "$proj" --json | sed 's/<1m/0m/g' |
-jq -rc --argjson goal "$GOAL" '
+  jq -rc --argjson goal "$GOAL" '
   def minutes:
     (
       (.today

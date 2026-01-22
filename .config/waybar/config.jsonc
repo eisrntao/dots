@@ -129,7 +129,8 @@
     "group/start": {
       "modules": [
         "custom/menustart",
-        "custom/script1"
+        "custom/script1",
+        "custom/script2",
       ],
       "orientation": "inherit",
       "drawer": {}
@@ -290,7 +291,13 @@
    "custom/script1": {
       "format": "󰃢",
       "tooltip-format": "Perform a system cleanup.",
-      "on-click": "ghostty --class='custom.float' -e $HOME/scripts/cleanup"
+      "on-click": "$HOME/scripts/cleanup",
+      "on-click-right": "ghostty --class='custom.float' -e $HOME/scripts/cleanup --aggressive"
+   },
+   "custom/script2": {
+      "format": "",
+      "tooltip-format": "Change the wallpaper",
+      "on-click": "$HOME/scripts/wallpaper-pick"
    }
 
 }

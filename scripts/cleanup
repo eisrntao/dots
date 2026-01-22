@@ -3,6 +3,19 @@ echo "Removing trash and old downloads..."
 rm -rf $HOME/.local/share/Trash/files/* 2>/dev/null
 find "$HOME/Downloads" -mindepth 1 -mtime +3 -delete
 
+if [[ $1 != "--aggressive" ]]; then
+  exit
+fi
+
+while true; do
+  read -r -p "This will remove the entire cache. Proceed? [Y/n] " confirm
+  case $confirm in
+  [Yy]*) break ;;
+  [Nn]*) exit ;;
+  *) echo "Please answer Y or N." ;;
+  esac
+done
+
 echo "Removing old pacman packages."
 sudo paccache -r
 

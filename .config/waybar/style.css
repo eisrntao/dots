@@ -140,6 +140,7 @@ label.module {
   font-size: 0.7em;
 }
 
-#custom-script1 {
+#custom-script1, #custom-script2  {
+  margin: 0 0.1em;
   font-size: 2em;
 }
