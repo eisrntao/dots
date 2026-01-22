@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ghostty --class='custom.float' -e env QUTE_FIFO="${QUTE_FIFO:?}" bash -lc '
+  sessions="$(
+    find ~/.local/share/qutebrowser/sessions/ \
+      -type f -name "*.yml" -not -name "_autosave.yml" -printf "%f\n" |
+    sed "s/\.yml$//"
+  )"
+
+  picked="$(printf "%s\n" "$sessions" | fzf || true)"
+  [[ -n "$picked" ]] || exit 0
+
+  printf "session-save\n" >>"$QUTE_FIFO"
+  printf "session-load --clear %s\n" "$picked" >>"$QUTE_FIFO"
+'
