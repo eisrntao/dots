@@ -2,7 +2,9 @@
 vim.keymap.set("n", "<esc>", "<cmd>noh<CR>", { noremap = true })
 
 -- Focus previous buffer
-vim.keymap.set("n", "<tab>", "<C-6>", { noremap = true, desc = "Focus previous buffer" })
+vim.keymap.set("n", "<tab>", "<C-6>", { noremap = true, desc = "Focus last buffer" })
+vim.keymap.set("n", "M", "<cmd>bp<CR>", { noremap = true, desc = "Focus previous buffer" })
+vim.keymap.set("n", "I", "<cmd>bn<CR>", { noremap = true, desc = "Focus next buffer" })
 
 -- Toggle relative numbers
 vim.keymap.set("n", "<leader>ur", "<cmd>set relativenumber!<CR>", { desc = " Toggle relative numbers" })
