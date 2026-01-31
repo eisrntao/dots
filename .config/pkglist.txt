@@ -13,6 +13,7 @@ chromium
 cronie
 dust
 efibootmgr
+ex-vi-compat
 eza
 ghostty
 hyprland
@@ -42,7 +43,6 @@ python-pywal16
 python-weasyprint
 qutebrowser
 reflector
-rustup
 sof-firmware
 starship
 stow
@@ -55,8 +55,6 @@ tela-circle-icon-theme-black
 udiskie
 ufw
 unzip
-vi
-vscodium
 waybar
 wev
 wiremix-git
