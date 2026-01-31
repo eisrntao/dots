@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ghostty --class='custom.float' -e env QUTE_FIFO="${QUTE_FIFO:?}" bash -lc '
+ghostty --class='custom.pick' -e env QUTE_FIFO="${QUTE_FIFO:?}" bash -lc '
   sessions="$(
     find ~/.local/share/qutebrowser/sessions/ \
       -type f -name "*.yml" -not -name "_autosave.yml" -printf "%f\n" |
