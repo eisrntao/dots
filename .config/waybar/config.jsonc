@@ -131,6 +131,7 @@
         "custom/menustart",
         "custom/script1",
         "custom/script2",
+        "custom/script3"
       ],
       "orientation": "inherit",
       "drawer": {}
@@ -237,7 +238,7 @@
     // custom modules
     "custom/spacer1": {
       "format": "|",
-      "tooltip": ""
+      "tooltip": false
     },
     "custom/shutdown": {
       "format": "⏻ ",
@@ -298,6 +299,11 @@
       "format": "",
       "tooltip-format": "Change the wallpaper",
       "on-click": "$HOME/scripts/wallpaper-pick"
+   },
+   "custom/script3": {
+      "format": "󱩌",
+      "tooltip-format": "Toggle the night light",
+      "on-click": "$HOME/scripts/nightlight"
    }
 
 }

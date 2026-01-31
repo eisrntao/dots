@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+running=$(ps -A | grep wlsunset)
+if [[ $running ]]; then
+  pkill wlsunset
+  [[ $1 != '-s' ]] && notify-send "Disabled night light"
+else
+  wlsunset -t 2000 -T 6500 -l 49.2 -L 16.67 & disown
+  [[ $1 != '-s' ]] && notify-send "Enabled night ligt"
+fi
+
