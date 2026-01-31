@@ -25,6 +25,7 @@ return {
 			end
 		end,
 	},
+
 	-- change brackets easily
 	{
 		"tpope/vim-surround",
