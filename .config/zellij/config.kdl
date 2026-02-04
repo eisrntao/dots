@@ -24,7 +24,7 @@ keybinds clear-defaults=true{
         bind "d" { NewPane "Down"; SwitchToMode "Locked"; }
         bind "i" { NewPane "Right"; SwitchToMode "Locked"; }
         bind "x" { CloseFocus; SwitchToMode "Locked"; }
-        bind "f" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
+        bind "f" { ToggleFocusFullscreen; SwitchToMode "Locked"; }
         bind "z" { TogglePaneFrames; SwitchToMode "Locked"; }
         bind "w" { ToggleFloatingPanes; SwitchToMode "Locked"; }
         bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "Locked"; }
