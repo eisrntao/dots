@@ -6,14 +6,22 @@ $TERM --class="custom.float" -e yazi "$WALLPAPER_DIR" --chooser-file "$tmp"
 
 selected="$(cat $tmp)"
 
+recurse () {
+  if [[ -d $selected ]]; then
+    selected="$(find "$selected" -mindepth 1 -maxdepth 1 -print0 | shuf -z -n 1 | tr -d '\0')"
+    recurse
+  fi
+}
+
 if [ ! -z $selected ]; then
   if [[ -d $selected ]]; then
-  notify-send "Selected random wallpaper from $selected."
+    notify-send "Selecting random wallpaper from $selected."
+    recurse
   else
-  notify-send "Selected $selected."
+    notify-send "Selected $selected."
   fi
-  echo $SCRIPT_DIR
-wal -i "$selected" -o $SCRIPT_DIR/wallpaper-reload
 else
-notify-send "No wallpaper has been selected."
+    notify-send "No wallpaper has been selected."
+    exit
 fi
+wal -i "$selected" -o $SCRIPT_DIR/wallpaper-reload
