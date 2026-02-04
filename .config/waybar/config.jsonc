@@ -1,6 +1,7 @@
 // -*- mode: jsonc -*-
 {
-    "output": ["HDMI-A-1", "eDP-1"],
+    // "output": ["HDMI-A-1", "eDP-1"],
+    "output": "eDP-1",
     "position": "top", // Bar pos
     "margin-top" : 0, // Margin around bar
     "margin-left": 5,
@@ -10,9 +11,10 @@
     // Choose the order of the modules
     "modules-left": [
         "clock",
-        "hyprland/workspaces",
-        "group/start"
-        // "hyprland/window",
+        // "hyprland/workspaces",
+        "custom/spacer1",
+        "hyprland/window",
+        "group/start",
     ],
     "modules-center": [
         "group/widget",
@@ -129,9 +131,9 @@
     "group/start": {
       "modules": [
         "custom/menustart",
-        "custom/script1",
-        "custom/script2",
-        "custom/script3"
+        "custom/script-nightlight",
+        "custom/script-wallpaper",
+        "custom/script-cleanup",
       ],
       "orientation": "inherit",
       "drawer": {}
@@ -289,21 +291,24 @@
       "format": "\uE0B1",
       "tooltip": false
    },
-   "custom/script1": {
+   "custom/script-cleanup": {
       "format": "󰃢",
       "tooltip-format": "Perform a system cleanup.",
       "on-click": "$HOME/scripts/cleanup",
-      "on-click-right": "ghostty --class='custom.float' -e $HOME/scripts/cleanup --aggressive"
+      "on-click-right": "ghostty --class='custom.float' -e $HOME/scripts/cleanup --aggressive",
+      "class": "script"
    },
-   "custom/script2": {
+   "custom/script-wallpaper": {
       "format": "",
       "tooltip-format": "Change the wallpaper",
-      "on-click": "$HOME/scripts/wallpaper-pick"
+      "on-click": "$HOME/scripts/wallpaper-pick",
+      "class": "script"
    },
-   "custom/script3": {
+   "custom/script-nightlight": {
       "format": "󱩌",
       "tooltip-format": "Toggle the night light",
-      "on-click": "$HOME/scripts/nightlight"
+      "on-click": "$HOME/scripts/nightlight",
+      "class": "script"
    }
 
 }

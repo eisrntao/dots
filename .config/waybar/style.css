@@ -18,7 +18,7 @@ window#waybar, .modules-center {
 
  .modules-left, .modules-right {
   padding: 2px 7px;
-  margin-bottom: 10px;
+  margin-bottom: 4px;
   background-color: alpha(@background, 1);
   border-radius: 0px;
   border-bottom-left-radius: 10px;
@@ -89,9 +89,8 @@ label.module {
 #mpris {
     font-style: italic;
     font-size: 0.7rem;
+    padding: 10px
 }
-
-
 
 #language {
     font-style: italic;
@@ -134,13 +133,13 @@ label.module {
   color: alpha(@foreground, 0.4);
 }
 
+#start * {
+  margin: 0 0.1rem;
+  font-size: 1.6rem;
+}
+
 #custom-menustart {
   margin: 0em 1em 0em 0.5em;
   color: alpha(@foreground, 0.4);
-  font-size: 0.7em;
-}
-
-#custom-script1, #custom-script2, #custom-script3  {
-  margin: 0 0.1em;
-  font-size: 2em;
+  font-size: 0.7rem;
 }
