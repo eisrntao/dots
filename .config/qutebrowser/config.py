@@ -8,6 +8,7 @@ config.load_autoconfig(False)
 
 # settings
 c.auto_save.session = True
+c.session.default_name = "Recent"
 c.window.transparent = True
 c.colors.webpage.preferred_color_scheme = "dark"
 
