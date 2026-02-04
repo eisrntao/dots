@@ -48,7 +48,6 @@ starship
 stow
 stylua
 sudo-rs
-syncthing
 taskwarrior-tui
 tealdeer
 tela-circle-icon-theme-black
