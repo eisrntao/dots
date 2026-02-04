@@ -9,6 +9,7 @@ return {
 			{ "<leader>u", group = " UI" },
 			{ "<leader>c", group = " Code" },
 			{ "<leader>b", group = " Buffer" },
+			{ "<leader>t", group = " Tips" },
 		},
 	},
 }

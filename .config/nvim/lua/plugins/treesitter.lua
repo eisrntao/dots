@@ -64,8 +64,23 @@ return {
 							["]c"] = "@class.outer",
 						},
 						goto_prev_start = {
-							["]f"] = "@function.outer",
+							["[f"] = "@function.outer",
 							["[c"] = "@class.outer",
+						},
+					},
+					swap = {
+						enable = true,
+						swap_next = {
+							["gsp"] = { query = "@parameter.inner", desc = "Swap with next parameter" },
+							["gsf"] = { query = "@function.outer", desc = "Swap with next function" },
+							["gsc"] = { query = "@class.outer", desc = "Swap with next class" },
+							["gsb"] = { query = "@block.outer", desc = "Swap with next block" },
+						},
+						swap_previous = {
+							["gSp"] = { query = "@parameter.inner", desc = "Swap with previous parameter" },
+							["gSf"] = { query = "@function.outer", desc = "Swap with previous function" },
+							["gSc"] = { query = "@class.outer", desc = "Swap with previous class" },
+							["gSb"] = { query = "@block.outer", desc = "Swap with previous block" },
 						},
 					},
 					select = {

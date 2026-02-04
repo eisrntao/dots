@@ -4,7 +4,7 @@ return {
 	dependencies = { "kyazdani42/nvim-web-devicons" },
 	opts = { "telescope" },
 	keys = {
-		{ "<leader><space>", "<cmd>FzfLua buffers<CR>", noremap = true, desc = " Search buffers" },
+		{ "<leader>,", "<cmd>FzfLua buffers<CR>", noremap = true, desc = " Search buffers" },
 		{ "<leader>ff", "<cmd>FzfLua files<CR>", noremap = true, desc = " Search files" },
 		{
 			"<leader>fc",

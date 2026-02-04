@@ -23,8 +23,18 @@ return {
 				},
 			},
 			"saghen/blink.cmp",
+			{ "jinzhongjia/LspUI.nvim", branch = "main", opts = {} },
+			{
+				"Dan7h3x/signup.nvim",
+				branch = "main",
+				opts = {
+					trigger_chars = { "(", ",", ")", "<C-y>" },
+				},
+			},
 		},
 		config = function()
+			vim.keymap.set("n", "<leader>ui", "<cmd>LspUI inlay_hint<CR>", { desc = " Toggle inlay hints" })
+			vim.keymap.del("n", "<leader>sd")
 			-- One place for your LSP keymaps + inlay hints for ANY server
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("my.lsp", {}),
@@ -34,16 +44,17 @@ return {
 					local function map(m, lhs, rhs, desc)
 						vim.keymap.set(m, lhs, rhs, { buffer = bufnr, silent = true, desc = desc })
 					end
-
-					map("n", "K", vim.lsp.buf.hover, "Hover")
-					map({ "n", "i" }, "<C-k>", vim.lsp.buf.signature_help, "Signature help")
-					map("n", "gl", vim.diagnostic.open_float, "Line diagnostics")
-					map("n", "[d", vim.diagnostic.goto_prev, "Prev diagnostic")
-					map("n", "]d", vim.diagnostic.goto_next, "Next diagnostic")
-					map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
-					map("n", "gd", vim.lsp.buf.definition, "Go to definition")
-					map("n", "gi", vim.lsp.buf.implementation, "Go to implementation")
-					map("n", "<space>cr", vim.lsp.buf.rename, " Rename symbol")
+					map("n", "K", "<cmd>LspUI hover<CR>", "Hover")
+					map({ "n", "i" }, "<cmd>LspUI signature<CR>", "<C-k>", "Signature help")
+					map("n", "gl", "<cmd>LspUI hover<CR>", "Line diagnostics")
+					map("n", "[d", "<cmd>LspUI diagnostic prev<CR>", "Prev diagnostic")
+					map("n", "]d", "<cmd>LspUI diagnostic next<CR>", "Next diagnostic")
+					map("n", "gD", "<cmd>LspUI declaration<CR>", "Go to declaration")
+					map("n", "gd", "<cmd>LspUI definition<CR>", "Go to definition")
+					map("n", "gi", "<cmd>LspUI implementation<CR>", "Go to implementation")
+					map("n", "<space>cr", "<cmd>LspUI rename<CR>", " Rename symbol")
+					map("n", "<leader>ca", "<cmd>LspUI code_action<CR>", " Code actions")
+					map("n", "<leader>ci", "<cmd>LspUI call_hierarchy incoming_calls<CR>", " Show incoming calls")
 
 					-- Native inlay hints (0.11 API): enable per-buffer
 					if client and client.supports_method("textDocument/inlayHint") then
@@ -110,5 +121,31 @@ return {
 				float = { border = "rounded", source = "if_many" },
 			})
 		end,
+	},
+	{
+		{
+			"jinzhongjia/LspUI.nvim",
+			branch = "main",
+			event = "LspAttach",
+			config = function()
+				local LspUI = require("LspUI")
+				LspUI.setup()
+			end,
+			keys = {
+				{ "K", "<cmd>LspUI hover<CR>", desc = "LSP hover" },
+				{ "gr", "<cmd>LspUI reference<CR>", desc = "Go to reference" },
+				{ "gd", "<cmd>LspUI definition<CR>", desc = "Go to definition" },
+				{ "gt", "<cmd>LspUI type_definition<CR>", desc = "Go to type definition" },
+				{ "gi", "<cmd>LspUI implementation<CR>", desc = "Go to implementation" },
+				{ "<leader>cr", "<cmd>LspUI rename<CR>", desc = "LSP rename" },
+				{ "<leader>ca", "<cmd>LspUI code_action<CR>", desc = " Code actions" },
+				{ "<leader>ci", "<cmd>LspUI call_hierarchy incoming_calls<CR>", desc = " Show incoming calls" },
+				{
+					"<leader>co",
+					"<cmd>LspUI call_hierarchy outgoing_calls<CR>",
+					desc = " Show outgoing_calls calls",
+				},
+			},
+		},
 	},
 }
