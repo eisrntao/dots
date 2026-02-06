@@ -19,3 +19,10 @@ c.tabs.title.alignment = "center"
 
 # font
 c.fonts.default_family = "Iosevka Nerd Font Mono"
+
+# use yazi as file chooser
+picker = [ "ghostty", "--class=custom.float", "--title=termfilechooser", "-e", "yazi", "--chooser-file={}" ]
+c.fileselect.handler = "external"
+c.fileselect.folder.command = picker
+c.fileselect.multiple_files.command = picker
+c.fileselect.single_file.command = picker
