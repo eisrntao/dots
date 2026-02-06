@@ -43,10 +43,12 @@
       "rewrite": {
         "org.qutebrowser.qutebrowser": "Qutebrowser",
         "com.mitchellh.ghostty": "Ghostty",
+        "chromium": "Chromium",
         "com.github.th_ch.youtube_music": "YouTube Music",
         "org.pwmt.zathura": "Zathura",
         "et": "Spreadsheets",
-        "'custom.float'": "Floating Utility"
+        "'custom.float'": "Floating utility",
+        "'custom.pick'": "Floating picker"
       }
     },
 
@@ -69,6 +71,8 @@
     "mpris": {
       "format": "▶  {dynamic}",
       "format-paused": "⏸  {dynamic}",
+      "tooltip-format": "Now playing:\n{title} (from {album})\nby {artist} [{length}]",
+      "tooltip-format-paused": "Paused:\n{title} (from {album})\nby {artist} [{length}]",
       "dynamic-order": ["title", "artist", "album"],
       "dynamic-len": 60
     },
@@ -277,7 +281,7 @@
      "exec": "checkupdates | wc -l",       // # of updates
      "exec-if": "exit 0",                  // always run; consider advanced run conditions
      "on-click":
-     "hyprctl dispatch exec '[workspace special:hidden]ghostty --class='custom.float' --font-size=12 -e bash -c 'paru; pkill -SIGRTMIN+8 waybar''", // update system
+     "hyprctl dispatch exec '[workspace special:hidden]ghostty --class='custom.float' --font-size=12 -e bash -c 'paru --sudoloop -Syu; pkill -SIGRTMIN+8 waybar''", // update system
      "signal": 8
    },
 
