@@ -17,3 +17,8 @@ desc = "Cd to config"
 on   = [ "g", "w" ]
 run  = "cd ~/wallpapers"
 desc = "Cd to wallpapers"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "d" ]
+run  = "cd ~/Documents/enex/enexdata/data/"
+desc = "Cd to data folder"
