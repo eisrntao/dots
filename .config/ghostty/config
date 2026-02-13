@@ -2,3 +2,4 @@ config-file = ~/.cache/wal/ghostty.conf
 
 window-padding-x = 10
 confirm-close-surface = true
+mouse-hide-while-typing = true
