@@ -4,7 +4,7 @@ set -euo pipefail
 ghostty --class='custom.pick' -e env QUTE_FIFO="${QUTE_FIFO:?}" bash -lc '
   sessions="$(
     find ~/.local/share/qutebrowser/sessions/ \
-      -type f -name "*.yml" -not -name "_autosave.yml" -printf "%f\n" |
+      -maxdepth 1 -type f -name "*.yml" -not -name "_autosave.yml" -printf "%f\n" |
     sed "s/\.yml$//"
   )"
 
