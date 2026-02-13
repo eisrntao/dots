@@ -4,6 +4,7 @@ rm -rf $HOME/.local/share/Trash/files/* 2>/dev/null
 find "$HOME/Downloads" -mindepth 1 -mtime +3 -delete
 
 if [[ $1 != "--aggressive" ]]; then
+notify-send "Removed trash and old downloads. Cleanup finished."
   exit
 fi
 
