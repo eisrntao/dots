@@ -4,7 +4,8 @@ function new_session() {
     read -r new_name
     [[ -n $new_name ]] && zellij --session "$(echo $new_name | sed 's/\ /-/g')"
 }
-if [[ -z $ZELLIJ && "$TERM_PROGRAM" != "vscode" ]]; then
+
+if [[ -z $ZELLIJ ]]; then  # not in zellij, start it
  if [[ $(zellij ls --no-formatting --short | wc -l) -eq 0 ]]; then
     new_session
   else
@@ -18,4 +19,14 @@ if [[ -z $ZELLIJ && "$TERM_PROGRAM" != "vscode" ]]; then
       ;;
     esac
  fi
+else # in zellij, try sourcing session vars
+  SDIR="$HOME/.config/sessions"
+  SFILE="$( find "$SDIR/" -type f -name $ZELLIJ_SESSION_NAME )"
+  if [[ ! -z $SFILE ]]; then
+    source $SFILE
+  else
+    DEFAULT="$SDIR/default"
+    [[ -n $DEFAULT ]] && source $DEFAULT || echo "No default file found."
+  fi
+  [[ -n $CONTEXT && $(task _get rc.context) != $CONTEXT ]] && task context $CONTEXT
 fi
