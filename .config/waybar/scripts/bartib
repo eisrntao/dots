@@ -8,11 +8,10 @@ if [[ $1 ]]; then
   exit 0
 fi
 
-GOAL=180
 
 proj=$(bartib current --nowarn --json | jq -r '.[0]["project"]')
 bartib status --nowarn --project "$proj" --json | sed 's/<1m/0m/g' |
-  jq -rc --argjson goal "$GOAL" '
+  jq -rc --argjson goal "${TIME_GOAL:-0}" '
   def minutes:
     (
       (.today
@@ -48,7 +47,7 @@ bartib status --nowarn --project "$proj" --json | sed 's/<1m/0m/g' |
   | ($desc | gsub("<[^>]*>"; "") | length) as $maxlen
   | (
       if $active
-      then "\($desc)\nToday: <b>\(.today)</b>\n\n\((bar($maxlen)))"
+      then "\($desc)\nToday: <b>\(.today)</b>\(if $goal > 0 then "\n\n\((bar($maxlen)))" else "" end)"
       else "Start activity"
       end
     ) as $tooltip
