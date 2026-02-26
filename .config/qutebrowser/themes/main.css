@@ -1,0 +1,10 @@
+@import url("file:///home/eisrntao/.cache/wal/colors.css");
+
+.dark {
+  --bg-primary: var(--background) !important;
+  --bg-secondary: var(--background) !important;
+  --bg-tertiary: var(--background) !important;
+  --bg-elevated-primary: var(--background) !important;
+  --bg-elevated-secondary: var(--background) !important;
+  --bg-scrim: transparent !important;
+}

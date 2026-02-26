@@ -11,6 +11,7 @@ c.auto_save.session = True
 c.session.default_name = "Recent"
 c.window.transparent = True
 c.colors.webpage.preferred_color_scheme = "dark"
+c.content.user_stylesheets = ["~/.cache/wal/colors.css", "./themes/main.css"]
 
 c.tabs.last_close = "startpage"
 c.tabs.show = "multiple"
@@ -26,3 +27,4 @@ c.fileselect.handler = "external"
 c.fileselect.folder.command = picker
 c.fileselect.multiple_files.command = picker
 c.fileselect.single_file.command = picker
+
