@@ -129,10 +129,10 @@ keybinds clear-defaults=true{
         }
     }
     shared {
-      bind "Alt m" { MoveFocusOrTab "Left"; }
-      bind "Alt i" { MoveFocusOrTab "Right"; }
-      bind "Alt n" { MoveFocus "Down"; }
-      bind "Alt e" { MoveFocus "Up"; }
+      bind "Alt m" "Alt Left"{ MoveFocusOrTab "Left"; }
+      bind "Alt i" "Alt Right"{ MoveFocusOrTab "Right"; }
+      bind "Alt n" "Alt Down"{ MoveFocus "Down"; }
+      bind "Alt e" "Alt Up"{ MoveFocus "Up"; }
 
     }
     shared_except "locked" "search" "renamepane" "renametab" {
@@ -234,7 +234,7 @@ load_plugins {
 //   - true (default)
 //   - false
 //
-pane_frames false
+pane_frames true
 
 // Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
 // Options:
