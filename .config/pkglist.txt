@@ -33,6 +33,7 @@ macchina
 mako
 mpv
 newsboat
+nmap
 nvidia-open-dkms
 nvidia-prime
 pacman-contrib
@@ -50,6 +51,7 @@ starship
 stow
 stylua
 sudo-rs
+tasksh
 taskwarrior-tui
 tealdeer
 tela-circle-icon-theme-black
@@ -64,6 +66,7 @@ wofi
 wps-office
 youtube-music-bin
 zellij
+zip
 zram-generator
 zsh-autosuggestions
 zsh-completions
