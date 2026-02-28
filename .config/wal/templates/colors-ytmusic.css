@@ -1,5 +1,21 @@
+/* Hide upgrade button */
 #items > ytmusic-guide-entry-renderer[is-primary]:nth-of-type(4) {
   display: none !important;
+}
+
+/* Hide profile pic */
+#right-content {
+  padding-right: 30px;
+}
+#right-content > ytmusic-settings-button {
+  background-image: url("https://cdn.jsdelivr.net/npm/feather-icons/dist/icons/user.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: invert(1);
+  opacity: 0.6;
+}
+#right-content > ytmusic-settings-button > * {
+  opacity: 0 !important;
 }
 
 html:not(.style-scope)
