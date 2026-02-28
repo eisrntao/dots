@@ -28,5 +28,6 @@ else # in zellij, try sourcing session vars
     DEFAULT="$SDIR/default"
     [[ -n $DEFAULT ]] && source $DEFAULT || echo "No default file found."
   fi
-  [[ -n $CONTEXT && $(task _get rc.context) != $CONTEXT ]] && task context $CONTEXT
+  CURR=$(task context show | head -n 1 | awk -F "'" '{print $2}')
+  [[ -n $CONTEXT && $CURR != $CONTEXT ]] && task context $CONTEXT
 fi
