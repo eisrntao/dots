@@ -9,6 +9,7 @@ if [[ $1 ]]; then
 fi
 
 
+TIME_GOAL=$(<$HOME/.local/state/waybar/goal)
 proj=$(bartib current --nowarn --json | jq -r '.[0]["project"]')
 bartib status --nowarn --project "$proj" --json | sed 's/<1m/0m/g' |
   jq -rc --argjson goal "${TIME_GOAL:-0}" '

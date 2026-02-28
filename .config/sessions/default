@@ -1,1 +1,2 @@
+echo "" > $HOME/.local/state/waybar/goal
 export CONTEXT=none

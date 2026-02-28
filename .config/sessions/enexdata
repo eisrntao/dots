@@ -1,1 +1,2 @@
+echo 120 > $HOME/.local/state/waybar/goal
 export CONTEXT=enexdata
