@@ -107,6 +107,7 @@ alias v="nvim"
 alias lazy="lazygit"
 alias py="python"
 alias b="bartib"
+alias ssh="mosh"
 
 function kindle() {
   if [[ $1 = "cp" ]]; then
