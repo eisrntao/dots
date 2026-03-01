@@ -56,6 +56,10 @@ bindkey '^[.' insert-last-word
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+# Init mcfly
+eval "$(mcfly init zsh)"
+export MCFLY_FUZZY=3
+export MCFLY_DELETE_WITHOUT_CONFIRM=TRUE
 # Init zoxide
 eval "$(zoxide init zsh)"
 # Init starship
@@ -108,6 +112,10 @@ alias lazy="lazygit"
 alias py="python"
 alias b="bartib"
 alias ssh="mosh"
+
+diff() {
+  command diff "$@" | diff-so-fancy
+}
 
 function kindle() {
   if [[ $1 = "cp" ]]; then

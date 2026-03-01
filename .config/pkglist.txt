@@ -12,6 +12,7 @@ chaotic-keyring
 chaotic-mirrorlist
 chromium
 cronie
+diff-so-fancy
 dust
 efibootmgr
 ex-vi-compat
@@ -31,6 +32,7 @@ linux-zen
 ly
 macchina
 mako
+mcfly
 mosh
 mpv
 newsboat
