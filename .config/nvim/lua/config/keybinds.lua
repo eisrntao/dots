@@ -9,9 +9,10 @@ vim.keymap.set("n", "<leader>i", "<cmd>bn<CR>", { noremap = true, desc = "󰮰 F
 -- Toggle relative numbers
 vim.keymap.set("n", "<leader>ur", "<cmd>set relativenumber!<CR>", { desc = " Toggle relative numbers" })
 
--- Browserlike controls
+-- Buffer ops
 vim.keymap.set("n", "<leader>bd", "<cmd>bd<CR>", { desc = " Delete buffer" })
 vim.keymap.set("n", "<leader>bs", "<cmd>w<CR>", { desc = "󰆓 Save buffer" })
+vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", { desc = "󰆓 Save buffer" })
 
--- paste
+-- Paste
 vim.keymap.set("n", "<C-p>", "<cmd>pu<CR>")
