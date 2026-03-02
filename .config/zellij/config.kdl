@@ -1,8 +1,5 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
 keybinds clear-defaults=true{
-    normal {
-        bind "Alt c" { Copy; }
-    }
     locked {
         bind "Ctrl space" { SwitchToMode "Normal"; }
     }
@@ -72,7 +69,6 @@ keybinds clear-defaults=true{
         bind "Ctrl d" "PageUp" "Left" "i" { PageScrollUp; }
         bind "d" { HalfPageScrollDown; }
         bind "u" { HalfPageScrollUp; }
-        bind "Alt c" { Copy; }
     }
     search {
         bind "Shift G" { ScrollToBottom; SwitchToMode "Normal"; }
@@ -308,7 +304,7 @@ default_mode "locked"
 // Examples:
 //
 // copy_command "xclip -selection clipboard" // x11
-copy_command "wl-copy"                    // wayland
+// copy_command "wl-copy"                    // wayland
 // copy_command "pbcopy"                     // osx
 
 // Choose the destination for copied text
@@ -318,7 +314,7 @@ copy_command "wl-copy"                    // wayland
 //   - system (default)
 //   - primary
 //
-// copy_clipboard "primary"
+copy_clipboard "system"
 
 // Enable or disable automatic copy (and clear) of selection when releasing mouse
 // Default: true
