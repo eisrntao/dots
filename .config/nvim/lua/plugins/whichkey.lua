@@ -10,6 +10,8 @@ return {
 			{ "<leader>c", group = " Code" },
 			{ "<leader>b", group = " Buffer" },
 			{ "<leader>t", group = " Tips" },
+			{ "<leader>d", group = "󱏚 Debug" },
+			{ "<leader>m", group = "󰓾 Marks" },
 		},
 	},
 }

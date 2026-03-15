@@ -66,4 +66,90 @@ return {
 			notification = false,
 		},
 	},
+	{
+		"andrewferrier/debugprint.nvim",
+
+		opts = {
+			display_counter = false,
+			print_tag = "DEBUG",
+			keymaps = {
+				normal = {
+					plain_below = "<leader>dp",
+					plain_above = "<leader>dP",
+					variable_below_alwaysprompt = "<leader>dv",
+					variable_above_alwaysprompt = "<leader>dV",
+					surround_variable_alwaysprompt = "<leader>ds",
+					textobj_below = "<leader>do",
+					textobj_above = "<leader>dO",
+					toggle_comment_debug_prints = "<leader>dc",
+					delete_debug_prints = "<leader>dd",
+				},
+			},
+		},
+
+		dependencies = {
+			"ibhagwan/fzf-lua", -- Optional: If you want to use the `:Debugprint search` command with fzf-lua
+		},
+
+		lazy = false, -- Required to make line highlighting work before debugprint is first used
+		version = "*", -- Remove if you DON'T want to use the stable version
+	},
+	{
+		-- file jumps
+		"niqodea/lasso.nvim",
+		opts = {},
+		keys = {
+			{
+				"<leader>mm",
+				function()
+					require("lasso").mark_file()
+				end,
+				desc = "󰓾 Mark file",
+			},
+
+			{
+				"<leader>mt",
+				function()
+					require("lasso").open_marks_tracker()
+				end,
+				desc = " Open mark list",
+			},
+
+			{
+				"<leader>1",
+				function()
+					require("lasso").open_marked_file(1)
+				end,
+				desc = "Go to mark 1",
+			},
+			{
+				"<leader>2",
+				function()
+					require("lasso").open_marked_file(2)
+				end,
+				desc = "Go to mark 2",
+			},
+			{
+				"<leader>3",
+				function()
+					require("lasso").open_marked_file(3)
+				end,
+				desc = "Go to mark 3",
+			},
+			{
+				"<leader>4",
+				function()
+					require("lasso").open_marked_file(4)
+				end,
+				desc = "Go to mark 4",
+			},
+			{
+				"<leader>5",
+				function()
+					require("lasso").open_marked_file(4)
+				end,
+				desc = "Go to mark 5",
+			},
+		},
+	},
 }

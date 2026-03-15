@@ -13,6 +13,3 @@ vim.keymap.set("n", "<leader>ur", "<cmd>set relativenumber!<CR>", { desc = " 
 vim.keymap.set("n", "<leader>bd", "<cmd>bd<CR>", { desc = " Delete buffer" })
 vim.keymap.set("n", "<leader>bs", "<cmd>w<CR>", { desc = "󰆓 Save buffer" })
 vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", { desc = "󰆓 Save buffer" })
-
--- Paste
-vim.keymap.set("n", "<C-p>", "<cmd>pu<CR>")

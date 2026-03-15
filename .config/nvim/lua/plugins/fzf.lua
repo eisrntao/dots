@@ -16,5 +16,6 @@ return {
 		{ "<leader>fg", "<cmd>FzfLua grep<CR>", noremap = true, desc = " Grep" },
 		{ "<leader>fh", "<cmd>FzfLua helptags<CR>", noremap = true, desc = "󰮥 Search help" },
 		{ "<leader>fq", "<cmd>FzfLua quickfix<CR>", noremap = true, desc = "󰁨 Search quickfix list" },
+		{ "<leader>fr", "<cmd>FzfLua oldfiles<CR>", noremap = true, desc = "󱋡 Search recent files" },
 	},
 }
