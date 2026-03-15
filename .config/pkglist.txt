@@ -64,7 +64,6 @@ unzip
 waybar
 wev
 wiremix-git
-wireshark-qt
 wlsunset
 wofi
 wps-office
