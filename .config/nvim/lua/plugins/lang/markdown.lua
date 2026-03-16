@@ -7,6 +7,10 @@ return {
 		---@type render.md.UserConfig
 		opts = {
 			completions = { blink = { enabled = true } },
+			code = {
+				disable = {},
+				disable_background = { "diff" },
+			},
 		},
 	},
 	{
