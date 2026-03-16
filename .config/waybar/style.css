@@ -16,9 +16,12 @@ window#waybar, .modules-center {
     background-color: alpha(@background, 0);
 }
 
+.modules-left, .modules-center, .modules-right {
+  margin-bottom: 5px;
+}
+
  .modules-left, .modules-right {
-  padding: 2px 7px;
-  margin-bottom: 4px;
+  padding: 4px 7px;
   background-color: alpha(@background, 1);
   border-radius: 0px;
   border-bottom-left-radius: 10px;
@@ -28,7 +31,6 @@ window#waybar, .modules-center {
 
 #widget, #mpris {
   margin-top: 5px;
-  margin-bottom: 5px;
   padding: 5px;
   background-color: alpha(@background, 1);
   border-radius: 10px;
@@ -125,7 +127,7 @@ label.module {
 }
 
 #custom-bartib {
-  font-size: 1.8em;
+  font-size: 1.7em;
 }
 
 #custom-spacer1 {

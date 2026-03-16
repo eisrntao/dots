@@ -149,6 +149,7 @@
         "custom/script-nightlight",
         "custom/script-wallpaper",
         "custom/script-cleanup",
+        "custom/pacman"
       ],
       "orientation": "inherit",
       "drawer": {}
@@ -163,14 +164,12 @@
 
     "group/status": {
       "modules" : [
-        "cpu",
-        "custom/pacman",
-        "custom/spacer1",
+        "temperature",
         "custom/weather",
         "custom/spacer1",
         "disk",
         "memory",
-        "temperature"
+        "cpu",
       ],
       "orientation": "inherit",
       "drawer": {
@@ -286,13 +285,11 @@
    },
 
    "custom/pacman": {
-     "format": " {text}",
+     "format": "",
      "tooltip-format": "You have {text} upgradeable packages.",
-     "interval": "once",                     // every hour
+     "interval": "3600",                     // every hour
      "exec": "checkupdates | wc -l",       // # of updates
-     "exec-if": "exit 0",                  // always run; consider advanced run conditions
-     "on-click":
-     "hyprctl dispatch exec '[workspace special:hidden]ghostty --class='custom.float' --font-size=12 -e bash -c 'paru --sudoloop -Syu; pkill -SIGRTMIN+8 waybar''", // update system
+     "on-click": "hyprctl dispatch exec '[workspace special:hidden]ghostty --class='custom.float' --font-size=12 -e bash -c -- paru -Syu --sudoloop && pkill -SIGRTMIN+8 waybar'",
      "signal": 8
    },
 
