@@ -165,7 +165,6 @@
     "group/status": {
       "modules" : [
         "temperature",
-        "custom/weather",
         "custom/spacer1",
         "disk",
         "memory",
@@ -291,12 +290,6 @@
      "exec": "checkupdates | wc -l",       // # of updates
      "on-click": "hyprctl dispatch exec '[workspace special:hidden]ghostty --class='custom.float' --font-size=12 -e bash -c -- paru -Syu --sudoloop && pkill -SIGRTMIN+8 waybar'",
      "signal": 8
-   },
-
-   "custom/weather": {
-      "exec": "curl -s 'wttr.in?format=1' | sed 's/  //'",
-      "interval": 300,
-      "on-click": "ghostty --class='custom.float' --font-size=11 -e bash -c 'echo 'Loading...'; curl wttr.in | head -n -2; read'"
    },
 
    "custom/menustart": {
