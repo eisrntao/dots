@@ -126,5 +126,9 @@ function kindle() {
   fi
 }
 
+function weather() {
+  rustormy -c $(echo "brno\nžilina" | fzf) --name --colors
+}
+
 # execute zellij hook
 $HOME/scripts/zellij-hook

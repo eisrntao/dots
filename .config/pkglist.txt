@@ -49,6 +49,7 @@ python-pywal16
 python-weasyprint
 qutebrowser
 reflector
+rustormy-bin
 sof-firmware
 starship
 stow
