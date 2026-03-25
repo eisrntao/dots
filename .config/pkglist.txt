@@ -18,6 +18,7 @@ efibootmgr
 ex-vi-compat
 eza
 ghostty
+httpie
 hyprland
 hyprlock
 hyprpolkitagent
