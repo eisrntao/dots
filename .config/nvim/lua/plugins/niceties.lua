@@ -26,4 +26,18 @@ return {
 			})
 		end,
 	},
+	{
+		"sphamba/smear-cursor.nvim",
+		event = "BufEnter",
+		opts = {
+			stiffness = 0.8,
+			trailing_stiffness = 0.6,
+			matrix_pixel_threshold = 0.5,
+			damping_insert_mode = 0.95,
+			distance_stop_animating = 0.5,
+		},
+		keys = {
+			{ "<leader>us", "<cmd>SmearCursorToggle<CR>", desc = "󰂵 Toggle cursor smear" },
+		},
+	},
 }
