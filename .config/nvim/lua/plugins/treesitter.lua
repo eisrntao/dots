@@ -1,15 +1,13 @@
 return {
 	{
+		lazy = false,
 		"nvim-treesitter/nvim-treesitter",
-		branch = "master",
-		event = { "BufReadPre", "BufNewFile" },
 		build = ":TSUpdate",
 		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects",
+			{ "nvim-treesitter/nvim-treesitter-textobjects", branch = "main" },
 		},
 		config = function()
 			require("nvim-treesitter.configs").setup({
-				-- Install languages:
 				ensure_installed = {
 					"python",
 					"lua",
@@ -24,37 +22,22 @@ return {
 					"javascript",
 					"typst",
 				},
-
-				-- Install parsers synchronously (only applied to `ensure_installed`)
 				sync_install = false,
-
-				-- Automatically install missing parsers when entering buffer
-				-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
 				auto_install = false,
-
 				highlight = {
 					enable = true,
 					additional_vim_regex_highlighting = false,
 				},
-
 				indent = { enable = true },
 				incremental_selection = {
 					enable = true,
 					keymaps = {
-						init_selection = "vs",
+						init_selection = "<C-S-v>",
 						node_incremental = "<space>",
 						scope_incremental = false,
 						node_decremental = "<backspace>",
 					},
 				},
-			})
-		end,
-	},
-	{
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		lazy = true,
-		config = function()
-			require("nvim-treesitter.configs").setup({
 				textobjects = {
 					move = {
 						enable = true,
@@ -68,46 +51,22 @@ return {
 							["[c"] = "@class.outer",
 						},
 					},
-					swap = {
-						enable = true,
-						swap_next = {
-							["gsp"] = { query = "@parameter.inner", desc = "Swap with next parameter" },
-							["gsf"] = { query = "@function.outer", desc = "Swap with next function" },
-							["gsc"] = { query = "@class.outer", desc = "Swap with next class" },
-							["gsb"] = { query = "@block.outer", desc = "Swap with next block" },
-						},
-						swap_previous = {
-							["gSp"] = { query = "@parameter.inner", desc = "Swap with previous parameter" },
-							["gSf"] = { query = "@function.outer", desc = "Swap with previous function" },
-							["gSc"] = { query = "@class.outer", desc = "Swap with previous class" },
-							["gSb"] = { query = "@block.outer", desc = "Swap with previous block" },
-						},
-					},
 					select = {
 						enable = true,
-
-						-- Automatically jump forward to textobj, similar to targets.vim
 						lookahead = true,
-
 						keymaps = {
-							-- You can use the capture groups defined in textobjects.scm
-							["a="] = { query = "@assignment.outer", desc = "Select outer part of an assignment" },
 							["i="] = { query = "@assignment.inner", desc = "Select inner part of an assignment" },
 							["l="] = { query = "@assignment.lhs", desc = "Select left hand side of an assignment" },
 							["r="] = { query = "@assignment.rhs", desc = "Select right hand side of an assignment" },
-
+							["a="] = { query = "@assignment.outer", desc = "Select outer part of an assignment" },
 							["aa"] = { query = "@parameter.outer", desc = "Select outer part of a parameter/argument" },
 							["ia"] = { query = "@parameter.inner", desc = "Select inner part of a parameter/argument" },
-
 							["ai"] = { query = "@conditional.outer", desc = "Select outer part of a conditional" },
 							["ii"] = { query = "@conditional.inner", desc = "Select inner part of a conditional" },
-
 							["al"] = { query = "@loop.outer", desc = "Select outer part of a loop" },
 							["il"] = { query = "@loop.inner", desc = "Select inner part of a loop" },
-
 							["af"] = { query = "@call.outer", desc = "Select outer part of a function call" },
 							["if"] = { query = "@call.inner", desc = "Select inner part of a function call" },
-
 							["ad"] = {
 								query = "@function.outer",
 								desc = "Select outer part of a method/function definition",
@@ -116,7 +75,6 @@ return {
 								query = "@function.inner",
 								desc = "Select inner part of a method/function definition",
 							},
-
 							["ac"] = { query = "@class.outer", desc = "Select outer part of a class" },
 							["ic"] = { query = "@class.inner", desc = "Select inner part of a class" },
 						},
@@ -125,11 +83,10 @@ return {
 			})
 		end,
 	},
+
 	{
-		-- show context
 		"nvim-treesitter/nvim-treesitter-context",
 		event = "BufEnter",
-		opts = {},
 		keys = {
 			{ "<leader>uc", "<cmd>TSContext toggle<CR>", desc = " Toggle context" },
 			{
@@ -137,7 +94,33 @@ return {
 				function()
 					require("treesitter-context").go_to_context(vim.v.count1)
 				end,
-				{ silent = true },
+				silent = true,
+			},
+		},
+	},
+
+	{
+		"aaronik/treewalker.nvim",
+		opts = {},
+		keys = {
+			{ "<C-up>", "<cmd>Treewalker Up<CR>", mode = { "n", "v", "o" }, silent = true, desc = "Go node up" },
+			{ "<C-down>", "<cmd>Treewalker Down<CR>", mode = { "n", "v", "o" }, silent = true, desc = "Go node down" },
+			{ "<C-left>", "<cmd>Treewalker Left<CR>", mode = { "n", "v", "o" }, silent = true, desc = "Go node left" },
+			{
+				"<C-right>",
+				"<cmd>Treewalker Right<CR>",
+				mode = { "n", "v", "o" },
+				silent = true,
+				desc = "Go node right",
+			},
+			{ "<C-S-up>", "<cmd>Treewalker SwapUp<CR>", silent = true, desc = "Go node up" },
+			{ "<C-S-down>", "<cmd>Treewalker SwapDown<CR>", silent = true, desc = "Go node down" },
+			{ "<C-S-left>", "<cmd>Treewalker SwapLeft<CR>", silent = true, desc = "Go node left" },
+			{
+				"<C-S-right>",
+				"<cmd>Treewalker SwapRight<CR>",
+				silent = true,
+				desc = "Go node right",
 			},
 		},
 	},
