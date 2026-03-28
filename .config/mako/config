@@ -1,7 +1,8 @@
 include=~/.cache/wal/colors-mako
 
-font=IntoneMono Nerd Font
+font=Geist 10
 border-radius=10
+border-size=0
 
 actions=1
 icons=1

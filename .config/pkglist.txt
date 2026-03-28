@@ -60,6 +60,7 @@ tasksh
 taskwarrior-tui
 tealdeer
 tela-circle-icon-theme-black
+ttf-geist
 udiskie
 ufw
 unzip
