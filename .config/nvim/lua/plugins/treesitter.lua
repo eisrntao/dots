@@ -32,7 +32,7 @@ return {
 				incremental_selection = {
 					enable = true,
 					keymaps = {
-						init_selection = "<C-S-v>",
+						init_selection = "<leader>v",
 						node_incremental = "<space>",
 						scope_incremental = false,
 						node_decremental = "<backspace>",
