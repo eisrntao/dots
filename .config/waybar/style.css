@@ -1,14 +1,14 @@
 @import url("../../.cache/wal/colors-waybar.css");
 
 * {
-    font-family: Iosevka Nerd Font Mono, Noto Sans CJK JP,monospace;
+    font-family: Geist, Iosevka Nerd Font Mono, Noto Sans CJK JP,monospace;
     font-size: 10px;
     color: @foreground;
     transition: all 0.05s ease-out;
     border-radius: 0px;
 }
 
-*:hover {
+*:not(#mpris):hover, #mpris.icon:hover {
     color: alpha(@color1, 0.7);
 }
 
@@ -16,24 +16,13 @@ window#waybar, .modules-center {
     background-color: alpha(@background, 0);
 }
 
-.modules-left, .modules-center, .modules-right {
-  margin-bottom: 5px;
-}
-
- .modules-left, .modules-right {
-  padding: 4px 7px;
+ .modules-right, .modules-center {
+  padding: 4px 8px;
+  margin-bottom: 3px;
   background-color: alpha(@background, 1);
   border-radius: 0px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  transition: all 0.5s;
-}
-
-#widget, #mpris {
-  margin-top: 5px;
-  padding: 5px;
-  background-color: alpha(@background, 1);
-  border-radius: 10px;
   transition: all 0.5s;
 }
 
@@ -42,7 +31,9 @@ tooltip {
   border-radius: 10px;
   border: 1px solid alpha(@foreground, 0.4);
 }
+
 tooltip label {
+  font-family: Geist, Iosevka Nerd Font Mono, Noto Sans CJK JP,monospace;
   font-size: 1.2em;
   color: white;
 }
@@ -52,7 +43,8 @@ label.module {
 }
 
 #clock {
-  font-size: 1.4em;
+  font-size: 1.2em;
+  font-family: Geist SemiBold, Iosevka Nerd Font Mono, monospace;
 }
 
 #workspaces button {
@@ -85,13 +77,7 @@ label.module {
 }
 
 #mpris:not(.paused) {
-  animation: pulseColor 20s infinite alternate;
-}
-
-#mpris {
-    font-style: italic;
-    font-size: 0.7rem;
-    padding: 10px
+  /* animation: pulseColor 20s infinite alternate; */
 }
 
 #language {
@@ -126,22 +112,37 @@ label.module {
   font-size:1.3em;
 }
 
-#custom-bartib {
-  font-size: 1.7em;
-}
-
 #custom-spacer1 {
   margin: 0.2em;
   color: alpha(@foreground, 0.4);
 }
 
-#start * {
-  margin: 0 0.25rem;
-  font-size: 1.6rem;
+#mpris.text {
+  font-size: 0.7rem;
+  font-family: Geist, Noto Sans CJK JP, Roboto;
+  font-style: italic;
+}
+
+#start:not(:hover) label {
+  color: transparent;
+}
+
+#start-left {
+  border-radius: 0px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: alpha(@background, 1);
+  padding: 4px 8px;
+}
+
+#start-left label {
+  font-size: 1rem;
+}
+
+#start label{
+  margin: 0 0.30rem;
+  font-size: 1.3rem;
 }
 
 #custom-menustart {
-  margin: 0em 1em 0em 0.5em;
-  color: alpha(@foreground, 0.4);
-  font-size: 0.7rem;
 }
