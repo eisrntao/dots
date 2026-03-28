@@ -3,3 +3,6 @@ config-file = ~/.cache/wal/ghostty.conf
 window-padding-x = 10
 confirm-close-surface = true
 mouse-hide-while-typing = true
+keybind = clear
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+shift+v=paste_from_clipboard
