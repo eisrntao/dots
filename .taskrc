@@ -51,4 +51,6 @@ context.school.read=+school
 context.school.write=+school
 context.rice.read=+rice
 context.rice.write=+rice
+context.homelab.read=project:homelab
+context.homelab.write=project:homelab
 context=school
