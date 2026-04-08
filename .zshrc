@@ -111,7 +111,6 @@ alias v="nvim"
 alias lazy="lazygit"
 alias py="python"
 alias b="bartib"
-alias ssh="mosh"
 
 diff() {
   command diff "$@" | diff-so-fancy
