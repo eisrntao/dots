@@ -13,7 +13,6 @@ return {
 						"ruff",
 
 						"clangd", --c
-						"clangd-format",
 
 						"bashls", --bash
 
