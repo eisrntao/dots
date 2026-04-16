@@ -21,6 +21,7 @@ return {
 			lua = { "stylua" },
 			python = { "ruff" },
 			javascript = { "prettierd", "prettier", stop_after_first = true },
+			c = { "clang-format" },
 			["_"] = { "trim_whitespace" },
 		},
 		-- Set default options
