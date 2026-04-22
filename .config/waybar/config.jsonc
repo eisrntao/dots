@@ -19,7 +19,6 @@
     ],
     "modules-right": [
         "hyprland/language",
-        "tray",
         "network",
         "bluetooth",
         "group/status",
