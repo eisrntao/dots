@@ -100,6 +100,7 @@ return {
 	},
 
 	{
+		-- faster navigation by node
 		"aaronik/treewalker.nvim",
 		opts = {},
 		keys = {
@@ -122,6 +123,14 @@ return {
 				silent = true,
 				desc = "Go node right",
 			},
+		},
+	},
+
+	{
+		"Sang-it/fluoride",
+		opts = {},
+		keys = {
+			{ "<leader>co", "<cmd>FluorideToggle<CR>", silent = true, desc = "󱁊 Show code outline" },
 		},
 	},
 }

@@ -141,7 +141,7 @@ return {
 				{ "<leader>ca", "<cmd>LspUI code_action<CR>", desc = " Code actions" },
 				{ "<leader>ci", "<cmd>LspUI call_hierarchy incoming_calls<CR>", desc = " Show incoming calls" },
 				{
-					"<leader>co",
+					"<leader>cI",
 					"<cmd>LspUI call_hierarchy outgoing_calls<CR>",
 					desc = " Show outgoing_calls calls",
 				},
