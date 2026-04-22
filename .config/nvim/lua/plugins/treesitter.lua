@@ -89,14 +89,6 @@ return {
 				move = {
 					enable = true,
 					set_jumps = true,
-					goto_next_start = {
-						["]f"] = "@function.outer",
-						["]c"] = "@class.outer",
-					},
-					goto_prev_start = {
-						["[f"] = "@function.outer",
-						["[c"] = "@class.outer",
-					},
 				},
 			})
 
