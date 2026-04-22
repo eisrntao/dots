@@ -45,7 +45,7 @@ return {
 						vim.keymap.set(m, lhs, rhs, { buffer = bufnr, silent = true, desc = desc })
 					end
 					map("n", "K", "<cmd>LspUI hover<CR>", "Hover")
-					map({ "n", "i" }, "<cmd>LspUI signature<CR>", "<C-k>", "Signature help")
+					map({ "n", "i" }, "<C-k>", "<cmd>LspUI signature<CR>", "Signature help")
 					map("n", "gl", "<cmd>LspUI hover<CR>", "Line diagnostics")
 					map("n", "[d", "<cmd>LspUI diagnostic prev<CR>", "Prev diagnostic")
 					map("n", "]d", "<cmd>LspUI diagnostic next<CR>", "Next diagnostic")
