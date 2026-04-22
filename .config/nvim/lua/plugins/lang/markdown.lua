@@ -6,6 +6,7 @@ return {
 		---@module 'render-markdown'
 		---@type render.md.UserConfig
 		opts = {
+			latex = { enabled = false },
 			completions = { blink = { enabled = true } },
 			code = {
 				disable = {},
