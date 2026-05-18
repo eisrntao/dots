@@ -10,7 +10,6 @@ calibre
 cava
 chaotic-keyring
 chaotic-mirrorlist
-chromium
 cronie
 diff-so-fancy
 dust
@@ -18,6 +17,8 @@ efibootmgr
 ex-vi-compat
 eza
 ghostty
+gimp
+helium-browser-bin
 httpie
 hyprland
 hyprlock
@@ -61,6 +62,7 @@ tasksh
 taskwarrior-tui
 tealdeer
 tela-circle-icon-theme-black
+tree-sitter-cli
 ttf-geist
 udiskie
 ufw
@@ -68,6 +70,7 @@ unzip
 waybar
 wev
 wiremix-git
+wireshark-qt
 wlsunset
 wofi
 wps-office
@@ -75,7 +78,5 @@ youtube-music-bin
 zellij
 zip
 zram-generator
-zsh-autosuggestions
-zsh-completions
 zsh-fast-syntax-highlighting
 zsh-vi-mode
