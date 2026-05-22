@@ -1,9 +1,6 @@
 # Import vars
 source $HOME/.zprofile
 
-# Fix rust path
-PATH="$PATH:$HOME/Projects/bartib/target/release"
-
 # Change history
 HISTFILE=~/.cache/.zshhistory
 HISTSIZE=10000
@@ -62,8 +59,6 @@ export MCFLY_FUZZY=3
 export MCFLY_DELETE_WITHOUT_CONFIRM=TRUE
 # Init zoxide
 eval "$(zoxide init zsh)"
-# Init starship
-eval "$(starship init zsh)"
 
 # main opts
 setopt hist_ignore_dups     # don’t record duplicate commands
@@ -90,20 +85,9 @@ setopt interactive_comments # allow comments in shell
 unsetopt prompt_sp # don't autoclean blanklines
 stty stop undef # disable accidental ctrl s
 
-# Setup yazi
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-	rm -f -- "$tmp"
-
-}
 # Aliases
-alias yazi="y"
 alias ls="exa"
 alias grep="rg"
-alias find="fd"
 alias cat="bat"
 alias du="dust"
 alias cd="z"
@@ -125,9 +109,19 @@ function kindle() {
   fi
 }
 
-function weather() {
-  rustormy -c $(echo "brno\nžilina" | fzf) --name --colors
-}
+# CACHYOS DEFAULTS
+
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+source /usr/share/cachyos-zsh-config/cachyos-config.zsh
+
+# overrides
+ENABLE_CORRECTION="false"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # execute zellij hook
 $HOME/scripts/zellij-hook

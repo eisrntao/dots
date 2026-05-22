@@ -1,0 +1,5 @@
+theme = noctalia
+window-padding-x = 10
+confirm-close-surface = true
+mouse-hide-while-typing = true
+command = /usr/bin/zsh
