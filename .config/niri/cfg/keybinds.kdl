@@ -54,21 +54,29 @@ binds {
     Mod+Shift+E                          { move-column-to-workspace-up; }
     Mod+Shift+Down                       { move-column-to-workspace-down; }
     Mod+Shift+N                          { move-column-to-workspace-down; }
-    
+
     Mod+Home                            { focus-column-first; }
     Mod+End                             { focus-column-last; }
     Mod+CTRL+Home                       { move-column-to-first; }
     Mod+CTRL+End                        { move-column-to-last; }
 
     Mod+Ctrl+Left                      { focus-monitor-left; }
+    Mod+Ctrl+M                         { focus-monitor-left; }
     Mod+Ctrl+Right                     { focus-monitor-right; }
-    Mod+Ctrl+UP                        { focus-monitor-up; }
+    Mod+Ctrl+I                         { focus-monitor-right; }
+    Mod+Ctrl+Up                        { focus-monitor-up; }
+    Mod+Ctrl+E                         { focus-monitor-up; }
     Mod+Ctrl+Down                      { focus-monitor-down; }
+    Mod+Ctrl+N                         { focus-monitor-down; }
 
     Mod+Shift+CTRL+Left                 { move-column-to-monitor-left; }
+    Mod+Shift+CTRL+M                 { move-column-to-monitor-left; }
     Mod+Shift+CTRL+Right                { move-column-to-monitor-right; }
+    Mod+Shift+CTRL+I                { move-column-to-monitor-right; }
     Mod+Shift+CTRL+UP                   { move-column-to-monitor-up; }
+    Mod+Shift+CTRL+E                   { move-column-to-monitor-up; }
     Mod+Shift+CTRL+Down                 { move-column-to-monitor-down; }
+    Mod+Shift+CTRL+N                 { move-column-to-monitor-down; }
 
     // ─── Workspace Switching ───
     Mod+WheelScrollDown                 cooldown-ms=150 { focus-workspace-down; }
