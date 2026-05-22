@@ -18,7 +18,7 @@ binds {
     Mod+Shift+Escape                        hotkey-overlay-title="Session Menu: noctalia sessionMenu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
 
     // Please choose your own file manager.
-    Mod+T                               hotkey-overlay-title="File Manager: Thunar" { spawn "thunar"; }
+    Mod+T                               hotkey-overlay-title="File Manager: Nautilus" { spawn "nautilus"; }
 
     // ─── Media Controls ───
     XF86AudioRaiseVolume                allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume increase"; }
@@ -132,9 +132,9 @@ binds {
     // Mod+W                               { toggle-column-tabbed-display; }
 
     // ─── Screenshots ───
-    CTRL+Shift+1                        { screenshot; }
-    CTRL+Shift+2                        { screenshot-screen; }
-    CTRL+Shift+3                        { screenshot-window; }
+    Mod+S                        { screenshot; }
+    Mod+Ctrl+S                        { screenshot-screen; }
+    Mod+Shift+S                        { screenshot-window; }
 
     // ─── Exit / Power ───
     Mod+O                               repeat=false { toggle-overview; }
