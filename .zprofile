@@ -11,10 +11,3 @@ export SCREENSHOT_DIR=$HOME/Pictures/screenshots
 
 export BARTIB_FILE=~/Documents/bartib.txt
 
-# Setup ssh-agent
-
-if [ -z "$SSH_AUTH_SOCK" ] ; then
-  eval "$(ssh-agent -s)"
-fi
-
-trap 'test -n "$SSH_AUTH_SOCK" && eval `/usr/bin/ssh-agent -k`' 0
