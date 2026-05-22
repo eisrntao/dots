@@ -1,6 +1,0 @@
-export:
-  pauses: new_slide
-defaults:
-  validate_overflows: never
-speaker_notes:
-  always_publish: true
