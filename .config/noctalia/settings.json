@@ -222,6 +222,9 @@
                     "textColor": "none"
                 },
                 {
+                    "id": "plugin:display-settings"
+                },
+                {
                     "colorizeDistroLogo": false,
                     "colorizeSystemIcon": "primary",
                     "colorizeSystemText": "none",
@@ -470,7 +473,7 @@
     "location": {
         "analogClockInCalendar": false,
         "autoLocate": false,
-        "firstDayOfWeek": -1,
+        "firstDayOfWeek": 1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
         "name": "Brno",
@@ -484,7 +487,7 @@
         "weatherTaliaMascotAlways": false
     },
     "network": {
-        "bluetoothAutoConnect": true,
+        "bluetoothAutoConnect": false,
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
         "bluetoothRssiPollIntervalMs": 60000,
