@@ -706,8 +706,8 @@
         "translucentWidgets": false
     },
     "wallpaper": {
-        "automationEnabled": false,
-        "directory": "/home/eisrntao/dots/wallpapers",
+        "automationEnabled": true,
+        "directory": "/home/eisrntao/Pictures/wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
@@ -750,7 +750,7 @@
         "overviewEnabled": false,
         "overviewTint": 0.6,
         "panelPosition": "follow_bar",
-        "randomIntervalSec": 900,
+        "randomIntervalSec": 1800,
         "setWallpaperOnAllMonitors": true,
         "showHiddenFiles": false,
         "skipStartupTransition": true,
