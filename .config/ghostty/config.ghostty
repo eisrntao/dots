@@ -1,5 +1,7 @@
 theme = noctalia
 window-padding-x = 10
-confirm-close-surface = true
+confirm-close-surface = false
 mouse-hide-while-typing = true
+quit-after-last-window-closed = true
+quit-after-last-window-closed-delay = 5m
 command = /usr/bin/zsh
