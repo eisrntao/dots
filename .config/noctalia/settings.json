@@ -109,10 +109,10 @@
             ],
             "left": [
                 {
-                    "colorizeSystemIcon": "none",
+                    "colorizeSystemIcon": "primary",
                     "colorizeSystemText": "none",
                     "customIconPath": "",
-                    "enableColorization": false,
+                    "enableColorization": true,
                     "icon": "grid-dots",
                     "iconColor": "none",
                     "id": "Launcher",
@@ -154,7 +154,7 @@
                     "hideMode": "hidden",
                     "hideWhenIdle": false,
                     "id": "MediaMini",
-                    "maxWidth": 145,
+                    "maxWidth": 200,
                     "panelShowAlbumArt": true,
                     "scrollingMode": "hover",
                     "showAlbumArt": true,
@@ -222,6 +222,10 @@
                     "textColor": "none"
                 },
                 {
+                    "defaultSettings": {
+                        "iconColor": "none",
+                        "niriConfigPath": "~/.config/niri/config.kdl"
+                    },
                     "id": "plugin:display-settings"
                 },
                 {
@@ -230,7 +234,7 @@
                     "colorizeSystemText": "none",
                     "customIconPath": "",
                     "enableColorization": true,
-                    "icon": "noctalia",
+                    "icon": "settings",
                     "id": "ControlCenter",
                     "useDistroLogo": true
                 }
@@ -700,7 +704,7 @@
         "panelBackgroundOpacity": 1,
         "panelsAttachedToBar": true,
         "scrollbarAlwaysVisible": false,
-        "settingsPanelMode": "window",
+        "settingsPanelMode": "centered",
         "settingsPanelSideBarCardStyle": false,
         "tooltipsEnabled": true,
         "translucentWidgets": false
