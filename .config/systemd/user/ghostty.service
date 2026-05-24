@@ -1,0 +1,15 @@
+[Unit]
+Description=Ghostty Terminal Emulator (Headless Background Daemon)
+Documentation=https://ghostty.org/docs/linux/systemd
+After=graphical-session.target dbus.socket
+Requires=dbus.socket
+
+[Service]
+Type=dbus
+BusName=com.mitchellh.ghostty
+ExecStart=/usr/bin/ghostty --gtk-single-instance=true --initial-window=false
+Restart=on-failure
+ReloadSignal=SIGUSR2
+
+[Install]
+WantedBy=graphical-session.target

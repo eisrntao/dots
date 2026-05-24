@@ -9,7 +9,7 @@ binds {
     Mod+Shift+H                     { show-hotkey-overlay; }
 
     // ─── Applications ───
-    Mod+Return                          hotkey-overlay-title="Open Terminal: Ghostty" { spawn "ghostty"; }
+    Mod+Return                          hotkey-overlay-title="Open Terminal: Ghostty" { spawn-sh "ghostty +new-window"; }
     Mod+A                     hotkey-overlay-title="Open App Launcher: noctalia launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Mod+Shift+A                     hotkey-overlay-title="Open Noctalia control center" { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
     Mod+Y                     hotkey-overlay-title="Open Media" { spawn-sh "qs -c noctalia-shell ipc call media toggle"; }
@@ -37,23 +37,28 @@ binds {
     // ─── Window Movement and Focus ───
     Mod+Q                               { close-window; }
 
-    Mod+Left                            { focus-column-left; }
-    Mod+M                               { focus-column-left; }
-    Mod+Right                           { focus-column-right; }
-    Mod+I                               { focus-column-right; }
-    Mod+Up                              { focus-workspace-up;  }
-    Mod+E                               { focus-workspace-up;  }
-    Mod+Down                            { focus-workspace-down;  }
-    Mod+N                               { focus-workspace-down;  }
+    Mod+Left                            { focus-column-or-monitor-left; }
+    Mod+M                               { focus-column-or-monitor-left; }
+    Mod+Right                           { focus-column-or-monitor-right; }
+    Mod+I                               { focus-column-or-monitor-right; }
+    Mod+Up                              { focus-window-or-workspace-up;  }
+    Mod+E                               { focus-window-or-workspace-up;  }
+    Mod+Down                            { focus-window-or-workspace-down;  }
+    Mod+N                               { focus-window-or-workspace-down;  }
 
-    Mod+Shift+Left                       { move-column-left; }
-    Mod+Shift+M                          { move-column-left; }
-    Mod+Shift+Right                      { move-column-right; }
-    Mod+Shift+I                          { move-column-right; }
-    Mod+Shift+UP                         { move-column-to-workspace-up; }
-    Mod+Shift+E                          { move-column-to-workspace-up; }
-    Mod+Shift+Down                       { move-column-to-workspace-down; }
-    Mod+Shift+N                          { move-column-to-workspace-down; }
+    Mod+Shift+Left                       { move-column-left-or-to-monitor-left; }
+    Mod+Shift+M                          { move-column-left-or-to-monitor-left; }
+    Mod+Shift+Right                      { move-column-right-or-to-monitor-right; }
+    Mod+Shift+I                          { move-column-right-or-to-monitor-right; }
+    Mod+Shift+UP                         { move-window-up-or-to-workspace-up; }
+    Mod+Shift+E                          { move-window-up-or-to-workspace-up; }
+    Mod+Shift+Down                       { move-window-down-or-to-workspace-down; }
+    Mod+Shift+N                          { move-window-down-or-to-workspace-down; }
+
+    Mod+Comma { consume-window-into-column; }   // Pull from right
+    Mod+Period { expel-window-from-column; }    // Push to right
+    Mod+BracketLeft { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
 
     Mod+Home                            { focus-column-first; }
     Mod+End                             { focus-column-last; }
@@ -129,7 +134,7 @@ binds {
     // ─── Modes ───
     Mod+V                               { toggle-window-floating; }
     Mod+F                               { fullscreen-window; }
-    // Mod+W                               { toggle-column-tabbed-display; }
+    Mod+G                               { toggle-column-tabbed-display; }
 
     // ─── Screenshots ───
     Mod+S                        { screenshot; }
