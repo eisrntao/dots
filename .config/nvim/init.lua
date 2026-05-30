@@ -4,3 +4,6 @@ require("config.opts")
 -- Init lazy
 require("config.lazy")
 require("config.keybinds")
+
+-- Load noctalia
+require('matugen').setup()
