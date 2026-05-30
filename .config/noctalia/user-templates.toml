@@ -9,3 +9,6 @@ output_path = "/usr/share/sddm/themes/sddm-noctalia/theme.conf"
 input_path = "~/.config/niri/template.kdl"
 output_path = "~/.config/niri/tweaks.kdl"
 
+[templates.yt-music]
+input_path = "~/.config/YouTube Music/template.css"
+output_path = "~/.config/YouTube Music/theme.css"
