@@ -349,6 +349,33 @@ paper-icon-button.ytmusic-like-button-renderer {
 }
 
 /* ============================================================================
+   PLAY BUTTONS & CURRENTLY PLAYING TRACK INDICATORS
+   ============================================================================ */
+/* Forces uniform thematic background & contrast levels on playing rows and overlay circles */
+ytmusic-play-button-renderer {
+    --ytmusic-play-button-background-color: var(--cust-ytmusic-light-text-1) !important;
+    --ytmusic-play-button-icon-color: var(--cust-ytmusic-dark-background) !important;
+    --ytmusic-play-button-active-background-color: var(--cust-ytmusic-light-text-1) !important;
+    --ytmusic-play-button-active-icon-color: var(--cust-ytmusic-dark-background) !important;
+    --paper-spinner-color: var(--cust-ytmusic-dark-background) !important;
+}
+
+.content-wrapper.ytmusic-play-button-renderer,
+div.content-wrapper.style-scope.ytmusic-play-button-renderer,
+ytmusic-play-button-renderer:hover .content-wrapper.ytmusic-play-button-renderer,
+ytmusic-play-button-renderer:focus .content-wrapper.ytmusic-play-button-renderer {
+    background: var(--cust-ytmusic-light-text-1) !important;
+}
+
+#icon.ytmusic-play-button-renderer,
+ytmusic-play-button-renderer iron-icon,
+ytmusic-animated-icon,
+.playing-icon.ytmusic-animated-icon {
+    color: var(--cust-ytmusic-dark-background) !important;
+    --iron-icon-fill-color: var(--cust-ytmusic-dark-background) !important;
+}
+
+/* ============================================================================
    CONTEXT MENUS, DIALOGS, DROPDOWNS & SHELVES (COLOR COMPATIBILITY ONLY)
    ============================================================================ */
 /* Color-exclusive overrides targeting popup interiors to protect native corner radii curves */
@@ -372,10 +399,6 @@ ytmusic-menu-navigation-item-renderer,
 .title.ytmusic-immersive-header-renderer,
 .description.ytmusic-immersive-header-renderer {
     color: var(--cust-ytmusic-main-text-1) !important;
-}
-
-div.content-wrapper.style-scope.ytmusic-play-button-renderer {
-    background: var(--cust-ytmusic-nowplaying-color) !important;
 }
 
 ytmusic-subscribe-button-renderer {
@@ -420,14 +443,6 @@ yt-icon.ytmusic-inline-badge-renderer {
 }
 yt-formatted-string.strapline.text.style-scope.ytmusic-carousel-shelf-basic-header-renderer {
     color: var(--cust-ytmusic-light-4) !important;
-}
-
-.content-wrapper.ytmusic-play-button-renderer,
-ytmusic-play-button-renderer:hover .content-wrapper.ytmusic-play-button-renderer,
-ytmusic-play-button-renderer:focus .content-wrapper.ytmusic-play-button-renderer {
-    background: var(--cust-ytmusic-play-nav-color) !important;
-    --ytmusic-play-button-icon-color: var(--cust-ytmusic-main-text-1) !important;
-    --paper-spinner-color: var(--yt-spec-themed-blue) !important;
 }
 
 .category-menu-item.iron-selected.ytmusic-settings-page {
