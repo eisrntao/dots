@@ -1,8 +1,8 @@
 {
     "appLauncher": {
         "autoPasteClipboard": false,
-        "clipboardWatchImageCommand": "wl-paste --type image --watch cliphist store",
-        "clipboardWatchTextCommand": "wl-paste --type text --watch cliphist store",
+        "clipboardWatchImageCommand": "wl-paste --type image --watch cliphist store -max-items 50",
+        "clipboardWatchTextCommand": "wl-paste --type text --watch cliphist store -max-items 50",
         "clipboardWrapText": true,
         "customLaunchPrefix": "",
         "customLaunchPrefixEnabled": false,
@@ -65,11 +65,11 @@
         "marginVertical": 4,
         "middleClickAction": "settings",
         "middleClickCommand": "",
-        "middleClickFollowMouse": false,
+        "middleClickFollowMouse": true,
         "monitors": [
         ],
-        "mouseWheelAction": "none",
-        "mouseWheelWrap": true,
+        "mouseWheelAction": "workspace",
+        "mouseWheelWrap": false,
         "outerCorners": false,
         "position": "top",
         "reverseScroll": false,
@@ -109,7 +109,7 @@
             ],
             "left": [
                 {
-                    "colorizeSystemIcon": "primary",
+                    "colorizeSystemIcon": "secondary",
                     "colorizeSystemText": "none",
                     "customIconPath": "",
                     "enableColorization": true,
@@ -161,7 +161,7 @@
                     "showArtistFirst": false,
                     "showProgressRing": true,
                     "showVisualizer": false,
-                    "textColor": "none",
+                    "textColor": "secondary",
                     "useFixedWidth": false,
                     "visualizerType": "linear"
                 }
@@ -230,6 +230,15 @@
                     "id": "plugin:display-settings"
                 },
                 {
+                    "defaultSettings": {
+                        "compactMode": false,
+                        "defaultDuration": 0,
+                        "iconColor": "none",
+                        "textColor": "none"
+                    },
+                    "id": "plugin:timer"
+                },
+                {
                     "colorizeDistroLogo": false,
                     "colorizeSystemIcon": "primary",
                     "colorizeSystemText": "none",
@@ -271,7 +280,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Cream Autumn",
+        "predefinedScheme": "Rosey AMOLED",
         "schedulingMode": "off",
         "syncGsettings": true,
         "useWallpaperColors": false
@@ -314,10 +323,19 @@
                     "id": "Bluetooth"
                 },
                 {
-                    "id": "PowerProfile"
+                    "defaultSettings": {
+                        "autoMount": false,
+                        "fileBrowser": "yazi",
+                        "hideWhenEmpty": false,
+                        "iconColor": "none",
+                        "showBadge": false,
+                        "showNotifications": true,
+                        "terminalCommand": "kitty"
+                    },
+                    "id": "plugin:usb-drive-manager"
                 },
                 {
-                    "id": "KeepAwake"
+                    "id": "PowerProfile"
                 }
             ],
             "right": [
@@ -326,6 +344,9 @@
                 },
                 {
                     "id": "NightLight"
+                },
+                {
+                    "id": "KeepAwake"
                 },
                 {
                     "defaultSettings": {
@@ -494,12 +515,12 @@
     "network": {
         "bluetoothAutoConnect": false,
         "bluetoothDetailsViewMode": "grid",
-        "bluetoothHideUnnamedDevices": false,
+        "bluetoothHideUnnamedDevices": true,
         "bluetoothRssiPollIntervalMs": 60000,
         "bluetoothRssiPollingEnabled": false,
-        "disableDiscoverability": false,
-        "networkPanelView": "wifi",
-        "wifiDetailsViewMode": "grid"
+        "disableDiscoverability": true,
+        "networkPanelView": "ethernet",
+        "wifiDetailsViewMode": "list"
     },
     "nightLight": {
         "autoSchedule": true,
@@ -696,6 +717,10 @@
             {
                 "enabled": true,
                 "id": "hyprtoolkit"
+            },
+            {
+                "enabled": true,
+                "id": "zenBrowser"
             }
         ],
         "enableUserTheming": true
@@ -763,8 +788,8 @@
         "setWallpaperOnAllMonitors": true,
         "showHiddenFiles": false,
         "skipStartupTransition": true,
-        "solidColor": "#1a1a2e",
-        "sortOrder": "date_desc",
+        "solidColor": "#76946a",
+        "sortOrder": "date_asc",
         "transitionDuration": 1500,
         "transitionEdgeSmoothness": 0.05,
         "transitionType": [
