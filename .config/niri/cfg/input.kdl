@@ -8,7 +8,7 @@ input {
             // uncomment the line below and change the layout accordingly.
             layout "us,sk,us" // Use the American keyboard layout
             options "grp:win_space_toggle"
-	    variant "colemak_dh_iso"
+            variant "colemak_dh"
         }
         numlock // Enable numlock on startup
     }
