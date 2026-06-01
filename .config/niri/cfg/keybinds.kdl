@@ -9,13 +9,13 @@ binds {
     Mod+Shift+H                     { show-hotkey-overlay; }
 
     // ─── Applications ───
-    Mod+Return                          hotkey-overlay-title="Open Terminal: Ghostty" { spawn-sh "ghostty +new-window"; }
-    Mod+A                     hotkey-overlay-title="Open App Launcher: noctalia launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
-    Mod+Shift+A                     hotkey-overlay-title="Open Noctalia control center" { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
-    Mod+Y                     hotkey-overlay-title="Open Media" { spawn-sh "qs -c noctalia-shell ipc call media toggle"; }
+    Mod+Return                          hotkey-overlay-title="Open Terminal: Ghostty" { spawn-sh "ghostty +new-window || ghostty"; }
+    Mod+A                               hotkey-overlay-title="Open App Launcher: noctalia launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    Mod+Shift+A                         hotkey-overlay-title="Open Noctalia control center" { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
+    Mod+Y                               hotkey-overlay-title="Open Media" { spawn-sh "qs -c noctalia-shell ipc call media toggle"; }
     Mod+B                               hotkey-overlay-title="Open Browser: helium" { spawn "helium-browser"; }
-    Mod+Escape                           hotkey-overlay-title="Lock Screen: noctalia lock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
-    Mod+Shift+Escape                        hotkey-overlay-title="Session Menu: noctalia sessionMenu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
+    Mod+Escape                          hotkey-overlay-title="Lock Screen: noctalia lock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+    Mod+Shift+Escape                    hotkey-overlay-title="Session Menu: noctalia sessionMenu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
 
     // Please choose your own file manager.
     Mod+T                               hotkey-overlay-title="File Manager: Nautilus" { spawn "nautilus"; }
@@ -29,6 +29,7 @@ binds {
     XF86AudioPrev                       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media previous"; }
     XF86AudioPlay                       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media playPause"; }
     XF86AudioPause                      allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media playPause"; }
+    Mod+Shift+Y                         allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media playPause"; }
 
     // ─── Brightness Controls ───
     XF86MonBrightnessUp                 allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness increase"; }
@@ -137,9 +138,9 @@ binds {
     Mod+G                               { toggle-column-tabbed-display; }
 
     // ─── Screenshots ───
-    Mod+S                        { screenshot; }
-    Mod+Ctrl+S                        { screenshot-screen; }
-    Mod+Shift+S                        { screenshot-window; }
+    Mod+P                              { screenshot; }
+    Mod+Ctrl+P                         { screenshot-screen; }
+    Mod+Shift+P                        { screenshot-window; }
 
     // ─── Exit / Power ───
     Mod+O                               repeat=false { toggle-overview; }
