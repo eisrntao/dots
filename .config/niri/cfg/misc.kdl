@@ -25,6 +25,7 @@
     }
 
     gestures {
+
 		hot-corners {
 			off
 		}
@@ -33,3 +34,7 @@
 	layout {
 		empty-workspace-above-first
 	}
+
+  overview {
+    zoom 0.5
+  }

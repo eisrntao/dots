@@ -14,8 +14,6 @@ binds {
     Mod+Shift+A                         hotkey-overlay-title="Open Noctalia control center" { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
     Mod+Y                               hotkey-overlay-title="Open Media" { spawn-sh "qs -c noctalia-shell ipc call media toggle"; }
     Mod+B                               hotkey-overlay-title="Open Browser: helium" { spawn "helium-browser"; }
-    Mod+Escape                          hotkey-overlay-title="Lock Screen: noctalia lock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
-    Mod+Shift+Escape                    hotkey-overlay-title="Session Menu: noctalia sessionMenu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
 
     // Please choose your own file manager.
     Mod+T                               hotkey-overlay-title="File Manager: Nautilus" { spawn "nautilus"; }
@@ -122,9 +120,12 @@ binds {
 
     Mod+TAB                             { focus-workspace-previous; }
 
+    Mod+O                               repeat=false { toggle-overview; }
+    MouseForward                        repeat=false { toggle-overview; }
+
     // ─── Layout Controls ───
-    Mod+R                          { switch-preset-column-width; }
-    Mod+Shift+R                          { switch-preset-column-width-back; }
+    Mod+R                               { switch-preset-column-width; }
+    Mod+Shift+R                         { switch-preset-column-width-back; }
     Mod+C                               { center-column; }
     Mod+CTRL+C                          { center-visible-columns; }
     Mod+Minus                           { set-column-width "-10%"; }
@@ -143,5 +144,6 @@ binds {
     Mod+Shift+P                        { screenshot-window; }
 
     // ─── Exit / Power ───
-    Mod+O                               repeat=false { toggle-overview; }
+    Mod+Escape                          hotkey-overlay-title="Lock Screen: noctalia lock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+    Mod+Shift+Escape                    hotkey-overlay-title="Session Menu: noctalia sessionMenu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
 }
