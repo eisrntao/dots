@@ -183,6 +183,7 @@ setopt interactive_comments # allow comments in shell
 unsetopt prompt_sp # don't autoclean blanklines
 
 # Aliases
+alias sudo="sudo-rs"
 alias ls="exa"
 alias grep="rg"
 alias cat="bat"
