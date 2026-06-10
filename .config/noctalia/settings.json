@@ -41,7 +41,7 @@
         "spectrumFrameRate": 30,
         "spectrumMirrored": false,
         "visualizerType": "linear",
-        "volumeFeedback": false,
+        "volumeFeedback": true,
         "volumeFeedbackSoundFile": "",
         "volumeOverdrive": false,
         "volumeStep": 5
@@ -274,22 +274,6 @@
                 },
                 {
                     "compactMode": true,
-                    "hideMode": "hidden",
-                    "hideWhenIdle": false,
-                    "id": "MediaMini",
-                    "maxWidth": 200,
-                    "panelShowAlbumArt": true,
-                    "scrollingMode": "hover",
-                    "showAlbumArt": true,
-                    "showArtistFirst": false,
-                    "showProgressRing": true,
-                    "showVisualizer": false,
-                    "textColor": "secondary",
-                    "useFixedWidth": false,
-                    "visualizerType": "linear"
-                },
-                {
-                    "compactMode": true,
                     "diskPath": "/",
                     "iconColor": "none",
                     "id": "SystemMonitor",
@@ -309,6 +293,22 @@
                     "textColor": "none",
                     "useMonospaceFont": true,
                     "usePadding": false
+                },
+                {
+                    "compactMode": true,
+                    "hideMode": "hidden",
+                    "hideWhenIdle": false,
+                    "id": "MediaMini",
+                    "maxWidth": 200,
+                    "panelShowAlbumArt": true,
+                    "scrollingMode": "hover",
+                    "showAlbumArt": true,
+                    "showArtistFirst": false,
+                    "showProgressRing": true,
+                    "showVisualizer": false,
+                    "textColor": "secondary",
+                    "useFixedWidth": false,
+                    "visualizerType": "linear"
                 }
             ],
             "right": [
@@ -415,7 +415,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Rosey AMOLED",
+        "predefinedScheme": "Monochrome",
         "schedulingMode": "off",
         "syncGsettings": true,
         "useWallpaperColors": false
@@ -471,27 +471,6 @@
                 },
                 {
                     "id": "PowerProfile"
-                },
-                {
-                    "defaultSettings": {
-                        "colorHistory": [
-                        ],
-                        "detectedRecorder": "",
-                        "filenameFormat": "",
-                        "gifMaxSeconds": 30,
-                        "installedLangs": [
-                            "eng"
-                        ],
-                        "paletteColors": [
-                        ],
-                        "recordCopyToClipboard": false,
-                        "recordSkipConfirmation": false,
-                        "screenshotPath": "",
-                        "selectedOcrLang": "eng",
-                        "transAvailable": false,
-                        "videoPath": ""
-                    },
-                    "id": "plugin:screen-toolkit"
                 }
             ],
             "right": [
@@ -658,7 +637,7 @@
         "firstDayOfWeek": 1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
-        "name": "Brno",
+        "name": "Podhorie",
         "showCalendarEvents": true,
         "showCalendarWeather": true,
         "showWeekNumberInCalendar": false,
@@ -671,11 +650,11 @@
     "network": {
         "bluetoothAutoConnect": false,
         "bluetoothDetailsViewMode": "grid",
-        "bluetoothHideUnnamedDevices": true,
+        "bluetoothHideUnnamedDevices": false,
         "bluetoothRssiPollIntervalMs": 60000,
         "bluetoothRssiPollingEnabled": false,
         "disableDiscoverability": true,
-        "networkPanelView": "ethernet",
+        "networkPanelView": "wifi",
         "wifiDetailsViewMode": "list"
     },
     "nightLight": {
