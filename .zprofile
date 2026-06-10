@@ -4,6 +4,7 @@ export TERM="ghostty"
 export TERMINAL="ghostty"
 export MUSPLAYER="pear-desktop"
 export BROWSER="helium"
+export SHELL="/bin/zsh"
 
 export SCRIPT_DIR=$HOME/scripts
 export WALLPAPER_DIR=$HOME/Pictures/wallpapers
