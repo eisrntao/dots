@@ -4,7 +4,7 @@
 # Width of the sidebar in pixels
 width = 400
 # Height of the sidebar windows
-height = 335
+height = 200
 # Gap between windows in the stack
 gap = 10
 
@@ -36,4 +36,9 @@ sticky = false
 [[window_rule]]
 app_id = "com.mitchellh.ghostty"
 title = "^watch .* bartib report .*$"
+auto_add = true
+
+[[window_rule]]
+app_id = "com.github.th-ch.youtube-music"
+height = 550
 auto_add = true

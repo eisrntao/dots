@@ -16,3 +16,8 @@
        open-focused false
     }
 
+    window-rule {
+       match app-id="com.github.th-ch.youtube-music"
+       min-height 550
+    }
+
