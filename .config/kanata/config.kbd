@@ -8,10 +8,10 @@
 
 (defcfg
   process-unmapped-keys no
-  ;; linux-dev (
-  ;;   /dev/input/by-path/pci-0000:00:14.0-usb-0:1:1.0-event
-  ;;   /dev/input/by-id/usb-Dell_Dell_USB_Keyboard-event-kbd
-  ;; )
+  linux-dev-names-include (
+    "Asus WMI hotkeys"
+    "AT Translated Set 2 keyboard"
+  )
 )
 
 (defsrc
