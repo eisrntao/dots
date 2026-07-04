@@ -133,13 +133,13 @@ binds {
     Mod+Shift+Equal                     { set-window-height "+10%"; }
 
     // --- Sidebar plugin ---
-    // Toggle sidebar visibility (hide/show)
+    // Toggle sidebar focus
     Mod+S { switch-focus-between-floating-and-tiling; }
     // Toggle the focused window into/out of the sidebar
     Mod+Shift+S { spawn-sh "niri-sidebar toggle-window"; }
     // Flip the order of the sidebar
     Mod+Ctrl+S { spawn-sh "niri-sidebar flip"; }
-    // Force reorder (useful if something gets misaligned manually)
+    // Toggle sidebar visibility
     Mod+Alt+S { spawn-sh "niri-sidebar toggle-visibility"; }
 
     // ─── Modes ───
