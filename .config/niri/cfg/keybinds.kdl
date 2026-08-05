@@ -13,9 +13,9 @@ binds {
     Mod+A                               hotkey-overlay-title="Open App Launcher: noctalia launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Mod+Shift+A                         hotkey-overlay-title="Open Noctalia control center" { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
     Mod+Shift+C                         hotkey-overlay-title="Open Clipboard Manager" { spawn-sh "qs -c noctalia-shell ipc call launcher clipboard"; }
-    Mod+Y                               hotkey-overlay-title="Open Media" { spawn-sh "qs -c noctalia-shell ipc call media toggle"; }
     Mod+B                               hotkey-overlay-title="Open Browser: helium" { spawn "helium-browser"; }
     Mod+T                               hotkey-overlay-title="File Manager: Nautilus" { spawn "nautilus"; }
+    Mod+Y                               hotkey-overlay-title="Music Player: YT Music" { spawn "pear-desktop"; }
 
     // ─── Media Controls ───
     XF86AudioRaiseVolume                allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume increase"; }
@@ -153,6 +153,6 @@ binds {
     Mod+Ctrl+P                         { spawn-sh "hyprpicker -a"; }
 
     // ─── Exit / Power ───
-    Mod+Escape                          hotkey-overlay-title="Lock Screen: noctalia lock" { spawn-sh "bartib stop; qs -c noctalia-shell ipc call lockScreen lock"; }
-    Mod+Shift+Escape                    hotkey-overlay-title="Session Menu: noctalia sessionMenu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
+    Mod+Escape                          hotkey-overlay-title="Lock Screen: noctalia lock" { spawn-sh "bartib stop; qs -c noctalia-shell ipc call media pause; qs -c noctalia-shell ipc call lockScreen lock"; }
+    Mod+Shift+Escape                    hotkey-overlay-title="Session Menu: noctalia sessionMenu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle && bartib stop"; }
 }

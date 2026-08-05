@@ -4,8 +4,9 @@
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 
 output "eDP-1" {
-    mode "1926x1080@60"
+    mode "1920x1080@60"
     scale 1.25
+    position x=1980 y=0
 }
 
 output "HDMI-A-1" {

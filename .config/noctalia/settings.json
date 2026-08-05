@@ -27,7 +27,8 @@
             "nvim",
             "wps-office-et",
             "btop",
-            "obsidian"
+            "obsidian",
+            "com.github.th-ch.youtube-music"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",
@@ -526,7 +527,7 @@
     },
     "desktopWidgets": {
         "enabled": true,
-        "gridSnap": false,
+        "gridSnap": true,
         "gridSnapScale": false,
         "monitorWidgets": [
             {
@@ -552,6 +553,24 @@
                         "showBackground": true,
                         "x": 624,
                         "y": 192
+                    }
+                ]
+            },
+            {
+                "name": "eDP-1",
+                "widgets": [
+                    {
+                        "clockColor": "none",
+                        "clockStyle": "digital",
+                        "customFont": "",
+                        "format": "HH:mm\\nd MMMM yyyy",
+                        "id": "Clock",
+                        "roundedCorners": true,
+                        "scale": 1,
+                        "showBackground": true,
+                        "useCustomFont": false,
+                        "x": 24,
+                        "y": 24
                     }
                 ]
             }
