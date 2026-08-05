@@ -183,7 +183,6 @@ setopt interactive_comments # allow comments in shell
 unsetopt prompt_sp # don't autoclean blanklines
 
 # Aliases
-alias sudo="sudo-rs"
 alias ls="exa"
 alias grep="rg"
 alias cat="bat"
@@ -205,4 +204,10 @@ function kindle() {
     echo "Wrong argument, available are:"
     echo "kindle cp [FILE]"
   fi
+}
+
+function clip-aggregate() {
+cliphist list | while IFS= read -r line; do
+  echo "$line" | cliphist decode
+done | wl-copy
 }
