@@ -189,7 +189,7 @@ auto_open_filemanager = true
 enabled = [ "aristides/udiskie" ]
 
 [shell]
-clipboard_auto_paste = "ctrl_v"
+clipboard_confirm_clear_history = false
 polkit_agent = true
 screen_time_enabled = true
 telemetry_enabled = true
