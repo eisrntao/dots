@@ -202,10 +202,7 @@ telemetry_enabled = true
     session_position = "center"
 
 [theme]
-builtin = "Ayu"
-community_palette = "Oasis Abyss"
 mode = "dark"
-source = "community"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
@@ -213,20 +210,6 @@ wallpaper_scheme = "m3-content"
     community_ids = [ "neovim", "zathura", "lazygit" ]
 
 [wallpaper]
-directory = "/home/eisrntao/Pictures/wallpapers"
-
-    [wallpaper.default]
-    path = "/home/eisrntao/Pictures/wallpapers/minimal/astronaut.png"
-
-    [wallpaper.last]
-    path = "/home/eisrntao/Pictures/wallpapers/minimal/astronaut.png"
-
-    [wallpaper.monitors.HDMI-A-1]
-    path = "/home/eisrntao/Pictures/wallpapers/rain world/rain_world_blue.jpg"
-
-    [wallpaper.monitors.eDP-1]
-    path = "/home/eisrntao/Pictures/wallpapers/minimal/astronaut.png"
-
     [[wallpaper.favorite]]
     community_palette = "Kemuri Susu"
     palette_source = "community"
