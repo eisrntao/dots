@@ -180,6 +180,7 @@ position_vertical = "center_right"
 
     [osd.kinds]
     lock_keys = false
+    media = false
 
 [plugin_settings."aristides/udiskie"]
 auto_open_filemanager = true
