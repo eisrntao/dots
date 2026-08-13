@@ -1,0 +1,19 @@
+
+[theme.templates]
+enable_builtin_templates   = true
+enable_community_templates = true
+builtin_ids = [ "btop", "gtk3", "gtk4", "ghostty", "kcolorscheme", "niri", "qt", "starship" ]
+community_ids = [ "neovim", "zathura", "lazygit" ]
+
+[theme.templates.user.niri-tweaks]
+input_path = "~/.config/niri/template.kdl"
+output_path = "~/.config/niri/tweaks.kdl"
+
+[theme.templates.user.yt-music]
+input_path = "~/.config/YouTube Music/template.css"
+output_path = "~/.config/YouTube Music/theme.css"
+
+[theme.templates.user.nvim-base16]
+input_path = "~/.config/nvim/lua/matugen-template.lua"
+output_path = "~/.config/nvim/lua/matugen.lua"
+post_hook = 'pkill -SIGUSR1 nvim'
