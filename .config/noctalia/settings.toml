@@ -12,6 +12,7 @@ start = [ "control-center", "clock", "notifications", "spacer_2", "media" ]
     [bar.default.monitor.eDP-1]
     position = "right"
     smart_auto_hide = true
+    start = [ "clock", "notifications", "spacer_2", "media" ]
 
 [battery]
 warning_threshold = 30
@@ -187,6 +188,7 @@ auto_open_filemanager = true
 enabled = [ "aristides/udiskie" ]
 
 [shell]
+clipboard_auto_paste = "ctrl_v"
 polkit_agent = true
 screen_time_enabled = true
 telemetry_enabled = true
@@ -210,6 +212,8 @@ wallpaper_scheme = "m3-content"
     community_ids = [ "neovim", "zathura", "lazygit" ]
 
 [wallpaper]
+directory = "/home/eisrntao/Pictures/wallpapers"
+
     [[wallpaper.favorite]]
     community_palette = "Kemuri Susu"
     palette_source = "community"
@@ -239,7 +243,7 @@ hide_when_full = true
 hide_when_plugged = true
 
 [widget.control-center]
-glyph = "blocks"
+glyph = "cube"
 
 [widget.media]
 artist_first = true
