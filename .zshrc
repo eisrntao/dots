@@ -207,7 +207,26 @@ function kindle() {
 }
 
 function clip-aggregate() {
-cliphist list | while IFS= read -r line; do
-  echo "$line" | cliphist decode
-done | wl-copy
+  tmpfile=$(mktemp)
+  countfile=$(mktemp)
+  echo 0 > "$countfile"
+  trap 'kill $watcher 2>/dev/null; rm -f "$tmpfile" "$countfile"' EXIT INT
+
+  wl-paste --watch bash -c '
+    n=$(cat "'"$countfile"'")
+    if [ "$n" -eq 0 ]; then
+      echo 1 > "'"$countfile"'"
+      exit 0
+    fi
+    cat >> "'"$tmpfile"'"
+    echo "---" >> "'"$tmpfile"'"
+  ' &
+  watcher=$!
+
+  echo "Watching clipboard. Press Enter to finish and copy merged result."
+  read -r
+  kill "$watcher" 2>/dev/null
+
+  wl-copy < "$tmpfile"
+  echo "Done. $(grep -c '^---$' "$tmpfile") entries merged, for a total of $(wc -l < "$tmpfile") lines."
 }
