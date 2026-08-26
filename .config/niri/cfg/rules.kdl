@@ -32,3 +32,11 @@
        min-height 750
        min-width 450
     }
+
+// Disable blur below bar
+layer-rule {
+  match namespace="^noctalia-bar"
+  background-effect {
+    blur false
+  }
+}
