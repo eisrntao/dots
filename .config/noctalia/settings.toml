@@ -1,7 +1,7 @@
 [bar.default]
-center = [ "workspaces" ]
-end = [ "tray", "network", "bluetooth", "volume", "battery" ]
-position = "bottom"
+center = []
+end = [ "group:g1" ]
+margin_ends = 50
 start = [ "control-center", "clock", "notifications", "spacer_2", "media" ]
 
     [bar.default.dead_zone.actions]
@@ -9,41 +9,73 @@ start = [ "control-center", "clock", "notifications", "spacer_2", "media" ]
     scroll_down = "workspace-switch next"
     scroll_up = "workspace-switch prev"
 
+    [bar.default.monitor.HDMI-A-1]
+    background_opacity = 0.0
+    center = [ "group:g1" ]
+    end = [ "group:g2" ]
+    margin_ends = 0
+    position = "top"
+    shadow = false
+    start = [ "group:g3", "spacer_2", "media" ]
+
+        [[bar.default.monitor.HDMI-A-1.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        enabled = true
+        fill = "surface_variant"
+        id = "g1"
+        members = [ "clock", "notifications" ]
+        opacity = 1.0
+        padding = 6.0
+
+        [[bar.default.monitor.HDMI-A-1.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        enabled = true
+        fill = "surface_variant"
+        id = "g2"
+        members = [ "tray", "network", "bluetooth", "volume", "battery" ]
+        opacity = 1.0
+        padding = 6.0
+
+        [[bar.default.monitor.HDMI-A-1.capsule_group]]
+        accordion = true
+        accordion_direction = "end"
+        enabled = true
+        fill = "surface_variant"
+        id = "g3"
+        members = [ "control-center", "settings", "session" ]
+        opacity = 0.0
+        padding = 6.0
+
     [bar.default.monitor.eDP-1]
     position = "right"
-    smart_auto_hide = true
+    center = [ "workspaces" ]
+    margin_ends = 280
+    reserve_space = false
+    smart_auto_hide = false
     start = [ "clock", "notifications", "spacer_2", "media" ]
+    thickness = 29
+
+    [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    enabled = true
+    fill = "surface_variant"
+    id = "g1"
+    members = [ "tray", "network", "bluetooth", "volume", "battery" ]
+    opacity = 1.0
+    padding = 6.0
 
 [battery]
 warning_threshold = 30
 
-[control_center.calendar]
-show_events_card = false
-
-[[control_center.shortcuts]]
-type = "wifi"
-
-[[control_center.shortcuts]]
-type = "bluetooth"
-
-[[control_center.shortcuts]]
-type = "caffeine"
-
-[[control_center.shortcuts]]
-type = "nightlight"
-
-[[control_center.shortcuts]]
-type = "power_profile"
-
-[[control_center.shortcuts]]
-type = "wallpaper"
-
 [desktop_widgets]
 schema_version = 2
-widget_order = [ "desktop-widget-0000000000000001" ]
+widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-0000000000000002", "desktop-widget-0000000000000003" ]
 
     [desktop_widgets.grid]
-    cell_size = 16
+    cell_size = 64
     major_interval = 4
     visible = true
 
@@ -53,6 +85,8 @@ widget_order = [ "desktop-widget-0000000000000001" ]
     cx = 768.0
     cy = 208.0
     output = "HDMI-A-1"
+    placement_height = 864.0
+    placement_width = 1536.0
     rotation = 0.0
     type = "clock"
 
@@ -61,6 +95,38 @@ widget_order = [ "desktop-widget-0000000000000001" ]
         center_text = true
         clock_style = "digital"
         font_family = ""
+
+    [desktop_widgets.widget.desktop-widget-0000000000000002]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 148.0
+    cy = 112.0
+    output = "eDP-1"
+    placement_height = 864.0
+    placement_width = 1536.0
+    rotation = 0.0
+    type = "clock"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
+        background = false
+        clock_style = "digital"
+        font_family = "MesloLGL Nerd Font Mono"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000003]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 217.0
+    cy = 244.0
+    output = "eDP-1"
+    placement_height = 864.0
+    placement_width = 1536.0
+    rotation = 0.0
+    type = "media_player"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000003.settings]
+        background = false
+        hide_when_no_media = false
+        layout = "horizontal"
 
 [idle]
 behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
@@ -108,6 +174,8 @@ widget_order = [
     cx = 768.0
     cy = 741.0
     output = "HDMI-A-1"
+    placement_height = 864.0
+    placement_width = 1536.0
     rotation = 0.0
     type = "login_box"
 
@@ -133,6 +201,8 @@ widget_order = [
     cx = 768.0
     cy = 741.0
     output = "eDP-1"
+    placement_height = 864.0
+    placement_width = 1536.0
     rotation = 0.0
     type = "login_box"
 
@@ -158,6 +228,8 @@ widget_order = [
     cx = 768.0
     cy = 432.0
     output = "HDMI-A-1"
+    placement_height = 864.0
+    placement_width = 1536.0
     rotation = 0.0
     type = "clock"
 
@@ -167,6 +239,8 @@ widget_order = [
     cx = 768.0
     cy = 164.5
     output = "eDP-1"
+    placement_height = 864.0
+    placement_width = 1536.0
     rotation = 0.0
     type = "clock"
 
@@ -201,11 +275,16 @@ telemetry_enabled = true
     prefix = ""
 
     [shell.panel]
+    control_center_placement = "floating"
+    open_near_click_control_center = true
     session_placement = "floating"
     session_position = "center"
 
 [theme]
+builtin = "Ayu"
+community_palette = "Kemuri Susu"
 mode = "dark"
+source = "community"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
@@ -214,6 +293,18 @@ wallpaper_scheme = "m3-content"
 
 [wallpaper]
 directory = "/home/eisrntao/Pictures/wallpapers"
+
+    [wallpaper.default]
+    path = "/home/eisrntao/Pictures/wallpapers/misc/frieren.png"
+
+    [wallpaper.last]
+    path = "/home/eisrntao/Pictures/wallpapers/misc/frieren.png"
+
+    [wallpaper.monitors.HDMI-A-1]
+    path = "/home/eisrntao/Pictures/wallpapers/misc/frieren.png"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/eisrntao/Pictures/wallpapers/misc/frieren.png"
 
     [[wallpaper.favorite]]
     community_palette = "Kemuri Susu"
@@ -244,7 +335,7 @@ hide_when_full = true
 hide_when_plugged = true
 
 [widget.control-center]
-glyph = "cube"
+glyph = "grid-dots"
 
 [widget.media]
 artist_first = true
@@ -260,8 +351,13 @@ hide_when_no_unread = true
 [widget.spacer_2]
 type = "spacer"
 
+[widget.volume]
+show_label = false
+
 [widget.workspaces]
-enabled = false
+enabled = true
 focused_output_only = true
 labels_only_when_occupied = true
-style = "focus_hint"
+pill_scale = 0.45000000000000001
+show_labels = false
+style = "regular"
