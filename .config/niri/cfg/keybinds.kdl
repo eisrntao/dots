@@ -8,6 +8,7 @@ binds {
     Mod+A                               hotkey-overlay-title="Open App Launcher: noctalia launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+Shift+A                         hotkey-overlay-title="Open Noctalia control center" { spawn-sh "noctalia msg panel-toggle control-center"; }
     Mod+Shift+W                         hotkey-overlay-title="Open Wallpapers" { spawn-sh "noctalia msg panel-toggle wallpaper"; }
+    Mod+Shift+F                         hotkey-overlay-title="Open Files" { spawn-sh "noctalia msg panel-toggle nightwatch75/file-search:panel"; }
     Mod+Shift+C                         hotkey-overlay-title="Open Clipboard Manager" { spawn-sh "noctalia msg panel-toggle clipboard"; }
     Mod+B                               hotkey-overlay-title="Open Browser: helium" { spawn "helium-browser"; }
     Mod+T                               hotkey-overlay-title="File Manager: Nautilus" { spawn "nautilus"; }
