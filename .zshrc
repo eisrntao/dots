@@ -182,6 +182,9 @@ setopt extended_glob # match ~ # ^
 setopt interactive_comments # allow comments in shell
 unsetopt prompt_sp # don't autoclean blanklines
 
+# Modify PATH
+export PATH="$PATH:$HOME/Projects/bartib/target/release"
+
 # Aliases
 alias ls="exa"
 alias grep="rg"
@@ -192,6 +195,8 @@ alias v="nvim"
 alias lazy="lazygit"
 alias py="python"
 alias b="bartib"
+alias toggle="noctalia msg plugin "eisrntao/bartib:state" all toggle"
+alias cancel="noctalia msg plugin "eisrntao/bartib:state" all cancel"
 
 diff() {
   command diff "$@" | diff-so-fancy
