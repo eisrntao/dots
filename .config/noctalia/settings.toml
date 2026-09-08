@@ -51,10 +51,10 @@ start = [ "control-center", "clock", "notifications", "spacer_2", "media" ]
     [bar.default.monitor.eDP-1]
     position = "right"
     center = [ "workspaces" ]
-    margin_ends = 280
+    margin_ends = 260
     reserve_space = false
     smart_auto_hide = false
-    start = [ "clock", "notifications", "spacer_2", "media" ]
+    start = [ "clock", "status-bar", "notifications", "spacer_2", "media" ]
     thickness = 29
 
     [[bar.default.capsule_group]]
@@ -72,7 +72,13 @@ warning_threshold = 30
 
 [desktop_widgets]
 schema_version = 2
-widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-0000000000000002", "desktop-widget-0000000000000003" ]
+widget_order = [
+    "desktop-widget-0000000000000002",
+    "desktop-widget-0000000000000003",
+    "desktop-widget-0000000000000004",
+    "desktop-widget-0000000000000005",
+    "desktop-widget-0000000000000006"
+]
 
     [desktop_widgets.grid]
     cell_size = 64
@@ -125,8 +131,61 @@ widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-000000000000
 
         [desktop_widgets.widget.desktop-widget-0000000000000003.settings]
         background = false
-        hide_when_no_media = false
+        hide_when_no_media = true
         layout = "horizontal"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000004]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 1516.0
+    cy = 844.0
+    output = "eDP-1"
+    placement_height = 864.0
+    placement_width = 1536.0
+    rotation = 0.0
+    type = "button"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000004.settings]
+        background = false
+        command = "noctalia msg desktop-widgets-edit"
+        glyph = "settings"
+        hover_background = "surface"
+        label = ""
+        variant = "default"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000005]
+    box_height = 128.0
+    box_width = 256.0
+    cx = 128.0
+    cy = 816.0
+    output = "eDP-1"
+    placement_height = 864.0
+    placement_width = 1536.0
+    rotation = 0.0
+    type = "eisrntao/bartib:status-desktop"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000005.settings]
+        background = false
+        show-goal = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000006]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 1516.0
+    cy = 844.0
+    output = "HDMI-A-1"
+    placement_height = 864.0
+    placement_width = 1536.0
+    rotation = 0.0
+    type = "button"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000006.settings]
+        background = false
+        command = "noctalia msg desktop-widgets-edit"
+        glyph = "settings"
+        hover_background = "surface"
+        label = ""
+        variant = "default"
 
 [idle]
 behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
@@ -259,8 +318,28 @@ position_vertical = "center_right"
 [plugin_settings."aristides/udiskie"]
 auto_open_filemanager = true
 
+[plugin_settings."eisrntao/bartib"]
+bartib-path = "/home/eisrntao/Projects/bartib/target/release/bartib"
+goal-enabled = true
+goal-notify = true
+
 [plugins]
-enabled = [ "aristides/udiskie" ]
+enabled = [ "aristides/udiskie", "eisrntao/bartib", "nightwatch75/file-search" ]
+
+    [[plugins.source]]
+    kind = "git"
+    location = "https://github.com/noctalia-dev/official-plugins"
+    name = "official"
+
+    [[plugins.source]]
+    kind = "git"
+    location = "https://github.com/noctalia-dev/community-plugins"
+    name = "community"
+
+    [[plugins.source]]
+    kind = "path"
+    location = "~/Projects/noctalia-plugins"
+    name = "bartib"
 
 [shell]
 clipboard_confirm_clear_history = false
@@ -282,7 +361,7 @@ telemetry_enabled = true
 
 [theme]
 builtin = "Ayu"
-community_palette = "Kemuri Susu"
+community_palette = "Tomorrow"
 mode = "dark"
 source = "community"
 wallpaper_scheme = "m3-content"
@@ -295,16 +374,16 @@ wallpaper_scheme = "m3-content"
 directory = "/home/eisrntao/Pictures/wallpapers"
 
     [wallpaper.default]
-    path = "/home/eisrntao/Pictures/wallpapers/misc/frieren.png"
+    path = "/home/eisrntao/Pictures/wallpapers/minimal/debian.jpg"
 
     [wallpaper.last]
-    path = "/home/eisrntao/Pictures/wallpapers/misc/frieren.png"
+    path = "/home/eisrntao/Pictures/wallpapers/minimal/debian.jpg"
 
     [wallpaper.monitors.HDMI-A-1]
-    path = "/home/eisrntao/Pictures/wallpapers/misc/frieren.png"
+    path = "/home/eisrntao/Pictures/wallpapers/minimal/debian.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/eisrntao/Pictures/wallpapers/misc/frieren.png"
+    path = "/home/eisrntao/Pictures/wallpapers/minimal/debian.jpg"
 
     [[wallpaper.favorite]]
     community_palette = "Kemuri Susu"
@@ -336,10 +415,13 @@ hide_when_plugged = true
 
 [widget.control-center]
 glyph = "grid-dots"
+[widget.bluetooth]
+hide_when_adapter_off = true
 
 [widget.media]
 artist_first = true
-hide_when_no_media = true
+font_scale = 0.80000000000000004
+hide_album_art = false
 title_scroll = "on_hover"
 
 [widget.network]
@@ -350,6 +432,9 @@ hide_when_no_unread = true
 
 [widget.spacer_2]
 type = "spacer"
+
+[widget.status-bar]
+type = "eisrntao/bartib:status-bar"
 
 [widget.volume]
 show_label = false
