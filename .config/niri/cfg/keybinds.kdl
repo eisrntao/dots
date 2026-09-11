@@ -26,8 +26,8 @@ binds {
     Mod+Shift+Y                         allow-when-locked=true { spawn-sh "noctalia msg media pause"; }
 
     // ─── Brightness Controls ───
-    XF86MonBrightnessUp                 allow-when-locked=true { spawn-sh "noctalia msg brightness increase"; }
-    XF86MonBrightnessDown               allow-when-locked=true { spawn-sh "noctalia msg brightness decrease"; }
+    XF86MonBrightnessUp                 allow-when-locked=true { spawn-sh "noctalia msg brightness-up"; }
+    XF86MonBrightnessDown               allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; }
 
     // ─── Window Movement and Focus ───
     Mod+Q                               { close-window; }
