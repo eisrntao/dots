@@ -1,7 +1,13 @@
 ---------------
 ---- RULES ----
 ---------------
-
+hl.layer_rule({
+  name = "noctalia",
+  match = {
+    namespace = "^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher)$",
+  },
+  no_anim = true,
+})
 ---------------
 ---- FIXES ----
 ---------------
