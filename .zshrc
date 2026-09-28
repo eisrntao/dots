@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Path to your oh-my-zsh installation.
 export ZSH="/usr/share/oh-my-zsh"
 
@@ -24,7 +17,6 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 [[ -z "${plugins[*]}" ]] && plugins=(git fzf extract)
 
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -59,7 +51,7 @@ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
-#alias open="xdg-open"
+alias open="xdg-open"
 alias make="make -j`nproc`"
 alias ninja="ninja -j`nproc`"
 alias n="ninja"
@@ -84,13 +76,8 @@ alias jctl="journalctl -p 3 -xb"
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-
 # pkgfile "command not found" handler
 source /usr/share/doc/pkgfile/command-not-found.zsh
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export FZF_BASE=/usr/share/fzf
 
@@ -98,7 +85,6 @@ export FZF_BASE=/usr/share/fzf
 
 # Import vars
 source $HOME/.zprofile
-
 # Change history
 HISTFILE=~/.cache/.zshhistory
 HISTSIZE=10000
@@ -114,6 +100,7 @@ ZSH_AUTOSUGGEST_USE_ASYNC=1
 ZSH_AUTOSUGGEST_STRATEGY=(completion history )
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'   # dim gray
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
 # --- Completion UX tweaks (you already have some; these add a bit more) ---
 setopt complete_in_word always_to_end
@@ -151,12 +138,17 @@ bindkey '^[.' insert-last-word
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+
 # Init mcfly
 eval "$(mcfly init zsh)"
 export MCFLY_FUZZY=3
 export MCFLY_DELETE_WITHOUT_CONFIRM=TRUE
+
 # Init zoxide
 eval "$(zoxide init zsh)"
+
+# Init starship prompt
+eval "$(starship init zsh)"
 
 # main opts
 setopt hist_ignore_dups     # don’t record duplicate commands
@@ -235,3 +227,4 @@ function clip-aggregate() {
   wl-copy < "$tmpfile"
   echo "Done. $(grep -c '^---$' "$tmpfile") entries merged, for a total of $(wc -l < "$tmpfile") lines."
 }
+
