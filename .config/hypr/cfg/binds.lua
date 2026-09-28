@@ -20,7 +20,7 @@ local ipc         = "noctalia msg " -- Save on typing noctalia commands
 --------------
 
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd(music))
 
@@ -41,22 +41,82 @@ hl.bind(mainMod .. " + SHIFT + Escape", hl.dsp.exec_cmd(ipc .. "panel-toggle ses
 
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen_state({ action = "toggle", internal = 1, client = 0 }))
+hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 
 -----------------
 ---- WINDOWS ----
 -----------------
 
--- Move focus with mainMod + arrow keys
+-- Focusing windows
+---@param direction string
+local function focusOrChangeWorkspace(direction)
+  local cw = hl.get_active_window()
+  if not cw then
+    hl.dispatch(hl.dsp.focus({ workspace = direction == "down" and "+1" or "-1" }))
+    return
+  end
+  local r = hl.dispatch(hl.dsp.focus({ direction = direction }))
+  if not r.ok and r.code == "not_found" then
+    hl.dispatch(hl.dsp.focus({ workspace = direction == "down" and "+1" or "-1" }))
+  end
+end
+
+-- Arrows
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + down", function()
+  focusOrChangeWorkspace("down")
+end)
+hl.bind(mainMod .. " + up", function()
+  focusOrChangeWorkspace("up")
+end)
+
 
 -- And HJKL
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + J", function()
+  focusOrChangeWorkspace("down")
+end)
+hl.bind(mainMod .. " + K", function()
+  focusOrChangeWorkspace("up")
+end)
+
+-------------------------------------------------------------------
+
+-- Moving windows
+---@param direction string
+local function swapOrMoveWindow(direction)
+  local r = hl.dispatch(hl.dsp.window.swap({ direction = direction }))
+  if not r.ok and r.code == "not_found" then
+    hl.dispatch(hl.dsp.window.move({ workspace = direction == "down" and "+1" or "-1" }))
+  end
+end
+
+-- Arrows
+hl.bind(mainMod .. " + SHIFT + left", hl.dsp.window.swap({ direction = "left" }))
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.swap({ direction = "right" }))
+hl.bind(mainMod .. " + SHIFT + down", function()
+  swapOrMoveWindow("down")
+end)
+hl.bind(mainMod .. " + SHIFT + up", function()
+  swapOrMoveWindow("up")
+end)
+
+-- And HJKL
+hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.swap({ direction = "left" }))
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.swap({ direction = "right" }))
+hl.bind(mainMod .. " + SHIFT + J", function()
+  swapOrMoveWindow("down")
+end)
+hl.bind(mainMod .. " + SHIFT + K", function()
+  swapOrMoveWindow("up")
+end)
+
+-- Move/resize windows with mainMod + LMB/RMB and dragging
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 --------------------
 ---- WORKSPACES ----
@@ -73,10 +133,6 @@ end
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
-
--- Move/resize windows with mainMod + LMB/RMB and dragging
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 ---------------
 ---- MEDIA ----
