@@ -4,3 +4,4 @@
     spawn-sh-at-startup "noctalia"
     spawn-sh-at-startup "oniri --first-only --tiling-layout"
     spawn-at-startup "niri-sidebar" "listen"
+    spawn-at-startup "udiskie" "-a"

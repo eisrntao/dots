@@ -8,8 +8,8 @@ binds {
     Mod+A                               hotkey-overlay-title="Open App Launcher: noctalia launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+Shift+A                         hotkey-overlay-title="Open Noctalia control center" { spawn-sh "noctalia msg panel-toggle control-center"; }
     Mod+Shift+W                         hotkey-overlay-title="Open Wallpapers" { spawn-sh "noctalia msg panel-toggle wallpaper"; }
-    Mod+Shift+F                         hotkey-overlay-title="Open Files" { spawn-sh "noctalia msg panel-toggle nightwatch75/file-search:panel"; }
     Mod+Shift+C                         hotkey-overlay-title="Open Clipboard Manager" { spawn-sh "noctalia msg panel-toggle clipboard"; }
+    Mod+Shift+Y                         hotkey-overlay-title="Open Media" { spawn-sh "noctalia msg panel-toggle control-center media"; }
     Mod+B                               hotkey-overlay-title="Open Browser: helium" { spawn "helium-browser"; }
     Mod+T                               hotkey-overlay-title="File Manager: Nautilus" { spawn "nautilus"; }
     Mod+Y                               hotkey-overlay-title="Music Player: YT Music" { spawn "pear-desktop"; }
@@ -23,7 +23,6 @@ binds {
     XF86AudioPrev                       allow-when-locked=true { spawn-sh "noctalia msg media previous"; }
     XF86AudioPlay                       allow-when-locked=true { spawn-sh "noctalia msg media play"; }
     XF86AudioPause                      allow-when-locked=true { spawn-sh "noctalia msg media pause"; }
-    Mod+Shift+Y                         allow-when-locked=true { spawn-sh "noctalia msg media pause"; }
 
     // ─── Brightness Controls ───
     XF86MonBrightnessUp                 allow-when-locked=true { spawn-sh "noctalia msg brightness-up"; }
@@ -145,9 +144,8 @@ binds {
     Mod+G                               { toggle-column-tabbed-display; }
 
     // ─── Screenshots ───
-    Mod+P                              { screenshot; }
-    Mod+Shift+P                        { screenshot-window; }
-    Mod+Ctrl+P                         { spawn-sh "hyprpicker -a"; }
+    Mod+P                              { spawn-sh "noctalia msg screenshot-region"; }
+    Mod+Shift+P                        { spawn-sh "noctalia msg screenshot-annotate"; }
 
     // ─── Exit / Power ───
     Mod+Escape                          hotkey-overlay-title="Lock Screen" { spawn-sh "bartib stop; noctalia msg media pause; noctalia msg session lock"; }
