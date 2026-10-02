@@ -128,6 +128,7 @@ zstyle ':completion:*' squeeze-slashes false # explicit disable to allow /*/ exp
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 function zvm_after_init() {
   bindkey -M viins '^Y' autosuggest-accept    # Ctrl-Y accepts suggestion in insert mode
+  bindkey -M viins '^[.' insert-last-word
 }
 
 # Syntax highlighting
