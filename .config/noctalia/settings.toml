@@ -1,78 +1,127 @@
-[bar.default]
-center = []
-end = [ "group:g1" ]
-margin_ends = 50
-start = [ "control-center", "clock", "notifications", "spacer_2", "media" ]
+[bar]
+order = [ "default", "secondary" ]
 
-    [bar.default.dead_zone.actions]
-    middle = "settings-open"
-    scroll_down = "workspace-switch next"
-    scroll_up = "workspace-switch prev"
+    [bar.default]
+    center = []
+    end = [ "group:g1" ]
+    margin_ends = 50
+    start = [ "control-center", "clock", "notifications", "spacer_2", "media" ]
 
-    [bar.default.monitor.HDMI-A-1]
-    background_opacity = 0.0
-    center = [ "group:g1" ]
-    end = [ "group:g2" ]
-    margin_ends = 0
-    position = "top"
-    shadow = false
-    start = [ "group:g3", "spacer_2", "media" ]
+        [bar.default.dead_zone.actions]
+        middle = "settings-open"
+        scroll_down = "workspace-switch next"
+        scroll_up = "workspace-switch prev"
 
-        [[bar.default.monitor.HDMI-A-1.capsule_group]]
+        [bar.default.monitor.HDMI-A-1]
+        background_opacity = 0.0
+        center = [ "group:g1" ]
+        end = [ "group:g2" ]
+        margin_ends = 0
+        position = "top"
+        shadow = false
+        start = [ "group:g3", "spacer_2", "media" ]
+
+            [[bar.default.monitor.HDMI-A-1.capsule_group]]
+            accordion = false
+            accordion_direction = "end"
+            enabled = true
+            fill = "surface_variant"
+            id = "g1"
+            members = [ "clock", "notifications" ]
+            opacity = 1.0
+            padding = 6.0
+
+            [[bar.default.monitor.HDMI-A-1.capsule_group]]
+            accordion = false
+            accordion_direction = "end"
+            enabled = true
+            fill = "surface_variant"
+            id = "g2"
+            members = [ "tray", "network", "bluetooth", "volume", "battery" ]
+            opacity = 1.0
+            padding = 6.0
+
+            [[bar.default.monitor.HDMI-A-1.capsule_group]]
+            accordion = true
+            accordion_direction = "end"
+            enabled = true
+            fill = "surface_variant"
+            id = "g3"
+            members = [ "control-center", "settings", "session" ]
+            opacity = 0.0
+            padding = 6.0
+
+        [bar.default.monitor.eDP-1]
+        center = [ "notifications", "status-bar", "clock", "media" ]
+        end = [ "group:g1" ]
+        margin_ends = 705
+        position = "top"
+        reserve_space = false
+        scale = 0.95000000670552254
+        smart_auto_hide = false
+        start = []
+        thickness = 24
+
+            [[bar.default.monitor.eDP-1.capsule_group]]
+            accordion = false
+            accordion_direction = "end"
+            enabled = false
+            fill = "surface_variant"
+            id = "g1"
+            members = [ "tray", "network", "bluetooth", "volume", "battery" ]
+            opacity = 1.0
+            padding = 6.0
+
+        [[bar.default.capsule_group]]
         accordion = false
         accordion_direction = "end"
         enabled = true
         fill = "surface_variant"
         id = "g1"
-        members = [ "clock", "notifications" ]
-        opacity = 1.0
-        padding = 6.0
-
-        [[bar.default.monitor.HDMI-A-1.capsule_group]]
-        accordion = false
-        accordion_direction = "end"
-        enabled = true
-        fill = "surface_variant"
-        id = "g2"
         members = [ "tray", "network", "bluetooth", "volume", "battery" ]
         opacity = 1.0
         padding = 6.0
 
-        [[bar.default.monitor.HDMI-A-1.capsule_group]]
-        accordion = true
+    [bar.secondary]
+    center = []
+    enabled = true
+    end = [ "group:g1" ]
+    margin_ends = 350
+    padding = 12
+    position = "right"
+    reserve_space = false
+    scale = 0.95000000670552254
+    start = [ "tray", "status", "workspaces" ]
+    thickness = 22
+
+        [bar.secondary.monitor.HDMI-A-1]
+        enabled = false
+
+        [[bar.secondary.capsule_group]]
+        accordion = false
         accordion_direction = "end"
         enabled = true
         fill = "surface_variant"
-        id = "g3"
-        members = [ "control-center", "settings", "session" ]
+        id = "g1"
+        members = [ "network", "bluetooth", "volume", "battery" ]
         opacity = 0.0
         padding = 6.0
-
-    [bar.default.monitor.eDP-1]
-    position = "right"
-    center = [ "workspaces" ]
-    margin_ends = 260
-    reserve_space = false
-    smart_auto_hide = false
-    start = [ "clock", "status-bar", "notifications", "spacer_2", "media" ]
-    thickness = 29
-
-    [[bar.default.capsule_group]]
-    accordion = false
-    accordion_direction = "end"
-    enabled = true
-    fill = "surface_variant"
-    id = "g1"
-    members = [ "tray", "network", "bluetooth", "volume", "battery" ]
-    opacity = 1.0
-    padding = 6.0
 
 [battery]
 warning_threshold = 30
 
+[calendar]
+enabled = true
+
+    [calendar.account.rozvrh]
+    name = "Rozvrh"
+    path = "~/Documents/fi"
+    type = "vdir"
+
 [desktop_widgets]
 schema_version = 2
 widget_order = [
+    "desktop-widget-0000000000000007",
     "desktop-widget-0000000000000002",
     "desktop-widget-0000000000000003",
     "desktop-widget-0000000000000004",
@@ -81,26 +130,9 @@ widget_order = [
 ]
 
     [desktop_widgets.grid]
-    cell_size = 64
+    cell_size = 24
     major_interval = 4
     visible = true
-
-    [desktop_widgets.widget.desktop-widget-0000000000000001]
-    box_height = 0.0
-    box_width = 0.0
-    cx = 768.0
-    cy = 208.0
-    output = "HDMI-A-1"
-    placement_height = 864.0
-    placement_width = 1536.0
-    rotation = 0.0
-    type = "clock"
-
-        [desktop_widgets.widget.desktop-widget-0000000000000001.settings]
-        background = false
-        center_text = true
-        clock_style = "digital"
-        font_family = ""
 
     [desktop_widgets.widget.desktop-widget-0000000000000002]
     box_height = 0.0
@@ -171,11 +203,11 @@ widget_order = [
     [desktop_widgets.widget.desktop-widget-0000000000000006]
     box_height = 0.0
     box_width = 0.0
-    cx = 1516.0
-    cy = 844.0
+    cx = 2526.66650390625
+    cy = 1406.666748046875
     output = "HDMI-A-1"
-    placement_height = 864.0
-    placement_width = 1536.0
+    placement_height = 1440.0
+    placement_width = 2560.0
     rotation = 0.0
     type = "button"
 
@@ -186,6 +218,35 @@ widget_order = [
         hover_background = "surface"
         label = ""
         variant = "default"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000007]
+    box_height = 64.0
+    box_width = 320.0
+    cx = 224.0
+    cy = 352.0
+    flip_y = true
+    output = "eDP-1"
+    placement_height = 864.0
+    placement_width = 1536.0
+    rotation = 0.0
+    type = "audio_visualizer"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000007.settings]
+        background = false
+        bands = 32
+        centered = false
+        color_1 = "primary"
+        color_2 = "secondary"
+        mirrored = false
+        reversed = false
+        show_when_idle = false
+
+[dock]
+icon_size = 16
+main_axis_padding = 10
+monitors = [ "eDP-1" ]
+reserve_space = false
+show_dots = true
 
 [idle]
 behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
@@ -206,7 +267,7 @@ behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
     timeout = 660.0
 
 [location]
-address = "Podhorie, Slovakia"
+address = "Brno"
 
 [lockscreen]
 blur_intensity = 0.79999998211860657
@@ -230,11 +291,11 @@ widget_order = [
     [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
     box_height = 196.0
     box_width = 810.0
-    cx = 768.0
-    cy = 741.0
+    cx = 1280.0
+    cy = 1235.0
     output = "HDMI-A-1"
-    placement_height = 864.0
-    placement_width = 1536.0
+    placement_height = 1440.0
+    placement_width = 2560.0
     rotation = 0.0
     type = "login_box"
 
@@ -284,11 +345,11 @@ widget_order = [
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 0.0
     box_width = 0.0
-    cx = 768.0
-    cy = 432.0
+    cx = 1280.0
+    cy = 720.0
     output = "HDMI-A-1"
-    placement_height = 864.0
-    placement_width = 1536.0
+    placement_height = 1440.0
+    placement_width = 2560.0
     rotation = 0.0
     type = "clock"
 
@@ -308,8 +369,8 @@ enabled = true
 temperature_night = 3000
 
 [osd]
-position = "top_right"
 border = false
+position = "top_right"
 position_vertical = "center_right"
 
     [osd.kinds]
@@ -320,12 +381,13 @@ position_vertical = "center_right"
 auto_open_filemanager = true
 
 [plugin_settings."eisrntao/bartib"]
+bartib-file = "/home/eisrntao/Documents/bartib.txt"
 bartib-path = "/home/eisrntao/Projects/bartib/target/release/bartib"
 goal-enabled = true
 goal-notify = true
 
 [plugins]
-enabled = [ "aristides/udiskie", "eisrntao/bartib", "nightwatch75/file-search" ]
+enabled = [ "aristides/udiskie", "eisrntao/bartib" ]
 
     [[plugins.source]]
     kind = "git"
@@ -348,8 +410,10 @@ app_icon_colorize = true
 button_borders = false
 card_borders = false
 clipboard_confirm_clear_history = false
+panel_anchor_bar = "default"
 polkit_agent = true
 screen_time_enabled = false
+settings_show_advanced = false
 telemetry_enabled = true
 
     [shell.launcher.providers.session]
@@ -360,13 +424,20 @@ telemetry_enabled = true
 
     [shell.panel]
     control_center_placement = "floating"
-    open_near_click_control_center = true
     session_placement = "floating"
     session_position = "center"
+    wallpaper_placement = "floating"
+
+    [shell.screenshot]
+    confirm_region = true
+    remember_last_region = true
+    save_to_file = false
+
+    [shell.shadow]
+    alpha = 0.69999998435378075
+    direction = "down_left"
 
 [theme]
-builtin = "Ayu"
-community_palette = "Tomorrow"
 mode = "dark"
 source = "community"
 wallpaper_scheme = "m3-content"
@@ -379,22 +450,7 @@ wallpaper_scheme = "m3-content"
 directory = "/home/eisrntao/Pictures/wallpapers"
 
     [wallpaper.default]
-    path = "/home/eisrntao/Pictures/wallpapers/landscape/firewatch.png"
-
-    [wallpaper.last]
-    path = "/home/eisrntao/Pictures/wallpapers/landscape/firewatch.png"
-
-    [wallpaper.monitors.HDMI-A-1]
-    path = "/home/eisrntao/Pictures/wallpapers/landscape/firewatch.png"
-
-    [wallpaper.monitors.eDP-1]
-    path = "/home/eisrntao/Pictures/wallpapers/landscape/firewatch.png"
-
-    [[wallpaper.favorite]]
-    community_palette = "Kemuri Susu"
-    palette_source = "community"
-    path = "/home/eisrntao/Pictures/wallpapers/rain world/rain_world.jpg"
-    theme_mode = "dark"
+    path = "/home/eisrntao/Pictures/wallpapers/landscape/plane.jpg"
 
     [[wallpaper.favorite]]
     community_palette = "Kemuri Susu"
@@ -414,19 +470,47 @@ directory = "/home/eisrntao/Pictures/wallpapers"
     path = "/home/eisrntao/Pictures/wallpapers/minimal/astronaut.png"
     theme_mode = "dark"
 
+    [[wallpaper.favorite]]
+    community_palette = "Koneko"
+    palette_source = "community"
+    path = "/home/eisrntao/Pictures/wallpapers/landscape/firewatch.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    community_palette = "Monochrome"
+    palette_source = "community"
+    path = "/home/eisrntao/Pictures/wallpapers/rain world/rain_world.jpg"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    community_palette = "Shien"
+    palette_source = "community"
+    path = "/home/eisrntao/Pictures/wallpapers/rain world/rain_world_cyan.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    community_palette = "Rosey AMOLED"
+    palette_source = "community"
+    path = "/home/eisrntao/Pictures/wallpapers/pink/rain_world_pink.jpg"
+    theme_mode = "dark"
+
 [widget.battery]
 hide_when_full = true
 hide_when_plugged = true
+show_label = false
 
-[widget.control-center]
-glyph = "grid-dots"
 [widget.bluetooth]
 hide_when_adapter_off = true
 
+[widget.control-center]
+glyph = "grid-dots"
+
 [widget.media]
+album_art_only = true
 artist_first = true
 font_scale = 0.80000000000000004
 hide_album_art = false
+hide_when_no_media = true
 title_scroll = "on_hover"
 
 [widget.network]
@@ -438,8 +522,9 @@ hide_when_no_unread = true
 [widget.spacer_2]
 type = "spacer"
 
-[widget.status-bar]
-type = "eisrntao/bartib:status-bar"
+[widget.status]
+hide_when_empty = true
+type = "aristides/udiskie:status"
 
 [widget.volume]
 show_label = false
