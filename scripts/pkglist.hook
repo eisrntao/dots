@@ -1,4 +1,4 @@
-// Copy into /etc/pacman.d/hooks/
+# Copy into /etc/pacman.d/hooks/
 [Trigger]
 Operation=Install
 Operation=Remove
