@@ -1,5 +1,7 @@
+config_version = 14
+
 [bar]
-order = [ "default", "secondary" ]
+order = [ "default", "secondary", "ribbon" ]
 
     [bar.default]
     center = []
@@ -52,7 +54,7 @@ order = [ "default", "secondary" ]
             padding = 6.0
 
         [bar.default.monitor.eDP-1]
-        center = [ "notifications", "status-bar", "clock", "media" ]
+        center = [ "notifications", "status_bar_2", "clock", "media" ]
         end = [ "group:g1" ]
         margin_ends = 705
         position = "top"
@@ -81,6 +83,18 @@ order = [ "default", "secondary" ]
         members = [ "tray", "network", "bluetooth", "volume", "battery" ]
         opacity = 1.0
         padding = 6.0
+
+    [bar.ribbon]
+    background_opacity = 0.0
+    center = [ "ribbon" ]
+    enabled = true
+    end = []
+    margin_edge = 1
+    padding = 10
+    position = "bottom"
+    reserve_space = false
+    start = []
+    thickness = 10
 
     [bar.secondary]
     center = []
@@ -387,7 +401,7 @@ goal-enabled = true
 goal-notify = true
 
 [plugins]
-enabled = [ "aristides/udiskie", "eisrntao/bartib" ]
+enabled = [ "aristides/udiskie", "eisrntao/bartib", "luochen1990/niri-ribbon" ]
 
     [[plugins.source]]
     kind = "git"
@@ -438,7 +452,8 @@ telemetry_enabled = true
     direction = "down_left"
 
 [theme]
-mode = "dark"
+builtin = "Rosé Pine"
+community_palette = "Shien"
 source = "community"
 wallpaper_scheme = "m3-content"
 
@@ -450,7 +465,16 @@ wallpaper_scheme = "m3-content"
 directory = "/home/eisrntao/Pictures/wallpapers"
 
     [wallpaper.default]
-    path = "/home/eisrntao/Pictures/wallpapers/landscape/plane.jpg"
+    path = "/home/eisrntao/Pictures/wallpapers/rain world/rain_world_cyan.png"
+
+    [wallpaper.last]
+    path = "/home/eisrntao/Pictures/wallpapers/rain world/rain_world_cyan.png"
+
+    [wallpaper.monitors.HDMI-A-1]
+    path = "/home/eisrntao/Pictures/wallpapers/landscape/firewatch.png"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/eisrntao/Pictures/wallpapers/rain world/rain_world_cyan.png"
 
     [[wallpaper.favorite]]
     community_palette = "Kemuri Susu"
@@ -519,12 +543,21 @@ show_label = false
 [widget.notifications]
 hide_when_no_unread = true
 
+[widget.ribbon]
+bar_color = "shadow"
+scale = 1.4000000000000001
+thickness = 2.0
+type = "luochen1990/niri-ribbon:ribbon"
+
 [widget.spacer_2]
 type = "spacer"
 
 [widget.status]
 hide_when_empty = true
 type = "aristides/udiskie:status"
+
+[widget.status_bar_2]
+type = "eisrntao/bartib:status-bar"
 
 [widget.volume]
 show_label = false
