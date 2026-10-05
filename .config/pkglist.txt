@@ -96,7 +96,6 @@ sof-firmware
 starship
 stow
 syncthing
-tailscale
 task
 tela-circle-icon-theme-black
 tree-sitter-cli
