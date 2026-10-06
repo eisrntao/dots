@@ -1,4 +1,4 @@
-config_version = 14
+config_version = 15
 
 [bar]
 order = [ "default", "secondary", "ribbon" ]
@@ -258,7 +258,6 @@ widget_order = [
 [dock]
 icon_size = 16
 main_axis_padding = 10
-monitors = [ "eDP-1" ]
 reserve_space = false
 show_dots = true
 
@@ -401,7 +400,7 @@ goal-enabled = true
 goal-notify = true
 
 [plugins]
-enabled = [ "aristides/udiskie", "eisrntao/bartib", "luochen1990/niri-ribbon" ]
+enabled = [ "aristides/udiskie", "eisrntao/bartib", "luochen1990/niri-ribbon", "nightwatch75/file-search" ]
 
     [[plugins.source]]
     kind = "git"
@@ -453,7 +452,7 @@ telemetry_enabled = true
 
 [theme]
 builtin = "Rosé Pine"
-community_palette = "Shien"
+community_palette = "Monochrome"
 source = "community"
 wallpaper_scheme = "m3-content"
 
@@ -465,16 +464,16 @@ wallpaper_scheme = "m3-content"
 directory = "/home/eisrntao/Pictures/wallpapers"
 
     [wallpaper.default]
-    path = "/home/eisrntao/Pictures/wallpapers/rain world/rain_world_cyan.png"
+    path = "/home/eisrntao/Pictures/wallpapers/rain world/rain_world.jpg"
 
     [wallpaper.last]
-    path = "/home/eisrntao/Pictures/wallpapers/rain world/rain_world_cyan.png"
+    path = "/home/eisrntao/Pictures/wallpapers/rain world/rain_world.jpg"
 
     [wallpaper.monitors.HDMI-A-1]
     path = "/home/eisrntao/Pictures/wallpapers/landscape/firewatch.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/eisrntao/Pictures/wallpapers/rain world/rain_world_cyan.png"
+    path = "/home/eisrntao/Pictures/wallpapers/rain world/rain_world.jpg"
 
     [[wallpaper.favorite]]
     community_palette = "Kemuri Susu"
