@@ -4,56 +4,51 @@ config_version = 15
 order = [ "default", "secondary", "ribbon" ]
 
     [bar.default]
-    center = []
-    end = [ "group:g1" ]
-    margin_ends = 50
-    start = [ "control-center", "clock", "notifications", "spacer_2", "media" ]
+    background_opacity = 0.0
+    center = [ "group:g1" ]
+    end = [ "group:g2" ]
+    margin_ends = 0
+    position = "top"
+    shadow = false
+    start = [ "group:g3", "spacer_2", "media" ]
 
-        [bar.default.dead_zone.actions]
-        middle = "settings-open"
-        scroll_down = "workspace-switch next"
-        scroll_up = "workspace-switch prev"
+    [bar.default.dead_zone.actions]
+    middle = "settings-open"
+    scroll_down = "workspace-switch next"
+    scroll_up = "workspace-switch prev"
 
-        [bar.default.monitor.HDMI-A-1]
-        background_opacity = 0.0
-        center = [ "group:g1" ]
-        end = [ "group:g2" ]
-        margin_ends = 0
-        position = "top"
-        shadow = false
-        start = [ "group:g3", "spacer_2", "media" ]
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        enabled = true
+        fill = "surface_variant"
+        id = "g1"
+        members = [ "status_bar_2", "clock", "notifications" ]
+        opacity = 1.0
+        padding = 6.0
 
-            [[bar.default.monitor.HDMI-A-1.capsule_group]]
-            accordion = false
-            accordion_direction = "end"
-            enabled = true
-            fill = "surface_variant"
-            id = "g1"
-            members = [ "clock", "notifications" ]
-            opacity = 1.0
-            padding = 6.0
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        enabled = true
+        fill = "surface_variant"
+        id = "g2"
+        members = [ "tray", "network", "bluetooth", "volume", "battery" ]
+        opacity = 1.0
+        padding = 6.0
 
-            [[bar.default.monitor.HDMI-A-1.capsule_group]]
-            accordion = false
-            accordion_direction = "end"
-            enabled = true
-            fill = "surface_variant"
-            id = "g2"
-            members = [ "tray", "network", "bluetooth", "volume", "battery" ]
-            opacity = 1.0
-            padding = 6.0
-
-            [[bar.default.monitor.HDMI-A-1.capsule_group]]
-            accordion = true
-            accordion_direction = "end"
-            enabled = true
-            fill = "surface_variant"
-            id = "g3"
-            members = [ "control-center", "settings", "session" ]
-            opacity = 0.0
-            padding = 6.0
+        [[bar.default.capsule_group]]
+        accordion = true
+        accordion_direction = "end"
+        enabled = true
+        fill = "surface_variant"
+        id = "g3"
+        members = [ "control-center", "settings", "session" ]
+        opacity = 0.0
+        padding = 6.0
 
         [bar.default.monitor.eDP-1]
+        background_opacity = 1.0
         center = [ "notifications", "status_bar_2", "clock", "media" ]
         end = [ "group:g1" ]
         margin_ends = 705
@@ -73,16 +68,6 @@ order = [ "default", "secondary", "ribbon" ]
             members = [ "tray", "network", "bluetooth", "volume", "battery" ]
             opacity = 1.0
             padding = 6.0
-
-        [[bar.default.capsule_group]]
-        accordion = false
-        accordion_direction = "end"
-        enabled = true
-        fill = "surface_variant"
-        id = "g1"
-        members = [ "tray", "network", "bluetooth", "volume", "battery" ]
-        opacity = 1.0
-        padding = 6.0
 
     [bar.ribbon]
     background_opacity = 0.0
