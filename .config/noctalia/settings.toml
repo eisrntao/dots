@@ -12,10 +12,32 @@ order = [ "default", "secondary", "ribbon" ]
     shadow = false
     start = [ "group:g3", "spacer_2", "media" ]
 
-    [bar.default.dead_zone.actions]
-    middle = "settings-open"
-    scroll_down = "workspace-switch next"
-    scroll_up = "workspace-switch prev"
+        [bar.default.dead_zone.actions]
+        middle = "settings-open"
+        scroll_down = "workspace-switch next"
+        scroll_up = "workspace-switch prev"
+
+        [bar.default.monitor.eDP-1]
+        background_opacity = 1.0
+        center = [ "notifications", "status_bar_2", "clock", "media" ]
+        end = [ "group:g1" ]
+        margin_ends = 705
+        position = "top"
+        reserve_space = false
+        scale = 0.95000000670552254
+        smart_auto_hide = false
+        start = []
+        thickness = 24
+
+            [[bar.default.monitor.eDP-1.capsule_group]]
+            accordion = false
+            accordion_direction = "end"
+            enabled = false
+            fill = "surface_variant"
+            id = "g1"
+            members = [ "tray", "network", "bluetooth", "volume", "battery" ]
+            opacity = 1.0
+            padding = 6.0
 
         [[bar.default.capsule_group]]
         accordion = false
@@ -46,28 +68,6 @@ order = [ "default", "secondary", "ribbon" ]
         members = [ "control-center", "settings", "session" ]
         opacity = 0.0
         padding = 6.0
-
-        [bar.default.monitor.eDP-1]
-        background_opacity = 1.0
-        center = [ "notifications", "status_bar_2", "clock", "media" ]
-        end = [ "group:g1" ]
-        margin_ends = 705
-        position = "top"
-        reserve_space = false
-        scale = 0.95000000670552254
-        smart_auto_hide = false
-        start = []
-        thickness = 24
-
-            [[bar.default.monitor.eDP-1.capsule_group]]
-            accordion = false
-            accordion_direction = "end"
-            enabled = false
-            fill = "surface_variant"
-            id = "g1"
-            members = [ "tray", "network", "bluetooth", "volume", "battery" ]
-            opacity = 1.0
-            padding = 6.0
 
     [bar.ribbon]
     background_opacity = 0.0
@@ -379,7 +379,7 @@ position_vertical = "center_right"
 auto_open_filemanager = true
 
 [plugin_settings."eisrntao/bartib"]
-bartib-file = "/home/eisrntao/Documents/bartib.txt"
+bartib-file = ""
 bartib-path = "/home/eisrntao/Projects/bartib/target/release/bartib"
 goal-enabled = true
 goal-notify = true
@@ -411,14 +411,18 @@ clipboard_confirm_clear_history = false
 panel_anchor_bar = "default"
 polkit_agent = true
 screen_time_enabled = false
-settings_show_advanced = false
+settings_show_advanced = true
 telemetry_enabled = true
 
-    [shell.launcher.providers.session]
-    prefix = "sess"
+    [shell.launcher]
+    category_icons_only = true
+    layout = "simple"
 
-    [shell.launcher.providers.wallpaper]
-    prefix = ""
+        [shell.launcher.providers.session]
+        prefix = "sess"
+
+        [shell.launcher.providers.wallpaper]
+        prefix = ""
 
     [shell.panel]
     control_center_placement = "floating"
@@ -437,7 +441,7 @@ telemetry_enabled = true
 
 [theme]
 builtin = "Rosé Pine"
-community_palette = "Monochrome"
+community_palette = "Oasis Abyss"
 source = "community"
 wallpaper_scheme = "m3-content"
 
@@ -449,16 +453,16 @@ wallpaper_scheme = "m3-content"
 directory = "/home/eisrntao/Pictures/wallpapers"
 
     [wallpaper.default]
-    path = "/home/eisrntao/Pictures/wallpapers/rain world/rain_world.jpg"
+    path = "/home/eisrntao/Pictures/wallpapers/landscape/plane.jpg"
 
     [wallpaper.last]
-    path = "/home/eisrntao/Pictures/wallpapers/rain world/rain_world.jpg"
+    path = "/home/eisrntao/Pictures/wallpapers/landscape/plane.jpg"
 
     [wallpaper.monitors.HDMI-A-1]
     path = "/home/eisrntao/Pictures/wallpapers/landscape/firewatch.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/eisrntao/Pictures/wallpapers/rain world/rain_world.jpg"
+    path = "/home/eisrntao/Pictures/wallpapers/landscape/plane.jpg"
 
     [[wallpaper.favorite]]
     community_palette = "Kemuri Susu"
