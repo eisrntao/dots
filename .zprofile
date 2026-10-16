@@ -10,5 +10,5 @@ export SCRIPT_DIR=$HOME/scripts
 export WALLPAPER_DIR=$HOME/Pictures/wallpapers
 export SCREENSHOT_DIR=$HOME/Pictures/screenshots
 
-export BARTIB_FILE=~/Documents/bartib.txt
+export BARTIB_FILE=~/.bartib/bartib.txt
 
