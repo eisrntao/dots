@@ -385,7 +385,7 @@ goal-enabled = true
 goal-notify = true
 
 [plugins]
-enabled = [ "aristides/udiskie", "eisrntao/bartib", "luochen1990/niri-ribbon", "nightwatch75/file-search" ]
+enabled = [ "aristides/udiskie", "eisrntao/bartib", "luochen1990/niri-ribbon", "nightwatch75/file-search", "rylos/syncthing" ]
 
     [[plugins.source]]
     kind = "git"
@@ -505,6 +505,9 @@ directory = "/home/eisrntao/Pictures/wallpapers"
     palette_source = "community"
     path = "/home/eisrntao/Pictures/wallpapers/pink/rain_world_pink.jpg"
     theme_mode = "dark"
+
+[widget.bar]
+type = "rylos/syncthing:bar"
 
 [widget.battery]
 hide_when_full = true
